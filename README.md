@@ -239,8 +239,8 @@ python run.py --stage validate --mock
 # Resume a previous run from the last completed stage
 python run.py --resume --mock
 
-# Inspect stage artifact contents without executing
-python run.py --inspect validate
+# Inspect stage candidates with detailed quotes and boundaries
+python run.py --stage validate --inspect --mock --episodes 1,2
 ```
 
 **Available CLI Flags:**
