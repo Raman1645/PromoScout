@@ -44,5 +44,143 @@
     },
     "final_score": 84.55,
     "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02."
+  },
+  {
+    "rank": 3,
+    "candidate_id": "C_E02_01",
+    "episode_id": 2,
+    "start_time": 0.0,
+    "end_time": 23.7,
+    "duration": 23.7,
+    "start_event_id": "E02_002",
+    "end_event_id": "E02_017",
+    "hook_quote": "I cannot marry you, Juliana.",
+    "cliffhanger_quote": "Promises change when a better choice appears.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 2."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E02_01."
+  },
+  {
+    "rank": 4,
+    "candidate_id": "C_E03_01",
+    "episode_id": 3,
+    "start_time": 2.1,
+    "end_time": 25.5,
+    "duration": 23.4,
+    "start_event_id": "E03_002",
+    "end_event_id": "E03_019",
+    "hook_quote": "Look at you...",
+    "cliffhanger_quote": "Enough, Juliana.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 3."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E03_01."
+  },
+  {
+    "rank": 5,
+    "candidate_id": "C_E13_01",
+    "episode_id": 13,
+    "start_time": 5.1,
+    "end_time": 28.4,
+    "duration": 23.3,
+    "start_event_id": "E13_004",
+    "end_event_id": "E13_014",
+    "hook_quote": "Alexander turns toward Juliana, his manacled hands trembling as he grips her arm",
+    "cliffhanger_quote": "I would rather face the gallows than watch you hurt yourself for me.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 13."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
+  },
+  {
+    "rank": 6,
+    "candidate_id": "C_E25_01",
+    "episode_id": 25,
+    "start_time": 0.6,
+    "end_time": 25.5,
+    "duration": 24.9,
+    "start_event_id": "E25_002",
+    "end_event_id": "E25_017",
+    "hook_quote": "Juliana walks hurriedly along the leaf-strewn forest path, clutching her dark ho",
+    "cliffhanger_quote": "Who did this?",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 25."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
+  },
+  {
+    "rank": 7,
+    "candidate_id": "C_E38_01",
+    "episode_id": 38,
+    "start_time": 0.0,
+    "end_time": 22.0,
+    "duration": 22.0,
+    "start_event_id": "E38_002",
+    "end_event_id": "E38_014",
+    "hook_quote": "Juliana sits motionless against the cold masonry, weak and visibly drained from ",
+    "cliffhanger_quote": "Eat it before they see.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 38."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
+  },
+  {
+    "rank": 8,
+    "candidate_id": "C_E50_01",
+    "episode_id": 50,
+    "start_time": 0.0,
+    "end_time": 25.0,
+    "duration": 25.0,
+    "start_event_id": "E50_002",
+    "end_event_id": "E50_013",
+    "hook_quote": "Father Thomas lies flat on his back, breathless, while Catherine rests beside hi",
+    "cliffhanger_quote": "The west territory. Tax collection, all of it. Routed through my office.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 50."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
   }
 ]
