@@ -92,3 +92,4 @@ def test_updated_mitigation_scoring_weights():
     # (0.25*8 + 0.25*8 + 0.20*8 + 0.15*8 + 0.15*8) * 10 = (2 + 2 + 1.6 + 1.2 + 1.2) * 10 = 8.0 * 10 = 80.0
     assert scored.weighted_score == 80.0
     assert scored.final_score == 80.0
+

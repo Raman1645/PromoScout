@@ -45,3 +45,4 @@ class CheckpointManager:
                 p.unlink()
             except Exception:
                 pass
+
