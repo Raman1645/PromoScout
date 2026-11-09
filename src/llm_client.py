@@ -14,6 +14,26 @@ from pydantic import BaseModel, ValidationError
 T = TypeVar("T", bound=BaseModel)
 
 
+def load_dotenv_if_present(env_path: str = ".env") -> None:
+    """Lightweight zero-dependency .env loader."""
+    p = Path(env_path)
+    if p.exists():
+        try:
+            with open(p, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip().strip("'\"")
+                        if k and k not in os.environ:
+                            os.environ[k] = v
+        except Exception:
+            pass
+
+load_dotenv_if_present()
+
+
 class ConfigurationError(Exception):
     """Raised when configuration or required credentials are missing."""
     pass
