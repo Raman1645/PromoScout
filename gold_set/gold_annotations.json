@@ -1,0 +1,43 @@
+{
+  "description": "Ground truth promotional windows for 5 systematically selected episodes (1, 13, 25, 38, 50) based on direct screenplay review.",
+  "sampling_rule": "Uniform narrative sampling: 1 early, 2 mid, 2 late across the 50-episode series.",
+  "episodes": {
+    "1": {
+      "episode_id": 1,
+      "title": "Altar Betrayal",
+      "acceptable_windows": [
+        {"start_time": 11.3, "end_time": 41.2, "hook": "You should turn around, Juliana.", "cliffhanger": "Because he is marrying me."},
+        {"start_time": 1.0, "end_time": 25.5, "hook": "Juliana pauses at threshold in mother's gown", "cliffhanger": "Look for yourself."}
+      ]
+    },
+    "13": {
+      "episode_id": 13,
+      "title": "Thorn Bush Search",
+      "acceptable_windows": [
+        {"start_time": 5.4, "end_time": 35.0, "hook": "Juliana, look at those thorns. You cannot do this.", "cliffhanger": "I will be fine."}
+      ]
+    },
+    "25": {
+      "episode_id": 25,
+      "title": "Injury Confrontation",
+      "acceptable_windows": [
+        {"start_time": 5.1, "end_time": 32.5, "hook": "Why are you walking like that?", "cliffhanger": "You're hurt."}
+      ]
+    },
+    "38": {
+      "episode_id": 38,
+      "title": "Prison Kindness & Threat",
+      "acceptable_windows": [
+        {"start_time": 16.0, "end_time": 46.0, "hook": "Because no one should die hungry.", "cliffhanger": "Eat it before they see."}
+      ]
+    },
+    "50": {
+      "episode_id": 50,
+      "title": "Forbidden Meeting",
+      "acceptable_windows": [
+        {"start_time": 1.8, "end_time": 28.0, "hook": "A man in your collar isn't supposed to have that much left in him", "cliffhanger": "Name your price."}
+      ]
+    }
+  }
+}
+

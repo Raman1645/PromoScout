@@ -1,0 +1,25 @@
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Screenplay Confidentiality & Data Pack
+I Married a Broken Soldier. He was a Duke/
+*.pdf
+!solution_doc.pdf
+plan_ps1.md
+
+# Pipeline Cache & Raw Outputs (Prompts contain screenplay text)
+cache/
+raw_outputs/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromoScout — Microdrama Promotional Discovery Dashboard</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --surface-hover: #334155;
+            --border: #475569;
+            --primary: #38bdf8;
+            --accent: #f43f5e;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold: #fbbf24;
+            --green: #34d399;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            padding: 24px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+        h1 { font-size: 28px; font-weight: 700; color: var(--primary); }
+        .subtitle { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+        .metrics-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .metric-card {
+            background: var(--surface);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .metric-val { font-size: 24px; font-weight: 700; color: var(--text); }
+        .metric-lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; }
+        .promo-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+        .promo-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .card-header {
+            background: rgba(30, 41, 59, 0.8);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .rank-badge {
+            background: var(--primary);
+            color: #0f172a;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 14px;
+        }
+        .ep-tag { font-weight: 600; font-size: 14px; }
+        .duration-tag { color: var(--text-muted); font-size: 13px; }
+        .score-tag {
+            margin-left: auto;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 14px;
+        }
+        .badge {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-low { background: #065f46; color: #a7f3d0; }
+        .badge-medium { background: #92400e; color: #fde68a; }
+        .badge-high { background: #991b1b; color: #fecaca; }
+        .card-body { padding: 16px; }
+        .quote-box {
+            background: rgba(15, 23, 42, 0.6);
+            border-left: 4px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+        .hook-box { border-left-color: var(--accent); }
+        .cliff-box { border-left-color: var(--gold); }
+        .quote-label { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; }
+        .quote-text { font-size: 14px; font-style: italic; color: #e2e8f0; }
+        .score-breakdown {
+            display: flex;
+            gap: 16px;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            flex-wrap: wrap;
+        }
+        .score-item .lbl { color: var(--text-muted); margin-right: 4px; }
+        .score-item .val { font-weight: 700; color: var(--primary); }
+        .rationale-box {
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+        .rationale-box strong { color: var(--primary); }
+        .explanation-box { color: var(--text-muted); font-size: 12px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+        th {
+            background: rgba(30, 41, 59, 0.9);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+        }
+        tr:hover td { background: var(--surface-hover); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PromoScout — Top 10 Editorial Recommendations</h1>
+            <div class="subtitle">Kuku Microdrama Promotional Discovery System • Series: <em>I Married a Broken Soldier. He was a Duke</em></div>
+        </header>
+
+        <div class="metrics-banner">
+            <div class="metric-card">
+                <div class="metric-val">1</div>
+                <div class="metric-lbl">Episodes Analyzed</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">2</div>
+                <div class="metric-lbl">Candidates Evaluated</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">2</div>
+                <div class="metric-lbl">Final Ranked Promos</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-val">100%</div>
+                <div class="metric-lbl">Duration Compliance (20-60s)</div>
+            </div>
+        </div>
+
+        <h2>Ranked Recommendations</h2>
+        <div style="margin-top: 16px;">
+            
+            <div class="promo-card" id="card-1">
+                <div class="card-header">
+                    <span class="rank-badge">#1</span>
+                    <span class="ep-tag">Episode 1</span>
+                    <span class="duration-tag">22.5s (01.00 - 23.50)</span>
+                    <span class="score-tag">Score: 84.5/100</span>
+                    <span class="badge badge-low">Spoiler: Low</span>
+                </div>
+                <div class="card-body">
+                    <div class="quote-box hook-box">
+                        <div class="quote-label">🔥 3-SECOND HOOK (Start: E01_002)</div>
+                        <div class="quote-text">"Juliana pauses at the threshold, her expression bright with joyful anticipation,"</div>
+                    </div>
+                    <div class="quote-box cliff-box">
+                        <div class="quote-label">⚡ CLIFFHANGER (End: E01_015)</div>
+                        <div class="quote-text">"What do you mean?"</div>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="score-item"><span class="lbl">Hook:</span> <span class="val">8.5</span></div>
+                        <div class="score-item"><span class="lbl">Cliffhanger:</span> <span class="val">9.0</span></div>
+                        <div class="score-item"><span class="lbl">Standalone:</span> <span class="val">8.0</span></div>
+                        <div class="score-item"><span class="lbl">Emotion:</span> <span class="val">8.2</span></div>
+                        <div class="score-item"><span class="lbl">Coherence:</span> <span class="val">8.0</span></div>
+                    </div>
+                    <div class="rationale-box">
+                        <strong>Editorial Decision (Why Post First):</strong>
+                        <p>Highest viral engagement potential with instant 3s confrontation in candidate C_E01_01.</p>
+                    </div>
+                    <div class="explanation-box">
+                        <small><em>Cold-Read Evaluation: Gripping microdrama dynamic with clear emotional stakes for Episode 1.</em></small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="promo-card" id="card-2">
+                <div class="card-header">
+                    <span class="rank-badge">#2</span>
+                    <span class="ep-tag">Episode 1</span>
+                    <span class="duration-tag">27.8s (07.20 - 35.00)</span>
+                    <span class="score-tag">Score: 84.5/100</span>
+                    <span class="badge badge-low">Spoiler: Low</span>
+                </div>
+                <div class="card-body">
+                    <div class="quote-box hook-box">
+                        <div class="quote-label">🔥 3-SECOND HOOK (Start: E01_005)</div>
+                        <div class="quote-text">"Juliana's eyes widen slightly in bewilderment as she notices something amiss at "</div>
+                    </div>
+                    <div class="quote-box cliff-box">
+                        <div class="quote-label">⚡ CLIFFHANGER (End: E01_023)</div>
+                        <div class="quote-text">"Gerald?"</div>
+                    </div>
+                    <div class="score-breakdown">
+                        <div class="score-item"><span class="lbl">Hook:</span> <span class="val">8.5</span></div>
+                        <div class="score-item"><span class="lbl">Cliffhanger:</span> <span class="val">9.0</span></div>
+                        <div class="score-item"><span class="lbl">Standalone:</span> <span class="val">8.0</span></div>
+                        <div class="score-item"><span class="lbl">Emotion:</span> <span class="val">8.2</span></div>
+                        <div class="score-item"><span class="lbl">Coherence:</span> <span class="val">8.0</span></div>
+                    </div>
+                    <div class="rationale-box">
+                        <strong>Editorial Decision (Why Post First):</strong>
+                        <p>Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02.</p>
+                    </div>
+                    <div class="explanation-box">
+                        <small><em>Cold-Read Evaluation: Gripping microdrama dynamic with clear emotional stakes for Episode 1.</em></small>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <h2 style="margin-top: 36px;">Summary Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Episode</th>
+                    <th>Duration</th>
+                    <th>Score</th>
+                    <th>Hook</th>
+                    <th>Cliffhanger</th>
+                    <th>Standalone</th>
+                    <th>Spoiler</th>
+                    <th>Why Post First</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            <tr>
+                <td><strong>#1</strong></td>
+                <td>Ep 1</td>
+                <td>22.5s</td>
+                <td><strong>84.5</strong></td>
+                <td>8.5</td>
+                <td>9.0</td>
+                <td>8.0</td>
+                <td>Low</td>
+                <td><small>Highest viral engagement potential with instant 3s confrontation in candidate C_E01_01....</small></td>
+            </tr>
+            
+            <tr>
+                <td><strong>#2</strong></td>
+                <td>Ep 1</td>
+                <td>27.8s</td>
+                <td><strong>84.5</strong></td>
+                <td>8.5</td>
+                <td>9.0</td>
+                <td>8.0</td>
+                <td>Low</td>
+                <td><small>Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02....</small></td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

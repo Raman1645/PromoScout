@@ -1,0 +1,2 @@
+"""PromoScout tests package."""
+

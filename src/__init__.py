@@ -1,0 +1,2 @@
+"""PromoScout source package."""
+

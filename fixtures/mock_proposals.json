@@ -1,0 +1,1022 @@
+{
+  "ep_1": {
+    "candidates": [
+      {
+        "start_event_id": "E01_002",
+        "end_event_id": "E01_015",
+        "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
+        "cliffhanger_quote": "What do you mean?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 1 from 1.0s to 23.5s."
+      },
+      {
+        "start_event_id": "E01_005",
+        "end_event_id": "E01_023",
+        "hook_quote": "Juliana's eyes widen slightly in bewilderment as she notices something amiss at ",
+        "cliffhanger_quote": "Gerald?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 1 from 7.2s to 35.0s."
+      }
+    ]
+  },
+  "ep_2": {
+    "candidates": [
+      {
+        "start_event_id": "E02_002",
+        "end_event_id": "E02_017",
+        "hook_quote": "I cannot marry you, Juliana.",
+        "cliffhanger_quote": "Promises change when a better choice appears.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 2 from 0.0s to 23.7s."
+      },
+      {
+        "start_event_id": "E02_004",
+        "end_event_id": "E02_019",
+        "hook_quote": "Juliana gasps softly in heartbreak, her eyes wide and brimming with tears.",
+        "cliffhanger_quote": "A better choice? Is that what she is?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 2 from 2.8s to 27.4s."
+      }
+    ]
+  },
+  "ep_3": {
+    "candidates": [
+      {
+        "start_event_id": "E03_002",
+        "end_event_id": "E03_019",
+        "hook_quote": "Look at you...",
+        "cliffhanger_quote": "Enough, Juliana.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 3 from 2.1s to 25.5s."
+      },
+      {
+        "start_event_id": "E03_004",
+        "end_event_id": "E03_021",
+        "hook_quote": "...still clinging to that little locket as if it can make you worthy of a place ",
+        "cliffhanger_quote": "You have humiliated this family enough for one day.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 3 from 3.6s to 28.0s."
+      }
+    ]
+  },
+  "ep_4": {
+    "candidates": [
+      {
+        "start_event_id": "E04_003",
+        "end_event_id": "E04_020",
+        "hook_quote": "Juliana's eyes widen, stunned breath catching in her throat.",
+        "cliffhanger_quote": "You heard what they think I am.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 4 from 1.5s to 25.8s."
+      },
+      {
+        "start_event_id": "E04_005",
+        "end_event_id": "E04_020",
+        "hook_quote": "Look at him.",
+        "cliffhanger_quote": "You heard what they think I am.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 4 from 3.4s to 25.8s."
+      }
+    ]
+  },
+  "ep_5": {
+    "candidates": [
+      {
+        "start_event_id": "E05_002",
+        "end_event_id": "E05_014",
+        "hook_quote": "Juliana grips the heirloom ledger tightly against her waist, her posture resolut",
+        "cliffhanger_quote": "Your dowry is revoked.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 5 from 0.0s to 23.0s."
+      },
+      {
+        "start_event_id": "E05_004",
+        "end_event_id": "E05_017",
+        "hook_quote": "Miss Ashcroft.",
+        "cliffhanger_quote": "From this moment, you are dead to the Ashcroft family.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 5 from 4.2s to 28.9s."
+      }
+    ]
+  },
+  "ep_6": {
+    "candidates": [
+      {
+        "start_event_id": "E06_002",
+        "end_event_id": "E06_023",
+        "hook_quote": "Juliana lifts the hem of her white satin wedding gown to keep it out of the pool",
+        "cliffhanger_quote": "That is it?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 6 from 0.0s to 27.7s."
+      },
+      {
+        "start_event_id": "E06_007",
+        "end_event_id": "E06_023",
+        "hook_quote": "Juliana turns back toward him, water glistening on her face and hair.",
+        "cliffhanger_quote": "That is it?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 6 from 4.5s to 27.7s."
+      }
+    ]
+  },
+  "ep_7": {
+    "candidates": [
+      {
+        "start_event_id": "E07_002",
+        "end_event_id": "E07_009",
+        "hook_quote": "Juliana, dressed in her simple grey long-sleeved gown, works tirelessly with soi",
+        "cliffhanger_quote": "This is where you live now?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 7 from 0.0s to 24.5s."
+      },
+      {
+        "start_event_id": "E07_007",
+        "end_event_id": "E07_020",
+        "hook_quote": "Aristocratic Woman smirks cruelly as she surveys the humble stone cottage.",
+        "cliffhanger_quote": "I work with my hands. There is no shame in that.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 7 from 19.5s to 44.8s."
+      }
+    ]
+  },
+  "ep_8": {
+    "candidates": [
+      {
+        "start_event_id": "E08_002",
+        "end_event_id": "E08_021",
+        "hook_quote": "Juliana delicately runs her fingertips across the embossed leather cover of the ",
+        "cliffhanger_quote": "Enough to survive.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 8 from 0.0s to 24.2s."
+      },
+      {
+        "start_event_id": "E08_003",
+        "end_event_id": "E08_021",
+        "hook_quote": "Some of the pages are ruined. Careful.",
+        "cliffhanger_quote": "Enough to survive.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 8 from 0.2s to 24.2s."
+      }
+    ]
+  },
+  "ep_9": {
+    "candidates": [
+      {
+        "start_event_id": "E09_002",
+        "end_event_id": "E09_018",
+        "hook_quote": "Juliana methodically crushes herbs in the mortar beside her open herbal grimoire",
+        "cliffhanger_quote": "Since yesterday morning. He has barely eaten since sunset.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 9 from 0.0s to 23.9s."
+      },
+      {
+        "start_event_id": "E09_004",
+        "end_event_id": "E09_022",
+        "hook_quote": "Juliana stops grinding and lifts her head sharply toward the entrance in alarm.",
+        "cliffhanger_quote": "Feverfew... Not alone.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 9 from 2.8s to 30.8s."
+      }
+    ]
+  },
+  "ep_10": {
+    "candidates": [
+      {
+        "start_event_id": "E10_002",
+        "end_event_id": "E10_020",
+        "hook_quote": "Juliana quietly studies the botanical illustrations by firelight, a bundle of fr",
+        "cliffhanger_quote": "I need to see the wound.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 10 from 0.0s to 22.9s."
+      },
+      {
+        "start_event_id": "E10_004",
+        "end_event_id": "E10_022",
+        "hook_quote": "Juliana jerks her head up from the book, startled by the sudden intrusion.",
+        "cliffhanger_quote": "It is only a scratch.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 10 from 2.2s to 24.9s."
+      }
+    ]
+  },
+  "ep_11": {
+    "candidates": [
+      {
+        "start_event_id": "E11_004",
+        "end_event_id": "E11_022",
+        "hook_quote": "Juliana wrings a damp rag in her hands, her face etched with rising dread, while",
+        "cliffhanger_quote": "You never even entered the cottage!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 11 from 2.0s to 24.8s."
+      },
+      {
+        "start_event_id": "E11_006",
+        "end_event_id": "E11_026",
+        "hook_quote": "Gerald buttons his coat, smug self-satisfaction radiating from his expression.",
+        "cliffhanger_quote": "Alexander would never steal from you.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 11 from 5.5s to 29.0s."
+      }
+    ]
+  },
+  "ep_12": {
+    "candidates": [
+      {
+        "start_event_id": "E12_002",
+        "end_event_id": "E12_013",
+        "hook_quote": "Put out your hands, veteran. You are under arrest for theft.",
+        "cliffhanger_quote": "I have never touched your property.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 12 from 0.5s to 23.6s."
+      },
+      {
+        "start_event_id": "E12_004",
+        "end_event_id": "E12_015",
+        "hook_quote": "Juliana steps firmly forward, shielding Alexander with her body.",
+        "cliffhanger_quote": "Then perhaps your wife should explain why it was found in your coat.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 12 from 4.8s to 26.8s."
+      }
+    ]
+  },
+  "ep_13": {
+    "candidates": [
+      {
+        "start_event_id": "E13_004",
+        "end_event_id": "E13_014",
+        "hook_quote": "Alexander turns toward Juliana, his manacled hands trembling as he grips her arm",
+        "cliffhanger_quote": "I would rather face the gallows than watch you hurt yourself for me.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 13 from 5.1s to 28.4s."
+      },
+      {
+        "start_event_id": "E13_005",
+        "end_event_id": "E13_014",
+        "hook_quote": "Juliana, look at those thorns. You cannot do this.",
+        "cliffhanger_quote": "I would rather face the gallows than watch you hurt yourself for me.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 13 from 5.4s to 28.4s."
+      }
+    ]
+  },
+  "ep_14": {
+    "candidates": [
+      {
+        "start_event_id": "E14_002",
+        "end_event_id": "E14_017",
+        "hook_quote": "Juliana's blood-streaked, mud-caked hand slowly uncurls amidst the thorns, revea",
+        "cliffhanger_quote": "What have they done to you?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 14 from 0.5s to 25.0s."
+      },
+      {
+        "start_event_id": "E14_005",
+        "end_event_id": "E14_021",
+        "hook_quote": "I found it.",
+        "cliffhanger_quote": "Take me home.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 14 from 7.7s to 32.0s."
+      }
+    ]
+  },
+  "ep_15": {
+    "candidates": [
+      {
+        "start_event_id": "E15_002",
+        "end_event_id": "E15_016",
+        "hook_quote": "Three menacing thugs, armed with clubs and tools, stalk through the quiet herbal",
+        "cliffhanger_quote": "They look like weeds to me.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 15 from 0.0s to 22.3s."
+      },
+      {
+        "start_event_id": "E15_004",
+        "end_event_id": "E15_020",
+        "hook_quote": "The thug brutally smashes his club down into a wooden planter box, shattering th",
+        "cliffhanger_quote": "Please! Those plants took months to grow!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 15 from 3.6s to 26.3s."
+      }
+    ]
+  },
+  "ep_16": {
+    "candidates": [
+      {
+        "start_event_id": "E16_002",
+        "end_event_id": "E16_021",
+        "hook_quote": "Alexander stands tall and unyielding, blocking the path to Juliana, while the Th",
+        "cliffhanger_quote": "Aaargh!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 16 from 0.0s to 23.8s."
+      },
+      {
+        "start_event_id": "E16_004",
+        "end_event_id": "E16_024",
+        "hook_quote": "Move aside, soldier.",
+        "cliffhanger_quote": "Stay back!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 16 from 2.1s to 27.1s."
+      }
+    ]
+  },
+  "ep_17": {
+    "candidates": [
+      {
+        "start_event_id": "E17_002",
+        "end_event_id": "E17_017",
+        "hook_quote": "Juliana sits on her knees in her dirt-smudged dress, her hands wrapped in clean ",
+        "cliffhanger_quote": "I would do it again.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 17 from 0.0s to 23.0s."
+      },
+      {
+        "start_event_id": "E17_004",
+        "end_event_id": "E17_019",
+        "hook_quote": "Juliana gently lifts a tiny, delicate white daisy clinging to its exposed roots ",
+        "cliffhanger_quote": "Even if there were ten of them?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 17 from 3.0s to 25.7s."
+      }
+    ]
+  },
+  "ep_18": {
+    "candidates": [
+      {
+        "start_event_id": "E18_004",
+        "end_event_id": "E18_017",
+        "hook_quote": "Juliana coughs, her eyes widening in immediate alarm as the smell of burning woo",
+        "cliffhanger_quote": "What happened?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 18 from 3.5s to 28.0s."
+      },
+      {
+        "start_event_id": "E18_005",
+        "end_event_id": "E18_017",
+        "hook_quote": "Juliana bolts upright in bed, tossing off the woolen quilt as she sees the orang",
+        "cliffhanger_quote": "What happened?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 18 from 6.0s to 28.0s."
+      }
+    ]
+  },
+  "ep_19": {
+    "candidates": [
+      {
+        "start_event_id": "E19_002",
+        "end_event_id": "E19_014",
+        "hook_quote": "Juliana clutches her mother's scorched leather-bound herbal book against her che",
+        "cliffhanger_quote": "We cannot ask the village to feed us.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 19 from 0.0s to 22.6s."
+      },
+      {
+        "start_event_id": "E19_003",
+        "end_event_id": "E19_015",
+        "hook_quote": "This was our home.",
+        "cliffhanger_quote": "You saved my son's life.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 19 from 1.8s to 25.2s."
+      }
+    ]
+  },
+  "ep_20": {
+    "candidates": [
+      {
+        "start_event_id": "E20_003",
+        "end_event_id": "E20_016",
+        "hook_quote": "Two lumps of sugar, Rupert?",
+        "cliffhanger_quote": "...the title is mine.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 20 from 2.9s to 25.4s."
+      },
+      {
+        "start_event_id": "E20_004",
+        "end_event_id": "E20_018",
+        "hook_quote": "Or has your sudden climb to power sweetened your taste already?",
+        "cliffhanger_quote": "And what of the Dowager? The old woman still breathes.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 20 from 4.6s to 28.2s."
+      }
+    ]
+  },
+  "ep_21": {
+    "candidates": [
+      {
+        "start_event_id": "E21_002",
+        "end_event_id": "E21_016",
+        "hook_quote": "Lady Juliana gently straightens the grey wool blanket over the hay bed, exhaling",
+        "cliffhanger_quote": "The manor doctor laughed! He said village boys are not worth his time!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 21 from 0.0s to 25.3s."
+      },
+      {
+        "start_event_id": "E21_005",
+        "end_event_id": "E21_018",
+        "hook_quote": "Lady Juliana! Please! You have to help me, Toby is dying!",
+        "cliffhanger_quote": "We have no clinic now.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 21 from 4.2s to 27.4s."
+      }
+    ]
+  },
+  "ep_22": {
+    "candidates": [
+      {
+        "start_event_id": "E22_002",
+        "end_event_id": "E22_013",
+        "hook_quote": "Lady Juliana walks nervously along the stone pavement dressed in a modest dark m",
+        "cliffhanger_quote": "I saved Toby. I can save her.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 22 from 0.0s to 25.5s."
+      },
+      {
+        "start_event_id": "E22_004",
+        "end_event_id": "E22_017",
+        "hook_quote": "Prudence rushes up behind Lady Juliana, pulling her into the shelter of the ston",
+        "cliffhanger_quote": "Then I will face that when she is breathing again.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 22 from 6.5s to 31.0s."
+      }
+    ]
+  },
+  "ep_23": {
+    "candidates": [
+      {
+        "start_event_id": "E23_003",
+        "end_event_id": "E23_012",
+        "hook_quote": "Juliana, we cannot stay for long. Someone will come.",
+        "cliffhanger_quote": "Her mouth is terribly dry.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 23 from 1.8s to 27.5s."
+      },
+      {
+        "start_event_id": "E23_005",
+        "end_event_id": "E23_014",
+        "hook_quote": "Juliana cradles the Duchess's frail hands in hers, inspecting her fingers with f",
+        "cliffhanger_quote": "Her pulse is weak.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 23 from 7.5s to 31.5s."
+      }
+    ]
+  },
+  "ep_24": {
+    "candidates": [
+      {
+        "start_event_id": "E24_004",
+        "end_event_id": "E24_017",
+        "hook_quote": "The noblewoman halts in the center of the chamber, tapping her riding crop again",
+        "cliffhanger_quote": "You thought? A new maid thinks she knows better than the physicians?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 24 from 4.0s to 26.5s."
+      },
+      {
+        "start_event_id": "E24_006",
+        "end_event_id": "E24_021",
+        "hook_quote": "Who are you?",
+        "cliffhanger_quote": "Then let her suffer.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 24 from 6.8s to 30.8s."
+      }
+    ]
+  },
+  "ep_25": {
+    "candidates": [
+      {
+        "start_event_id": "E25_002",
+        "end_event_id": "E25_017",
+        "hook_quote": "Juliana walks hurriedly along the leaf-strewn forest path, clutching her dark ho",
+        "cliffhanger_quote": "Who did this?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 25 from 0.6s to 25.5s."
+      },
+      {
+        "start_event_id": "E25_004",
+        "end_event_id": "E25_019",
+        "hook_quote": "Juliana.",
+        "cliffhanger_quote": "It does not matter.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 25 from 5.1s to 29.3s."
+      }
+    ]
+  },
+  "ep_26": {
+    "candidates": [
+      {
+        "start_event_id": "E26_002",
+        "end_event_id": "E26_010",
+        "hook_quote": "Juliana glances nervously back toward the door, ensuring no guards are near, bef",
+        "cliffhanger_quote": "Please, Your Grace. Drink the last of this antidote. Drink it slowly.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 26 from 0.0s to 25.4s."
+      },
+      {
+        "start_event_id": "E26_006",
+        "end_event_id": "E26_015",
+        "hook_quote": "The Dowager Duchess blinks against the dim lamplight, turning her head toward Ju",
+        "cliffhanger_quote": "You... you are no common servant. You took Catherine's whip for me the other day",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 26 from 11.0s to 35.5s."
+      }
+    ]
+  },
+  "ep_27": {
+    "candidates": [
+      {
+        "start_event_id": "E27_002",
+        "end_event_id": "E27_014",
+        "hook_quote": "This ring...",
+        "cliffhanger_quote": "No. He lives in a barn. He has nothing but his word.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 27 from 1.3s to 25.8s."
+      },
+      {
+        "start_event_id": "E27_004",
+        "end_event_id": "E27_014",
+        "hook_quote": "Look at me, girl. Who gave this to you?",
+        "cliffhanger_quote": "No. He lives in a barn. He has nothing but his word.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 27 from 3.4s to 25.8s."
+      }
+    ]
+  },
+  "ep_28": {
+    "candidates": [
+      {
+        "start_event_id": "E28_002",
+        "end_event_id": "E28_018",
+        "hook_quote": "Juliana struggles against the guard's grip; the leather-bound herbarium slips fr",
+        "cliffhanger_quote": "But the guards know how to extract the truth.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 28 from 0.0s to 22.7s."
+      },
+      {
+        "start_event_id": "E28_005",
+        "end_event_id": "E28_020",
+        "hook_quote": "Catherine plants her embroidered shoe deliberately atop the fallen book.",
+        "cliffhanger_quote": "Rupert...",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 28 from 3.2s to 26.5s."
+      }
+    ]
+  },
+  "ep_29": {
+    "candidates": [
+      {
+        "start_event_id": "E29_004",
+        "end_event_id": "E29_014",
+        "hook_quote": "Juliana resists furiously, her feet stumbling on the wet flagstones as the guard",
+        "cliffhanger_quote": "You still call this a legacy?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 29 from 2.9s to 26.7s."
+      },
+      {
+        "start_event_id": "E29_007",
+        "end_event_id": "E29_018",
+        "hook_quote": "Catherine! Please! That book is my mother's only legacy!",
+        "cliffhanger_quote": "Of course.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 29 from 7.4s to 31.8s."
+      }
+    ]
+  },
+  "ep_30": {
+    "candidates": [
+      {
+        "start_event_id": "E30_003",
+        "end_event_id": "E30_011",
+        "hook_quote": "The Elder Nobleman walks with stern, unhurried authority, dressed in an immacula",
+        "cliffhanger_quote": "The kitchen maids are whispering. They see the soup bowls returned unwiped. They",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 30 from 3.0s to 25.8s."
+      },
+      {
+        "start_event_id": "E30_007",
+        "end_event_id": "E30_016",
+        "hook_quote": "You have a rat in your cellar, Rupert. And the servants are beginning to smell i",
+        "cliffhanger_quote": "If she speaks...",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 30 from 8.8s to 33.3s."
+      }
+    ]
+  },
+  "ep_31": {
+    "candidates": [
+      {
+        "start_event_id": "E31_004",
+        "end_event_id": "E31_017",
+        "hook_quote": "Juliana recoils against the damp stonework, her eyes wide with terror as light f",
+        "cliffhanger_quote": "Because this is what you were always meant to be.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 31 from 2.8s to 28.9s."
+      },
+      {
+        "start_event_id": "E31_006",
+        "end_event_id": "E31_017",
+        "hook_quote": "Look at you.",
+        "cliffhanger_quote": "Because this is what you were always meant to be.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 31 from 6.9s to 28.9s."
+      }
+    ]
+  },
+  "ep_32": {
+    "candidates": [
+      {
+        "start_event_id": "E32_004",
+        "end_event_id": "E32_022",
+        "hook_quote": "There it is.",
+        "cliffhanger_quote": "Burn the ledger. Burn every page.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 32 from 3.8s to 28.8s."
+      },
+      {
+        "start_event_id": "E32_008",
+        "end_event_id": "E32_024",
+        "hook_quote": "You have been so proud of that brave little face...",
+        "cliffhanger_quote": "You may destroy the book...",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 32 from 9.8s to 32.8s."
+      }
+    ]
+  },
+  "ep_33": {
+    "candidates": [
+      {
+        "start_event_id": "E33_002",
+        "end_event_id": "E33_017",
+        "hook_quote": "Your brother is breathing again.",
+        "cliffhanger_quote": "I don't know.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 33 from 2.5s to 26.2s."
+      },
+      {
+        "start_event_id": "E33_003",
+        "end_event_id": "E33_017",
+        "hook_quote": "The young maid steps inside, bowing with a submissive curtsy, keeping her head l",
+        "cliffhanger_quote": "I don't know.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 33 from 4.0s to 26.2s."
+      }
+    ]
+  },
+  "ep_34": {
+    "candidates": [
+      {
+        "start_event_id": "E34_002",
+        "end_event_id": "E34_015",
+        "hook_quote": "Lady Juliana Ashcroft, you are accused of witchcraft, unlawful healing, and pois",
+        "cliffhanger_quote": "Then you admit to practicing forbidden arts.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 34 from 1.2s to 31.2s."
+      },
+      {
+        "start_event_id": "E34_006",
+        "end_event_id": "E34_015",
+        "hook_quote": "Do you deny possessing this book?",
+        "cliffhanger_quote": "Then you admit to practicing forbidden arts.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 34 from 9.1s to 31.2s."
+      }
+    ]
+  },
+  "ep_35": {
+    "candidates": [
+      {
+        "start_event_id": "E35_002",
+        "end_event_id": "E35_012",
+        "hook_quote": "Alexander's mother, frail with silver hair under a dark hooded cloak, braces her",
+        "cliffhanger_quote": "This must be the place.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 35 from 0.0s to 23.0s."
+      },
+      {
+        "start_event_id": "E35_003",
+        "end_event_id": "E35_020",
+        "hook_quote": "I will not die in that house.",
+        "cliffhanger_quote": "Alexander!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 35 from 5.5s to 40.0s."
+      }
+    ]
+  },
+  "ep_36": {
+    "candidates": [
+      {
+        "start_event_id": "E36_002",
+        "end_event_id": "E36_013",
+        "hook_quote": "Alexander's mother leans forward with both hands on the rustic table, searching ",
+        "cliffhanger_quote": "They knew where I was.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 36 from 0.0s to 23.5s."
+      },
+      {
+        "start_event_id": "E36_003",
+        "end_event_id": "E36_013",
+        "hook_quote": "Then why did they never find you?",
+        "cliffhanger_quote": "They knew where I was.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 36 from 0.8s to 23.5s."
+      }
+    ]
+  },
+  "ep_37": {
+    "candidates": [
+      {
+        "start_event_id": "E37_004",
+        "end_event_id": "E37_016",
+        "hook_quote": "Every important family in the county should witness it.",
+        "cliffhanger_quote": "Perfect timing. It will be a feast for our guests.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 37 from 6.0s to 29.8s."
+      },
+      {
+        "start_event_id": "E37_006",
+        "end_event_id": "E37_020",
+        "hook_quote": "The wedding?",
+        "cliffhanger_quote": "Especially to the Ashcrofts.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 37 from 10.8s to 34.5s."
+      }
+    ]
+  },
+  "ep_38": {
+    "candidates": [
+      {
+        "start_event_id": "E38_002",
+        "end_event_id": "E38_014",
+        "hook_quote": "Juliana sits motionless against the cold masonry, weak and visibly drained from ",
+        "cliffhanger_quote": "Eat it before they see.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 38 from 0.0s to 22.0s."
+      },
+      {
+        "start_event_id": "E38_005",
+        "end_event_id": "E38_019",
+        "hook_quote": "Juliana blinks, lifting her gaze toward the heavy iron bars.",
+        "cliffhanger_quote": "Thank you.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 38 from 5.0s to 27.5s."
+      }
+    ]
+  },
+  "ep_39": {
+    "candidates": [
+      {
+        "start_event_id": "E39_002",
+        "end_event_id": "E39_014",
+        "hook_quote": "Men in work clothes stack wooden crates onto the back of a large carriage as hor",
+        "cliffhanger_quote": "And the east gate?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 39 from 0.0s to 23.2s."
+      },
+      {
+        "start_event_id": "E39_004",
+        "end_event_id": "E39_020",
+        "hook_quote": "The scout stands quietly by a wooden rail, keeping a sharp eye on passing civili",
+        "cliffhanger_quote": "Firewood for the kitchens, sir.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 39 from 4.6s to 32.4s."
+      }
+    ]
+  },
+  "ep_40": {
+    "candidates": [
+      {
+        "start_event_id": "E40_004",
+        "end_event_id": "E40_014",
+        "hook_quote": "The Harrington family.",
+        "cliffhanger_quote": "She won't be seeing anything for long.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 40 from 5.5s to 28.9s."
+      },
+      {
+        "start_event_id": "E40_006",
+        "end_event_id": "E40_016",
+        "hook_quote": "Lady Harrington takes his hand and steps onto the pavement, clutching a velvet r",
+        "cliffhanger_quote": "This place has always been unlucky for Juliana.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 40 from 10.0s to 33.2s."
+      }
+    ]
+  },
+  "ep_41": {
+    "candidates": [
+      {
+        "start_event_id": "E41_002",
+        "end_event_id": "E41_017",
+        "hook_quote": "Catherine abruptly pulls away from Rupert and raises her white-gloved hand high,",
+        "cliffhanger_quote": "There she is.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 41 from 1.8s to 28.4s."
+      },
+      {
+        "start_event_id": "E41_005",
+        "end_event_id": "E41_017",
+        "hook_quote": "Before I become Duchess of Ashburgh...",
+        "cliffhanger_quote": "There she is.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 41 from 4.9s to 28.4s."
+      }
+    ]
+  },
+  "ep_42": {
+    "candidates": [
+      {
+        "start_event_id": "E42_002",
+        "end_event_id": "E42_012",
+        "hook_quote": "Alexander strides deliberately through the pulverized cathedral doorway. Dressed",
+        "cliffhanger_quote": "We will not.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 42 from 1.0s to 23.4s."
+      },
+      {
+        "start_event_id": "E42_003",
+        "end_event_id": "E42_021",
+        "hook_quote": "Who are you?",
+        "cliffhanger_quote": "You cannot be him. Alexander died!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 42 from 11.2s to 33.8s."
+      }
+    ]
+  },
+  "ep_43": {
+    "candidates": [
+      {
+        "start_event_id": "E43_002",
+        "end_event_id": "E43_023",
+        "hook_quote": "You're lying!",
+        "cliffhanger_quote": "You have all been deceived!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 43 from 0.6s to 25.8s."
+      },
+      {
+        "start_event_id": "E43_003",
+        "end_event_id": "E43_023",
+        "hook_quote": "Rupert lunges forward, his facial features contorting in venomous desperation.",
+        "cliffhanger_quote": "You have all been deceived!",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 43 from 2.4s to 25.8s."
+      }
+    ]
+  },
+  "ep_44": {
+    "candidates": [
+      {
+        "start_event_id": "E44_002",
+        "end_event_id": "E44_018",
+        "hook_quote": "The Police Constable strides firmly down the steps and halts right in front of L",
+        "cliffhanger_quote": "Alexander... I thought you had died.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 44 from 0.0s to 28.0s."
+      },
+      {
+        "start_event_id": "E44_004",
+        "end_event_id": "E44_018",
+        "hook_quote": "Lord Henry Sterling, you are under arrest by order of the Crown.",
+        "cliffhanger_quote": "Alexander... I thought you had died.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 44 from 3.3s to 28.0s."
+      }
+    ]
+  },
+  "ep_45": {
+    "candidates": [
+      {
+        "start_event_id": "E45_002",
+        "end_event_id": "E45_019",
+        "hook_quote": "Alexander strides purposefully down the cathedral aisle, ignoring the watching n",
+        "cliffhanger_quote": "You're the Duke?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 45 from 0.0s to 24.4s."
+      },
+      {
+        "start_event_id": "E45_004",
+        "end_event_id": "E45_021",
+        "hook_quote": "Alexander...",
+        "cliffhanger_quote": "Alexander Ashburton. The rightful Duke of Ashburton.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 45 from 3.2s to 27.4s."
+      }
+    ]
+  },
+  "ep_46": {
+    "candidates": [
+      {
+        "start_event_id": "E46_002",
+        "end_event_id": "E46_014",
+        "hook_quote": "Alexander holds Juliana's hand resolutely as Juliana gazes toward the church ais",
+        "cliffhanger_quote": "You married this woman as a nameless beggar...",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 46 from 0.0s to 22.8s."
+      },
+      {
+        "start_event_id": "E46_008",
+        "end_event_id": "E46_022",
+        "hook_quote": "By Royal command, this sanctuary is placed under immediate Crown scesion.",
+        "cliffhanger_quote": "She married the man... not the title.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 46 from 11.5s to 36.7s."
+      }
+    ]
+  },
+  "ep_47": {
+    "candidates": [
+      {
+        "start_event_id": "E47_003",
+        "end_event_id": "E47_012",
+        "hook_quote": "Rupert is rotting in the undercroft cells. Not me. I intend to stay on this esta",
+        "cliffhanger_quote": "What if Father Thomas sways the High Council?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 47 from 1.8s to 26.8s."
+      },
+      {
+        "start_event_id": "E47_005",
+        "end_event_id": "E47_016",
+        "hook_quote": "Alexander will scour the grounds at first light. The High Council has already bl",
+        "cliffhanger_quote": "I am only a healer. The lords will never accept me.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 47 from 8.8s to 35.2s."
+      }
+    ]
+  },
+  "ep_48": {
+    "candidates": [
+      {
+        "start_event_id": "E48_002",
+        "end_event_id": "E48_013",
+        "hook_quote": "Catherine, adorned in an ornate dark burgundy gown with braided golden hair, gaz",
+        "cliffhanger_quote": "Ten days is not a wall, Alexander. It's a door.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 48 from 0.0s to 23.7s."
+      },
+      {
+        "start_event_id": "E48_003",
+        "end_event_id": "E48_014",
+        "hook_quote": "Two words, and that healer's crown rolls right back into the gutter where it bel",
+        "cliffhanger_quote": "And doors can be closed from the other side.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 48 from 2.4s to 26.5s."
+      }
+    ]
+  },
+  "ep_49": {
+    "candidates": [
+      {
+        "start_event_id": "E49_003",
+        "end_event_id": "E49_014",
+        "hook_quote": "Father Thomas, clad in a hooded dark mantle over priestly black robes, secures t",
+        "cliffhanger_quote": "No shadows tonight, Catherine. Just us and an empty wing.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 49 from 1.8s to 27.2s."
+      },
+      {
+        "start_event_id": "E49_005",
+        "end_event_id": "E49_016",
+        "hook_quote": "You took your time.",
+        "cliffhanger_quote": "You didn't need them the first time, either. I just prefer my secrets thorough.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 49 from 5.4s to 33.0s."
+      }
+    ]
+  },
+  "ep_50": {
+    "candidates": [
+      {
+        "start_event_id": "E50_002",
+        "end_event_id": "E50_013",
+        "hook_quote": "Father Thomas lies flat on his back, breathless, while Catherine rests beside hi",
+        "cliffhanger_quote": "The west territory. Tax collection, all of it. Routed through my office.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 50 from 0.0s to 25.0s."
+      },
+      {
+        "start_event_id": "E50_004",
+        "end_event_id": "E50_013",
+        "hook_quote": "A man in your collar isn't supposed to have that much left in him, Thomas.",
+        "cliffhanger_quote": "The west territory. Tax collection, all of it. Routed through my office.",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 50 from 1.8s to 25.0s."
+      }
+    ]
+  },
+  "default": {
+    "candidates": [
+      {
+        "start_event_id": "E01_002",
+        "end_event_id": "E01_015",
+        "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
+        "cliffhanger_quote": "What do you mean?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 1 from 1.0s to 23.5s."
+      },
+      {
+        "start_event_id": "E01_005",
+        "end_event_id": "E01_023",
+        "hook_quote": "Juliana's eyes widen slightly in bewilderment as she notices something amiss at ",
+        "cliffhanger_quote": "Gerald?",
+        "spoiler_risk": "low",
+        "proposer_reason": "High tension confrontation in Episode 1 from 7.2s to 35.0s."
+      }
+    ]
+  }
+}

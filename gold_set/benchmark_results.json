@@ -1,0 +1,98 @@
+{
+  "hitrate_at_3": {
+    "hit_rate_at_3": 0.8,
+    "matched_episodes": 4,
+    "total_gold_episodes": 5,
+    "details": {
+      "1": {
+        "title": "Altar Betrayal",
+        "matched": true,
+        "best_iou": 0.9184,
+        "best_candidate_id": "C_E01_01",
+        "top_3_count": 2
+      },
+      "13": {
+        "title": "Thorn Bush Search",
+        "matched": true,
+        "best_iou": 0.7692,
+        "best_candidate_id": "C_E13_01",
+        "top_3_count": 1
+      },
+      "25": {
+        "title": "Injury Confrontation",
+        "matched": true,
+        "best_iou": 0.6395,
+        "best_candidate_id": "C_E25_01",
+        "top_3_count": 1
+      },
+      "38": {
+        "title": "Prison Kindness & Threat",
+        "matched": false,
+        "best_iou": 0.1304,
+        "best_candidate_id": "C_E38_01",
+        "top_3_count": 1
+      },
+      "50": {
+        "title": "Forbidden Meeting",
+        "matched": true,
+        "best_iou": 0.8286,
+        "best_candidate_id": "C_E50_01",
+        "top_3_count": 1
+      }
+    }
+  },
+  "stability": {
+    "overlap_at_10": 0.8,
+    "matches_count": 8,
+    "pairs": [
+      {
+        "p1_rank": 1,
+        "p2_rank": 1,
+        "episode_id": 1,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 2,
+        "p2_rank": 2,
+        "episode_id": 2,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 3,
+        "p2_rank": 3,
+        "episode_id": 3,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 4,
+        "p2_rank": 4,
+        "episode_id": 13,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 5,
+        "p2_rank": 5,
+        "episode_id": 25,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 6,
+        "p2_rank": 6,
+        "episode_id": 38,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 7,
+        "p2_rank": 7,
+        "episode_id": 50,
+        "iou": 0.9231
+      },
+      {
+        "p1_rank": 8,
+        "p2_rank": 8,
+        "episode_id": 4,
+        "iou": 0.9231
+      }
+    ]
+  }
+}

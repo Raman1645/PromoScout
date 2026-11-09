@@ -1,0 +1,48 @@
+[
+  {
+    "rank": 1,
+    "candidate_id": "C_E01_01",
+    "episode_id": 1,
+    "start_time": 1.0,
+    "end_time": 23.5,
+    "duration": 22.5,
+    "start_event_id": "E01_002",
+    "end_event_id": "E01_015",
+    "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
+    "cliffhanger_quote": "What do you mean?",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_01."
+  },
+  {
+    "rank": 2,
+    "candidate_id": "C_E01_02",
+    "episode_id": 1,
+    "start_time": 7.2,
+    "end_time": 35.0,
+    "duration": 27.8,
+    "start_event_id": "E01_005",
+    "end_event_id": "E01_023",
+    "hook_quote": "Juliana's eyes widen slightly in bewilderment as she notices something amiss at ",
+    "cliffhanger_quote": "Gerald?",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 8.5,
+      "cliffhanger_score": 9.0,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
+    },
+    "final_score": 84.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02."
+  }
+]
