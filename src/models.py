@@ -77,7 +77,8 @@ class ColdReadScore(BaseModel):
     cliffhanger_score: float = Field(ge=1.0, le=10.0, description="Unresolved cliffhanger strength (1-10)")
     standalone_score: float = Field(ge=1.0, le=10.0, description="Standalone clarity to cold viewer (1-10)")
     emotion_score: float = Field(ge=1.0, le=10.0, description="Emotional impact and stakes (1-10)")
-    coherence_score: float = Field(ge=1.0, le=10.0, description="Narrative coherence and flow (1-10)")
+    promo_suitability: float = Field(default=8.0, ge=1.0, le=10.0, description="Would clip encourage viewer to watch show (1-10)")
+    coherence_score: Optional[float] = Field(default=8.0, description="Narrative coherence and flow (1-10)")
     explanation: str = Field(description="Detailed editorial explanation of evaluation")
 
 

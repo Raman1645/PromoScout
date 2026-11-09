@@ -11,6 +11,7 @@ plan_ps1.md
 
 # Pipeline Cache & Raw Outputs (Prompts contain screenplay text)
 cache/
+checkpoints/
 raw_outputs/
 
 # Python Cache & Bytecode

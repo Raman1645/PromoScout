@@ -26,9 +26,10 @@
   > First, the Screenplay Parser parsed all 50 files—over 3,700 individual events—with 100% accuracy.
   > Next, the Candidate Proposer proposed candidate clips. If any candidate was under 20 seconds, Python sent back targeted feedback to re-expand it.
   > Then, our Boundary Validator checked exact quote matches in source dialogue, trimmed buffer, and verified that hooks occur within 3 seconds of clip start.
-  > In Stage 4, our Cold-Read Evaluator judges the clip in total isolation—receiving only relative timestamps from 0.0 seconds with all character metadata stripped, simulating a cold viewer scrolling social media.
-  > Finally, our Listwise Ranker shuffled the top 20 candidates, evaluated posting priority, and output our final Top 10 promos with editorial rationales."
-- **Screen:** Switch browser to `outputs/report.html`. Show the interactive dashboard.
+  > In Stage 4, our Cold-Read Evaluator judges the clip in total isolation—neutralizing character names to [SPEAKER A] and [SPEAKER B], stripping camera directions, and receiving only relative timestamps from 00.00s, simulating a cold viewer scrolling social media.
+  > Finally, our Listwise Ranker shuffled the top 20 candidates, evaluated posting priority, and output our final Top 10 promos with editorial rationales.
+  > We also provide an interactive Streamlit Studio with five tabs to inspect the pipeline and raw screenplay events in real time."
+- **Screen:** Switch browser to Streamlit Studio (`app.py`) or `outputs/report.html`. Show the interactive dashboard.
 - **Voiceover:**
   > "The output is packaged into `final_rankings.json`, `final_rankings.csv`, and this standalone interactive HTML dashboard.
   > For every promo, editors see the exact timestamps, duration, the 3-second hook quote, the cliffhanger quote, the 5-dimension cold-read scores, and the editorial 'Why Post First' rationale."

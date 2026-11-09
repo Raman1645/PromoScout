@@ -16,10 +16,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_01."
   },
   {
@@ -39,10 +40,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02."
   },
   {
@@ -62,10 +64,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 2."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E02_01."
   },
   {
@@ -85,10 +88,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 3."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E03_01."
   },
   {
@@ -108,10 +112,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 13."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
   },
   {
@@ -131,10 +136,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 25."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
   },
   {
@@ -154,10 +160,11 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 38."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
   },
   {
@@ -177,10 +184,59 @@
       "cliffhanger_score": 9.0,
       "standalone_score": 8.0,
       "emotion_score": 8.2,
+      "promo_suitability": 8.0,
       "coherence_score": 8.0,
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 50."
     },
-    "final_score": 84.55,
+    "final_score": 84.05,
     "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
+  },
+  {
+    "rank": 9,
+    "candidate_id": "C_E04_01",
+    "episode_id": 4,
+    "start_time": 1.5,
+    "end_time": 25.8,
+    "duration": 24.3,
+    "start_event_id": "E04_003",
+    "end_event_id": "E04_020",
+    "hook_quote": "Juliana's eyes widen, stunned breath catching in her throat.",
+    "cliffhanger_quote": "You heard what they think I am.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 7.5,
+      "cliffhanger_score": 7.8,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "promo_suitability": 8.0,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 4."
+    },
+    "final_score": 78.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E04_01."
+  },
+  {
+    "rank": 10,
+    "candidate_id": "C_E05_01",
+    "episode_id": 5,
+    "start_time": 0.0,
+    "end_time": 23.0,
+    "duration": 23.0,
+    "start_event_id": "E05_002",
+    "end_event_id": "E05_014",
+    "hook_quote": "Juliana grips the heirloom ledger tightly against her waist, her posture resolut",
+    "cliffhanger_quote": "Your dowry is revoked.",
+    "spoiler_risk": "low",
+    "scores": {
+      "hook_score": 7.5,
+      "cliffhanger_score": 7.8,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
+      "promo_suitability": 8.0,
+      "coherence_score": 8.0,
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 5."
+    },
+    "final_score": 78.55,
+    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E05_01."
   }
 ]

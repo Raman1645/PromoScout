@@ -32,10 +32,12 @@ Our core design principle is:
   - Strict post-repair validation: verbatim quote verification in source text, hook starting $\le 3.0\text{s}$ from clip start, cliffhanger ending $\le 5.0\text{s}$ from clip end.
   - Intra-episode candidate deduplication ($\text{IoU} > 0.5$).
   - Diversity constraints: maximum 2 promos per episode across the final Top 10.
-- **Creative LLM Stages:**
-  - **Stage 1 (Proposer):** LLM inspects token-compact episode events and proposes up to 3 candidate promos with exact quotes and spoiler risk ratings.
-  - **Stage 2 (Cold-Read Evaluator):** Zero-context evaluation. The model sees *only relative timestamps* ($0.0\text{s} = \text{start}$) with event IDs and episode numbers stripped, scoring 5 dimensions (1–10): Hook ($H$), Cliffhanger ($C$), Standalone ($A$), Emotion ($E$), and Coherence ($N$).
-  - **Stage 3 (Listwise Ranker):** Candidate order is shuffled to eliminate position bias. The model answers *"Which would you post first, and why?"* and outputs a strict permutation of all 20 IDs.
+- **Creative LLM Stages (Groq GPT-OSS Models):**
+  - **Stage 1 (Proposer - `openai/gpt-oss-120b`):** Inspects compact episode event feeds and proposes 1–3 candidate promos with exact quotes and spoiler risk ratings. Retries once with feedback if duration is under 20s.
+  - **Stage 2 (Cold-Read Evaluator - `openai/gpt-oss-20b`):** True zero-context evaluation. Neutralizes character names to `[SPEAKER A]`, `[SPEAKER B]`, strips camera directions, and uses relative timestamps ($00.00\text{s} = \text{start}$) so the evaluator cannot infer episode lore or position. Scores 5 dimensions: Hook ($H$), Cliffhanger ($C$), Standalone ($A$), Emotion ($E$), and Promo Suitability ($P$).
+  - **Stage 3 (Listwise Ranker - `openai/gpt-oss-120b`):** Candidate order is shuffled to eliminate position bias. Answers *"Which would you post first, and why?"* and outputs a strict permutation of all 20 candidate IDs.
+- **Resilience & Checkpointing:**
+  - Stage-level checkpoint manager (`src/checkpoint.py`) saves atomic JSON outputs per stage, allowing `--resume` from interruptions and single-stage audits via `--stage` and `--inspect`.
 
 ### Scalability, Rate Limits & Token Economics
 - **Sliding-Window Throttling (`--rpm`):** Enforces request-per-minute limits (default 15 RPM for free tiers) preventing 429 throttling.
@@ -77,8 +79,9 @@ We executed dual runs at temperature 0.3 using distinct cache keys (`--run-id ru
 
 ## 4. Prototype & Production Deliverables
 
-- **CLI Tool (`run.py`):** Fully runnable CLI supporting `--episodes`, `--base-url`, `--api-key`, `--model`, `--rpm`, `--run-id`, and `--mock` (replaying deterministic fixtures from `fixtures/` without API keys).
-- **Evaluation Suite (`evaluate.py`):** Recomputes $\text{HitRate@3}$ and $\text{Overlap@10}$ on demand.
+- **CLI Tool (`run.py`):** Modular CLI supporting Groq models (`--model openai/gpt-oss-120b`, `--evaluator-model openai/gpt-oss-20b`), `--episodes`, `--base-url`, `--api-key`, `--rpm`, `--stage`, `--resume`, `--inspect`, and `--mock` (fixture replay without API keys).
+- **Interactive Web Studio (`app.py`):** Streamlit application with 5 interactive views: Ranked Promos, Screenplay Explorer, Stage Audit & Speaker Anonymization Inspector, Quantitative Benchmarks, and Direct Downloads.
+- **Evaluation Suite (`evaluate.py`):** Recomputes $\text{HitRate@3}$ and genuine dual-run $\text{Overlap@10}$ on demand with synthetic fixture labeling.
 - **Reporting (`outputs/`):**
   - `final_rankings.json`: Complete structured JSON.
   - `final_rankings.csv`: Production table for media buyers.

@@ -1,7 +1,7 @@
 # PromoScout — Automated Promotional Clip Discovery & Ranking
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
-[![Tests Passing](https://img.shields.io/badge/tests-15%20passed-brightgreen.svg)]()
+[![Tests Passing](https://img.shields.io/badge/tests-20%20passed-brightgreen.svg)]()
 [![Pydantic v2](https://img.shields.io/badge/pydantic-v2-orange.svg)](https://docs.pydantic.dev/)
 
 > **Kuku AI Generalist Assignment — Problem 1: Find the Promos (Ads)**  
@@ -52,10 +52,13 @@ PromoScout operates on a fundamental division of labor:
                               v
 +-------------------------------------------------------------+
 |  5. Cold-Read LLM Evaluator (src/evaluator.py)              |
-|     - Zero-context evaluation of clip text only             |
-|     - Relative timestamps (0.0s = start), IDs stripped      |
+|     - True zero-context evaluation of clip dialogue         |
+|     - Speaker anonymization: [SPEAKER A], [SPEAKER B]       |
+|     - Production CAMERA directions filtered out             |
+|     - Relative timestamps (00.00s = start), IDs stripped    |
+|     - Powered by Groq openai/gpt-oss-20b                    |
 |     - Scores 1-10 on Hook, Cliffhanger, Standalone,         |
-|       Emotion, Coherence                                    |
+|       Emotion, Promo Suitability                            |
 +-------------------------------------------------------------+
                               |
                               v
@@ -166,13 +169,25 @@ kukuFM/
    ```bash
    pytest
    ```
-   *(All 15 tests pass in < 0.5s)*
+   *(All 20 tests pass in < 0.4s)*
 
 ---
 
 ## 4. Execution Guide
 
-### Option A: Immediate Offline Mock Mode (Zero API Key Needed)
+### Option A: Interactive Web Application (Streamlit Studio)
+Launch the graphical editorial studio with real-time transparency across all 5 pipeline tabs:
+```bash
+streamlit run app.py
+```
+Tabs included:
+1. **🏆 Top Ranked Promos:** Ranked cards with 3s hook, unresolved cliffhanger, and editorial *Why Post First* rationales.
+2. **🎬 Screenplay Explorer:** Filterable event-level viewer across all 50 microdrama episodes.
+3. **🔍 Pipeline Stages & Audit Log:** Raw JSON stage inspections plus live side-by-side **Speaker Anonymization Inspector** (raw vs. `[SPEAKER A/B]`).
+4. **📊 Quality Benchmark:** Quantitative HitRate@3 breakdowns and failure mode analysis.
+5. **💾 Export & Deliverables:** Direct download buttons for `final_rankings.json`, `final_rankings.csv`, `report.html`, and `solution_doc.pdf`.
+
+### Option B: Immediate Offline Mock Mode (Zero API Key Needed)
 PromoScout includes built-in fixture replay allowing full end-to-end execution without external network calls or API keys:
 ```bash
 # Process a 3-episode sample
@@ -182,13 +197,24 @@ python run.py --episodes 1,2,3 --mock
 python run.py --episodes all --mock
 ```
 
-### Option B: Live LLM Execution (Gemini / OpenAI / Groq)
-PromoScout supports any OpenAI-compatible provider. Set your API key in environment variables or pass as CLI arguments:
+### Option C: Live LLM Execution (Groq Primary / Gemini / OpenAI)
 
-**Using Google Gemini (Google AI Studio OpenAI Endpoint):**
+**Primary Recommendation: Groq Free Tier (GPT-OSS Models)**
+Groq provides fast, free-tier rate limits for the `openai/gpt-oss-120b` and `openai/gpt-oss-20b` models:
 ```bash
 python run.py \
-  --base-url "https://generativelanguage.googleapis.com/v1beta/openai/" \
+  --provider groq \
+  --api-key "YOUR_GROQ_API_KEY" \
+  --model "openai/gpt-oss-120b" \
+  --evaluator-model "openai/gpt-oss-20b" \
+  --rpm 15 \
+  --episodes all
+```
+
+**Using Google Gemini (Google AI Studio):**
+```bash
+python run.py \
+  --provider gemini \
   --api-key "YOUR_GEMINI_API_KEY" \
   --model "gemini-2.5-flash" \
   --rpm 15 \
@@ -198,19 +224,38 @@ python run.py \
 **Using OpenAI:**
 ```bash
 python run.py \
+  --provider openai \
   --api-key "YOUR_OPENAI_API_KEY" \
   --model "gpt-4o-mini" \
   --episodes all
 ```
 
+### Pipeline Checkpointing & Stage-by-Stage Audits
+PromoScout features stage-level checkpointing (`src/checkpoint.py`) enabling interruption resumption and discrete audits:
+```bash
+# Run only parsing, proposal, and validation
+python run.py --stage validate --mock
+
+# Resume a previous run from the last completed stage
+python run.py --resume --mock
+
+# Inspect stage artifact contents without executing
+python run.py --inspect validate
+```
+
 **Available CLI Flags:**
+- `--provider`: `groq` (default), `openai`, `gemini`, or `custom`.
+- `--model`: Primary LLM for Proposer & Listwise Ranker (default: `openai/gpt-oss-120b`).
+- `--evaluator-model`: Evaluator LLM for Cold-Read judging (default: `openai/gpt-oss-20b`).
 - `--episodes`: Comma-separated list or ranges (`1,2,3`, `1-10`, or `all`).
-- `--model`: LLM model name (default: `gemini-2.5-flash`).
+- `--stage`: Stop execution after target stage (`parse`, `propose`, `validate`, `dedup`, `evaluate`, `rank`).
+- `--resume`: Resume execution from the last persisted checkpoint.
+- `--inspect`: Print detailed inspection summary for a stage and exit.
 - `--temperature`: Default `0.3` (non-zero for realistic stability benchmarking).
 - `--run-id`: Cache partition identifier (`default`, `run_1`, `run_2`).
 - `--rpm`: Sliding-window requests-per-minute throttle (default: `15`).
 - `--no-cache`: Force bypass of disk cache.
-- `--mock`: Enable static fixture replay.
+- `--mock`: Enable static fixture replay (strict: fails if API key missing without `--mock`).
 
 ---
 

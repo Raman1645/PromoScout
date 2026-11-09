@@ -17,15 +17,15 @@ def sample_candidate():
 def test_quality_gate_passed(sample_candidate):
     scores = ColdReadScore(
         hook_score=8.0, cliffhanger_score=8.5, standalone_score=7.0,
-        emotion_score=7.5, coherence_score=8.0, explanation="Strong clip"
+        emotion_score=7.5, promo_suitability=8.0, explanation="Strong clip"
     )
-    # Weighted base: (0.25*8 + 0.30*8.5 + 0.20*7 + 0.15*7.5 + 0.10*8.0)*10
-    # = (2.0 + 2.55 + 1.4 + 1.125 + 0.8) * 10 = 7.875 * 10 = 78.75
+    # Weighted base (Section 3.I): (0.25*8 + 0.25*8.5 + 0.20*7 + 0.15*7.5 + 0.15*8.0)*10
+    # = (2.0 + 2.125 + 1.4 + 1.125 + 1.2) * 10 = 7.85 * 10 = 78.50
     scored = score_candidate(sample_candidate, scores)
     assert scored.passed_gates is True
-    assert scored.weighted_score == 78.75
+    assert scored.weighted_score == 78.50
     assert scored.spoiler_penalty == 0.0
-    assert scored.final_score == 78.75
+    assert scored.final_score == 78.50
 
 
 def test_quality_gate_failed_hook(sample_candidate):

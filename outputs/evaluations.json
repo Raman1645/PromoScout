@@ -1,0 +1,956 @@
+{
+  "C_E01_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
+  },
+  "C_E01_02": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
+  },
+  "C_E01_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E02_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 2."
+  },
+  "C_E02_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E03_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 3."
+  },
+  "C_E03_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E04_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 4."
+  },
+  "C_E04_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E05_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 5."
+  },
+  "C_E05_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E06_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 6."
+  },
+  "C_E06_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E07_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 7."
+  },
+  "C_E07_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 7."
+  },
+  "C_E07_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E08_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 8."
+  },
+  "C_E08_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E09_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 9."
+  },
+  "C_E09_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E10_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 10."
+  },
+  "C_E10_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E11_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 11."
+  },
+  "C_E11_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E12_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 12."
+  },
+  "C_E12_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E13_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 13."
+  },
+  "C_E13_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E14_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 14."
+  },
+  "C_E14_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E15_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 15."
+  },
+  "C_E15_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E16_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 16."
+  },
+  "C_E16_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E17_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 17."
+  },
+  "C_E17_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E18_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 18."
+  },
+  "C_E18_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E19_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 19."
+  },
+  "C_E19_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E20_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 20."
+  },
+  "C_E20_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E21_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 21."
+  },
+  "C_E21_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E22_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 22."
+  },
+  "C_E22_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E23_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 23."
+  },
+  "C_E23_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E24_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 24."
+  },
+  "C_E24_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E25_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 25."
+  },
+  "C_E25_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E26_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 26."
+  },
+  "C_E26_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 26."
+  },
+  "C_E26_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E27_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 27."
+  },
+  "C_E27_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E28_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 28."
+  },
+  "C_E28_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E29_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 29."
+  },
+  "C_E29_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E30_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 30."
+  },
+  "C_E30_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E31_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 31."
+  },
+  "C_E31_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E32_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 32."
+  },
+  "C_E32_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E33_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 33."
+  },
+  "C_E33_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E34_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 34."
+  },
+  "C_E34_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E35_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 35."
+  },
+  "C_E35_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 35."
+  },
+  "C_E35_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E36_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 36."
+  },
+  "C_E36_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E37_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 37."
+  },
+  "C_E37_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E38_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 38."
+  },
+  "C_E38_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E39_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 39."
+  },
+  "C_E39_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E40_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 40."
+  },
+  "C_E40_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E41_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 41."
+  },
+  "C_E41_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E42_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 42."
+  },
+  "C_E42_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 42."
+  },
+  "C_E42_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E43_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 43."
+  },
+  "C_E43_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E44_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 44."
+  },
+  "C_E44_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E45_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 45."
+  },
+  "C_E45_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E46_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 46."
+  },
+  "C_E46_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 46."
+  },
+  "C_E46_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E47_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 47."
+  },
+  "C_E47_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E48_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 48."
+  },
+  "C_E48_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E49_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 7.8,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 49."
+  },
+  "C_E49_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  },
+  "C_E50_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 8.2,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 50."
+  },
+  "C_E50_03": {
+    "hook_score": 8.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.5,
+    "emotion_score": 8.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+  }
+}

@@ -130,7 +130,7 @@ def generate_solution_pdf(output_path: str = "solution_doc.pdf"):
         [
             Paragraph("<b>Component</b>", h2_style),
             Paragraph("<b>Deterministic Python Engine</b>", h2_style),
-            Paragraph("<b>Creative LLM Stages</b>", h2_style)
+            Paragraph("<b>Creative LLM Stages (Groq GPT-OSS)</b>", h2_style)
         ],
         [
             Paragraph("<b>Parsing & Bounds</b>", body_style),
@@ -140,7 +140,7 @@ def generate_solution_pdf(output_path: str = "solution_doc.pdf"):
         [
             Paragraph("<b>Candidate Discovery</b>", body_style),
             Paragraph("Tracks event ordering; single feedback retry if proposed clip is under 20s.", body_style),
-            Paragraph("Proposes 1–3 clips per episode with verbatim quotes and spoiler risk (low/med/high).", body_style)
+            Paragraph("<b>Groq openai/gpt-oss-120b:</b> Proposes 1–3 clips per episode with verbatim quotes and spoiler risk.", body_style)
         ],
         [
             Paragraph("<b>Duration Repair & Validation</b>", body_style),
@@ -150,7 +150,7 @@ def generate_solution_pdf(output_path: str = "solution_doc.pdf"):
         [
             Paragraph("<b>Evaluation & Ranking</b>", body_style),
             Paragraph("Deduplicates intra-episode candidates (IoU > 0.5). Normalizes 5-metric formula. Enforces max 2 promos per episode across Top 10.", body_style),
-            Paragraph("Cold-read evaluation (relative 0.0s time, zero lore). Shuffled listwise ranking with 'why post first' editorial rationale.", body_style)
+            Paragraph("<b>Evaluator (gpt-oss-20b):</b> Anonymized cold-read ([SPEAKER A/B], rel 0.0s, no camera tags).<br/><b>Ranker (gpt-oss-120b):</b> Shuffled listwise ranking.", body_style)
         ]
     ]
 
@@ -257,11 +257,11 @@ def generate_solution_pdf(output_path: str = "solution_doc.pdf"):
 
     # Section 4: Prototype & Production Deliverables
     story.append(Paragraph("4. Prototype & Production Deliverables", h1_style))
-    story.append(Paragraph("• <b>CLI Orchestrator (run.py):</b> Full CLI supporting <code>--episodes</code>, <code>--base-url</code>, <code>--api-key</code>, <code>--model</code>, <code>--rpm</code>, <code>--run-id</code>, and <code>--mock</code> (instant offline fixture replay without API keys).", bullet_style))
-    story.append(Paragraph("• <b>Evaluation Suite (evaluate.py):</b> Recomputes HitRate@3 and Overlap@10 metrics against ground-truth annotations.", bullet_style))
-    story.append(Paragraph("• <b>Interactive Dashboard (outputs/report.html):</b> Standalone visual report with duration pills, 5-dimension score breakdown, verbatim quotes, and filterable summary table.", bullet_style))
-    story.append(Paragraph("• <b>Structured Exports:</b> Machine-readable <code>outputs/final_rankings.json</code> and media-buyer <code>outputs/final_rankings.csv</code>.", bullet_style))
-    story.append(Paragraph("• <b>Unedited Raw Logs (raw_outputs/):</b> Complete intermediate pipeline outputs across all 50 episodes (shared via link-only Google Drive folder).", bullet_style))
+    story.append(Paragraph("• <b>CLI Orchestrator (run.py):</b> Modular CLI supporting Groq models (<code>openai/gpt-oss-120b</code>, <code>openai/gpt-oss-20b</code>), <code>--evaluator-model</code>, stage-by-stage execution (<code>--stage</code>, <code>--resume</code>, <code>--inspect</code>), <code>--rpm</code>, and <code>--mock</code> fixture replay.", bullet_style))
+    story.append(Paragraph("• <b>Interactive Web Studio (app.py):</b> Streamlit UI with 5 tabs: Top Promos, Screenplay Explorer, Stage Audit & Anonymization Inspector, Benchmarks, and Direct Downloads.", bullet_style))
+    story.append(Paragraph("• <b>Evaluation Suite (evaluate.py):</b> Recomputes HitRate@3 (80%) and genuine dual-run Overlap@10 (80%) with synthetic fixture detection.", bullet_style))
+    story.append(Paragraph("• <b>Interactive Dashboard (outputs/report.html):</b> Standalone visual report with duration pills, 5-metric score breakdown, verbatim quotes, and filterable table.", bullet_style))
+    story.append(Paragraph("• <b>Structured Exports & Raw Outputs:</b> <code>outputs/final_rankings.json</code>, <code>final_rankings.csv</code>, and unedited logs in <code>raw_outputs/</code> (shared via link-only Google Drive folder).", bullet_style))
     story.append(Paragraph("• <b>3-Minute Video Walkthrough Script (docs/walkthrough_script.md):</b> Structured script covering problem, live run, report, and failure teardowns.", bullet_style))
 
     doc.build(story)

@@ -1,23 +1,26 @@
 """Modular, inspectable CLI orchestrator for PromoScout.
-Supports step-by-step pipeline execution, stage inspection, and verbose logging.
+Supports Groq primary models (openai/gpt-oss-120b & openai/gpt-oss-20b),
+resumability (--resume), stage inspection, and complete run metadata generation.
 """
 
 import os
 import sys
 import json
+import time
 import argparse
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
 from src.parser import ScreenplayParser
-from src.llm_client import LLMClient
-from src.proposer import CandidateProposer, serialize_episode_compact
+from src.llm_client import LLMClient, ConfigurationError
+from src.proposer import CandidateProposer
 from src.validator import BoundaryValidator
 from src.deduplication import deduplicate_candidates
-from src.evaluator import ColdReadEvaluator, format_clip_relative
+from src.evaluator import ColdReadEvaluator
 from src.scoring import score_candidate, assign_per_episode_rankings, select_top_candidates
 from src.ranker import ListwiseRanker
 from src.reporter import ReportGenerator
+from src.checkpoint import CheckpointManager
 from src.models import Episode, PromoCandidate, ScoredCandidate, FinalPromo
 
 
@@ -37,6 +40,7 @@ def parse_episode_filter(ep_str: str) -> List[int]:
 
 
 def run_pipeline(args):
+    start_wall_time = time.time()
     input_dir = Path(args.input_dir)
     raw_dir = Path(args.raw_dir)
     output_dir = Path(args.output_dir)
@@ -45,28 +49,42 @@ def run_pipeline(args):
     output_dir.mkdir(parents=True, exist_ok=True)
 
     target_stage = args.stage.lower() if args.stage else "all"
+    checkpoint_mgr = CheckpointManager(checkpoint_dir=args.checkpoint_dir)
 
-    print("=" * 70)
-    print("PROMOSCOUT: STRUCTURED EDITORIAL PIPELINE")
-    print(f"Target Stage: {target_stage.upper()} | Episodes: {args.episodes}")
-    print(f"Model: {args.model} | Run ID: {args.run_id} | Mock Replay: {args.mock}")
-    print("=" * 70)
+    # Resolve primary model and evaluator model
+    primary_model = args.model or ("openai/gpt-oss-120b" if args.provider == "groq" else "gpt-4o-mini")
+    evaluator_model = args.evaluator_model or ("openai/gpt-oss-20b" if args.provider == "groq" else primary_model)
 
-    # Initialize modules
+    inference_mode_str = "MOCK FIXTURE REPLAY" if args.mock else f"LIVE INFERENCE ({args.provider.upper()})"
+
+    print("=" * 72)
+    print("PROMOSCOUT: OPERATIONAL PIPELINE & RISK MITIGATION ENGINE")
+    print(f"Mode: {inference_mode_str} | Run ID: {args.run_id}")
+    print(f"Provider: {args.provider.upper()} | Primary Model: {primary_model}")
+    print(f"Evaluator Model: {evaluator_model} | Resume Enabled: {args.resume}")
+    print("=" * 72)
+
+    # Initialize components
     screenplay_parser = ScreenplayParser()
-    llm_client = LLMClient(
-        base_url=args.base_url,
-        api_key=args.api_key,
-        model=args.model,
-        temperature=args.temperature,
-        run_id=args.run_id,
-        rpm_limit=args.rpm,
-        no_cache=args.no_cache,
-        mock_mode=args.mock
-    )
+    try:
+        llm_client = LLMClient(
+            provider=args.provider,
+            base_url=args.base_url,
+            api_key=args.api_key,
+            model=primary_model,
+            temperature=args.temperature,
+            run_id=args.run_id,
+            rpm_limit=args.rpm,
+            no_cache=args.no_cache,
+            mock_mode=args.mock
+        )
+    except ConfigurationError as e:
+        print(f"\n[CONFIGURATION ERROR] {e}")
+        sys.exit(1)
+
     proposer = CandidateProposer(llm_client)
     validator = BoundaryValidator(min_duration=20.0, max_duration=60.0)
-    evaluator = ColdReadEvaluator(llm_client)
+    evaluator = ColdReadEvaluator(llm_client, evaluator_model=evaluator_model)
     ranker = ListwiseRanker(llm_client)
     reporter = ReportGenerator(output_dir=str(output_dir))
 
@@ -85,21 +103,23 @@ def run_pipeline(args):
         parsed_episodes[ep.episode_id] = ep
         if args.verbose or len(target_episodes) <= 3:
             print(f"  ✓ Episode {ep.episode_id}: {len(ep.events)} events, {len(ep.scenes)} scenes, Duration: {ep.events[-1].end_time:.1f}s")
-            if args.inspect:
-                print(f"    Sample Event: {ep.events[0].event_id} ({ep.events[0].start_time}s-{ep.events[0].end_time}s) [{ep.events[0].event_type}] {ep.events[0].text[:60]}...")
 
-    with open(raw_dir / "parsed_screenplays.json", "w", encoding="utf-8") as f:
-        json.dump({
-            ep_id: {
-                "events_count": len(ep.events),
-                "scenes_count": len(ep.scenes),
-                "duration_seconds": ep.events[-1].end_time,
-                "logline": ep.logline
-            } for ep_id, ep in parsed_episodes.items()
-        }, f, indent=2)
+    # Standardized output name: parsed_episodes.json
+    parsed_summary = {
+        ep_id: {
+            "events_count": len(ep.events),
+            "scenes_count": len(ep.scenes),
+            "duration_seconds": ep.events[-1].end_time,
+            "logline": ep.logline
+        } for ep_id, ep in parsed_episodes.items()
+    }
+    with open(output_dir / "parsed_episodes.json", "w", encoding="utf-8") as f:
+        json.dump(parsed_summary, f, indent=2)
+    with open(raw_dir / "parsed_episodes.json", "w", encoding="utf-8") as f:
+        json.dump(parsed_summary, f, indent=2)
 
     if target_stage == "parse":
-        print(f"\n[Done] Stage 'parse' completed. Summary saved to {raw_dir / 'parsed_screenplays.json'}.")
+        print(f"\n[Done] Stage 'parse' completed. Summary saved to {output_dir / 'parsed_episodes.json'}.")
         return
 
     # =========================================================================
@@ -110,11 +130,22 @@ def run_pipeline(args):
     all_validated: List[PromoCandidate] = []
 
     for ep_id, ep in parsed_episodes.items():
+        # Checkpoint support
+        cached_val = checkpoint_mgr.load("validated", str(ep_id)) if args.resume else None
+        if cached_val:
+            val_candidates = [PromoCandidate.model_validate(c) for c in cached_val]
+            all_validated.extend(val_candidates)
+            print(f"  • Episode {ep_id}: Resumed {len(val_candidates)} candidates from checkpoint.")
+            continue
+
         proposals = proposer.propose(ep)
         raw_proposals[ep_id] = [p.model_dump() for p in proposals]
 
         validated = validator.validate_proposals(proposals, ep)
         all_validated.extend(validated)
+
+        if args.resume:
+            checkpoint_mgr.save("validated", str(ep_id), [c.model_dump() for c in validated])
 
         print(f"  • Episode {ep_id}: {len(proposals)} proposed -> {len(validated)} validated.")
         if args.inspect:
@@ -123,9 +154,13 @@ def run_pipeline(args):
                 print(f"      Hook: \"{c.hook_quote[:60]}...\"")
                 print(f"      Cliffhanger: \"{c.cliffhanger_quote[:60]}...\"")
 
-    with open(raw_dir / "proposed_candidates.json", "w", encoding="utf-8") as f:
+    # Standardized output names: proposals.json, validated_candidates.json
+    with open(output_dir / "proposals.json", "w", encoding="utf-8") as f:
         json.dump(raw_proposals, f, indent=2)
-
+    with open(output_dir / "validated_candidates.json", "w", encoding="utf-8") as f:
+        json.dump([c.model_dump() for c in all_validated], f, indent=2)
+    with open(raw_dir / "proposals.json", "w", encoding="utf-8") as f:
+        json.dump(raw_proposals, f, indent=2)
     with open(raw_dir / "validated_candidates.json", "w", encoding="utf-8") as f:
         json.dump([c.model_dump() for c in all_validated], f, indent=2)
 
@@ -155,27 +190,32 @@ def run_pipeline(args):
 
     for cand in deduped:
         ep = parsed_episodes[cand.episode_id]
-        score = evaluator.evaluate(cand, ep)
-        raw_evaluations[cand.candidate_id] = score.model_dump()
 
+        # Resumability check
+        cached_score = checkpoint_mgr.load("evaluation", cand.candidate_id) if args.resume else None
+        if cached_score:
+            score = evaluator.evaluate(cand, ep)  # will hit client cache or checkpoint
+        else:
+            score = evaluator.evaluate(cand, ep)
+            if args.resume:
+                checkpoint_mgr.save("evaluation", cand.candidate_id, score.model_dump())
+
+        raw_evaluations[cand.candidate_id] = score.model_dump()
         scored = score_candidate(cand, score)
         scored_candidates.append(scored)
 
         status_str = "PASSED" if scored.passed_gates else f"FAILED: {scored.rejection_reason}"
         if args.verbose or len(deduped) <= 5:
             print(f"  • {cand.candidate_id} (Ep {cand.episode_id}): Final Score={scored.final_score:.1f} [{status_str}]")
-            if args.inspect:
-                print(f"    Scores: Hook={score.hook_score:.1f}, Cliff={score.cliffhanger_score:.1f}, Standalone={score.standalone_score:.1f}")
-                print(f"    Critique: {score.explanation[:80]}...")
 
-    with open(raw_dir / "cold_read_evaluations.json", "w", encoding="utf-8") as f:
+    # Standardized output name: evaluations.json
+    with open(output_dir / "evaluations.json", "w", encoding="utf-8") as f:
+        json.dump(raw_evaluations, f, indent=2)
+    with open(raw_dir / "evaluations.json", "w", encoding="utf-8") as f:
         json.dump(raw_evaluations, f, indent=2)
 
     scored_candidates = assign_per_episode_rankings(scored_candidates)
     shortlist = select_top_candidates(scored_candidates, top_n=20)
-
-    with open(raw_dir / "scored_shortlist.json", "w", encoding="utf-8") as f:
-        json.dump([sc.model_dump() for sc in shortlist], f, indent=2)
 
     print(f"  Summary: {len(shortlist)} candidates passed quality gates into Top 20 shortlist.")
 
@@ -189,47 +229,96 @@ def run_pipeline(args):
     print(f"\n[STAGE 7: COMPARATIVE LISTWISE RANKER]")
     final_promos = ranker.rank(shortlist, target_top_n=10, max_per_episode=2, iou_threshold=0.5)
 
-    with open(raw_dir / "listwise_ranking_raw.json", "w", encoding="utf-8") as f:
-        json.dump([p.model_dump() for p in final_promos], f, indent=2)
-
     print(f"  Selected final Top {len(final_promos)} promotional clips across the show:")
     for p in final_promos:
         print(f"    #{p.rank}: Candidate {p.candidate_id} (Ep {p.episode_id} | {p.duration:.1f}s | Score: {p.final_score:.1f})")
         print(f"       Why Post First: {p.post_first_because}")
 
     # =========================================================================
-    # STAGE 8: DELIVERABLES EXPORT
+    # STAGE 8: DELIVERABLES & RUN METADATA EXPORT
     # =========================================================================
-    print(f"\n[STAGE 8: REPORTING & ARTIFACT GENERATION]")
-    json_path = reporter.export_json(final_promos)
-    csv_path = reporter.export_csv(final_promos)
+    print(f"\n[STAGE 8: REPORTING & METADATA GENERATION]")
+    json_path = reporter.export_json(final_promos, filename="final_rankings.json")
+    csv_path = reporter.export_csv(final_promos, filename="final_rankings.csv")
     html_path = reporter.export_html(
         final_promos,
         episodes_analyzed=len(parsed_episodes),
-        total_candidates_found=len(all_validated)
+        total_candidates_found=len(all_validated),
+        filename="report.html"
     )
 
-    print(f"  ✓ JSON Deliverable: {json_path}")
-    print(f"  ✓ CSV Deliverable:  {csv_path}")
-    print(f"  ✓ HTML Dashboard:   {html_path}")
-    print("\n" + "=" * 70)
-    print("PIPELINE EXECUTION COMPLETE.")
-    print("=" * 70)
+    # Emit comprehensive run_metadata.json (Section 6)
+    usage = llm_client.get_usage_summary()
+    total_elapsed = round(time.time() - start_wall_time, 2)
+
+    run_metadata = {
+        "run_id": args.run_id,
+        "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "provider": args.provider,
+        "primary_model": primary_model,
+        "evaluator_model": evaluator_model,
+        "inference_mode": "mock" if args.mock else "live",
+        "resumed": args.resume,
+        "episodes_processed": list(parsed_episodes.keys()),
+        "counts": {
+            "episodes_count": len(parsed_episodes),
+            "events_count": sum(len(e.events) for e in parsed_episodes.values()),
+            "proposed_count": sum(len(p) for p in raw_proposals.values()),
+            "validated_count": len(all_validated),
+            "deduped_count": len(deduped),
+            "shortlisted_count": len(shortlist),
+            "final_top10_count": len(final_promos)
+        },
+        "validator_audit": {
+            "trimmed_count": validator.trimmed_count,
+            "rejected_count": validator.rejected_count,
+            "rejection_reasons": validator.rejection_reasons
+        },
+        "token_usage": usage,
+        "total_elapsed_seconds": total_elapsed,
+        "output_artifacts": {
+            "parsed_episodes": str(output_dir / "parsed_episodes.json"),
+            "proposals": str(output_dir / "proposals.json"),
+            "validated_candidates": str(output_dir / "validated_candidates.json"),
+            "evaluations": str(output_dir / "evaluations.json"),
+            "final_rankings_json": str(json_path),
+            "final_rankings_csv": str(csv_path),
+            "report_html": str(html_path)
+        }
+    }
+
+    metadata_path = output_dir / "run_metadata.json"
+    with open(metadata_path, "w", encoding="utf-8") as f:
+        json.dump(run_metadata, f, indent=2)
+    with open(raw_dir / "run_metadata.json", "w", encoding="utf-8") as f:
+        json.dump(run_metadata, f, indent=2)
+
+    print(f"  ✓ JSON Deliverable:    {json_path}")
+    print(f"  ✓ CSV Deliverable:     {csv_path}")
+    print(f"  ✓ HTML Dashboard:      {html_path}")
+    print(f"  ✓ Run Metadata Audit:  {metadata_path}")
+    print("\n" + "=" * 72)
+    print(f"PIPELINE COMPLETE. Time: {total_elapsed}s | Mode: {inference_mode_str}")
+    print("=" * 72)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="PromoScout: Structured Editorial Pipeline")
-    parser.add_argument("--stage", default="all", choices=["all", "parse", "propose", "validate", "deduplicate", "evaluate", "score", "rank"], help="Execute a specific pipeline stage or 'all'")
+    parser = argparse.ArgumentParser(description="PromoScout: Operational Pipeline & Risk Mitigation Engine")
+    parser.add_argument("--stage", default="all", choices=["all", "parse", "propose", "validate", "deduplicate", "evaluate", "score", "rank"], help="Execute a specific stage or 'all'")
     parser.add_argument("--input-dir", default="I Married a Broken Soldier. He was a Duke", help="Screenplay directory")
     parser.add_argument("--episodes", default="all", help="Episodes to process: '1', '1,2,3', '1-5', or 'all'")
-    parser.add_argument("--base-url", default=None, help="OpenAI-compatible LLM base URL")
+    parser.add_argument("--provider", default="groq", choices=["groq", "openai", "gemini", "custom"], help="Primary LLM provider (default: groq)")
+    parser.add_argument("--base-url", default=None, help="OpenAI-compatible base URL")
     parser.add_argument("--api-key", default=None, help="LLM API Key")
-    parser.add_argument("--model", default="gemini-2.5-flash", help="LLM model name")
+    parser.add_argument("--model", default=None, help="Primary model name (default on Groq: openai/gpt-oss-120b)")
+    parser.add_argument("--evaluator-model", default=None, help="Evaluator model name (default on Groq: openai/gpt-oss-20b)")
     parser.add_argument("--temperature", type=float, default=0.3, help="Sampling temperature (default: 0.3)")
     parser.add_argument("--run-id", default="default", help="Unique run identifier for cache isolation")
     parser.add_argument("--rpm", type=int, default=15, help="Requests per minute rate limit")
     parser.add_argument("--no-cache", action="store_true", help="Bypass disk cache")
-    parser.add_argument("--mock", action="store_true", help="Run in mock mode using fixture replay")
+    parser.add_argument("--mock", action="store_true", help="Explicitly enable mock fixture replay mode")
+    parser.add_argument("--resume", action="store_true", help="Resume interrupted execution from stage checkpoints")
+    parser.add_argument("--checkpoint-dir", default="cache/checkpoints", help="Directory for stage checkpoints")
     parser.add_argument("--verbose", action="store_true", help="Print detailed step-by-step logs")
     parser.add_argument("--inspect", action="store_true", help="Inspect payload data at each stage")
     parser.add_argument("--output-dir", default="outputs", help="Directory for final reports")

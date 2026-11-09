@@ -4,12 +4,12 @@ from typing import List, Dict, Tuple
 from src.models import PromoCandidate, ColdReadScore, ScoredCandidate
 
 
-# Weights for the 5 editorial dimensions
+# Weights matching mitigations.md Section 3.I
 WEIGHT_HOOK = 0.25
-WEIGHT_CLIFFHANGER = 0.30
+WEIGHT_CLIFFHANGER = 0.25
 WEIGHT_STANDALONE = 0.20
 WEIGHT_EMOTION = 0.15
-WEIGHT_COHERENCE = 0.10
+WEIGHT_PROMO_SUITABILITY = 0.15
 
 # Spoiler penalties
 SPOILER_PENALTIES = {
@@ -26,7 +26,7 @@ def score_candidate(
     cliffhanger_threshold: float = 7.0
 ) -> ScoredCandidate:
     """Apply quality gates, compute weighted scores, and apply spoiler penalties."""
-    # 1. Quality Gates
+    # 1. Quality Gates (Section 3.H: Hook >= 7, Cliffhanger >= 7, 20-60s)
     passed_gates = True
     rejection_reason = None
 
@@ -40,18 +40,19 @@ def score_candidate(
         passed_gates = False
         rejection_reason = f"Duration {candidate.duration:.2f}s outside strict 20-60s window"
 
-    # 2. Weighted Score (0-100 scale)
+    # 2. Weighted Score (0-100 scale, Section 3.I)
+    promo_val = score.promo_suitability if score.promo_suitability is not None else (score.coherence_score or 8.0)
     base_score = (
         WEIGHT_HOOK * score.hook_score
         + WEIGHT_CLIFFHANGER * score.cliffhanger_score
         + WEIGHT_STANDALONE * score.standalone_score
         + WEIGHT_EMOTION * score.emotion_score
-        + WEIGHT_COHERENCE * score.coherence_score
+        + WEIGHT_PROMO_SUITABILITY * promo_val
     ) * 10.0  # normalize from 10 to 100
 
     base_score = round(base_score, 2)
 
-    # 3. Spoiler Penalty
+    # 3. Spoiler Penalty (Section 3.H)
     penalty = SPOILER_PENALTIES.get(candidate.spoiler_risk.lower(), 0.0)
     final_score = round(max(0.0, base_score - penalty), 2)
 
@@ -93,4 +94,3 @@ def select_top_candidates(
     valid_candidates = [sc for sc in scored_candidates if sc.passed_gates]
     sorted_candidates = sorted(valid_candidates, key=lambda sc: sc.final_score, reverse=True)
     return sorted_candidates[:top_n]
-

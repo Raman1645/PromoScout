@@ -1,5 +1,6 @@
 """Evaluation and benchmarking suite for PromoScout.
-Computes HitRate@3 on 5 systematic gold episodes and Overlap@10 stability across dual runs.
+Computes HitRate@3 on 5 systematic gold episodes and true independent-run Overlap@10 stability.
+Never reports dummy lists or synthetic mocks as live results.
 """
 
 import json
@@ -16,7 +17,47 @@ from src.deduplication import deduplicate_candidates
 from src.evaluator import ColdReadEvaluator
 from src.scoring import score_candidate, assign_per_episode_rankings, select_top_candidates
 from src.ranker import ListwiseRanker
-from src.models import FinalPromo, ScoredCandidate
+from src.models import FinalPromo, ScoredCandidate, Episode
+
+
+def execute_pipeline_pass(
+    episodes: List[int],
+    input_dir: Path,
+    llm_client: LLMClient
+) -> List[FinalPromo]:
+    """Execute a true end-to-end pipeline pass on target episodes."""
+    parser = ScreenplayParser()
+    proposer = CandidateProposer(llm_client)
+    validator = BoundaryValidator(min_duration=20.0, max_duration=60.0)
+    evaluator = ColdReadEvaluator(llm_client)
+    ranker = ListwiseRanker(llm_client)
+
+    all_validated = []
+    parsed_episodes = {}
+
+    for ep_id in episodes:
+        matched = list(input_dir.glob(f"episode-{ep_id:03d}*.txt"))
+        if matched:
+            ep = parser.parse_file(matched[0])
+            parsed_episodes[ep.episode_id] = ep
+            proposals = proposer.propose(ep)
+            val = validator.validate_proposals(proposals, ep)
+            all_validated.extend(val)
+
+    deduped = deduplicate_candidates(all_validated, iou_threshold=0.5)
+
+    scored_candidates = []
+    for cand in deduped:
+        ep = parsed_episodes[cand.episode_id]
+        score = evaluator.evaluate(cand, ep)
+        scored = score_candidate(cand, score)
+        scored_candidates.append(scored)
+
+    scored_candidates = assign_per_episode_rankings(scored_candidates)
+    shortlist = select_top_candidates(scored_candidates, top_n=20)
+    final_promos = ranker.rank(shortlist, target_top_n=10, max_per_episode=2, iou_threshold=0.5)
+
+    return final_promos
 
 
 def evaluate_hitrate_at_3(
@@ -140,58 +181,61 @@ def main():
     parser.add_argument("--input-dir", default="I Married a Broken Soldier. He was a Duke")
     parser.add_argument("--gold-file", default="gold_set/gold_annotations.json")
     parser.add_argument("--output-file", default="gold_set/benchmark_results.json")
-    parser.add_argument("--mock", action="store_true", help="Use deterministic mock fixture replay")
+    parser.add_argument("--provider", default="groq", help="LLM Provider (groq, openai, gemini)")
+    parser.add_argument("--api-key", default=None, help="API key for live evaluation")
+    parser.add_argument("--model", default="openai/gpt-oss-120b", help="Model name")
+    parser.add_argument("--mock", action="store_true", help="Explicitly enable fixture replay mode")
     args = parser.parse_args()
 
     input_dir = Path(args.input_dir)
     gold_file = Path(args.gold_file)
     output_file = Path(args.output_file)
 
-    print("=" * 60)
-    print("PROMOSCOUT BENCHMARK & QUALITY EVALUATION")
-    print(f"Gold File: {gold_file} | Mock Mode: {args.mock}")
-    print("=" * 60)
+    inference_label = "MOCK FIXTURE REPLAY (Deterministic Test)" if args.mock else f"LIVE MODEL INFERENCE ({args.provider}:{args.model})"
 
-    # Run 1: HitRate@3 & Run 1 Promos
-    client_run1 = LLMClient(run_id="run_1", temperature=0.3, mock_mode=args.mock)
+    print("=" * 65)
+    print("PROMOSCOUT BENCHMARK & QUALITY EVALUATION")
+    print(f"Inference Mode: {inference_label}")
+    print(f"Gold Annotations: {gold_file}")
+    print("=" * 65)
+
+    # 1. HitRate@3 Evaluation
+    client_run1 = LLMClient(
+        provider=args.provider,
+        api_key=args.api_key,
+        model=args.model,
+        run_id="run_1",
+        temperature=0.3,
+        mock_mode=args.mock
+    )
     hitrate_results = evaluate_hitrate_at_3(gold_file, input_dir, client_run1, iou_threshold=0.5)
 
-    # Stability Test: Dual Run comparison
-    print("\n--- Running Stability Test (Run 1 vs Run 2 with distinct run_ids) ---")
-    client_run2 = LLMClient(run_id="run_2", temperature=0.3, mock_mode=args.mock)
+    # 2. Genuine Stability Test across Dual Runs (No dummy lists!)
+    print(f"\n--- Running Independent Dual-Run Stability Test ({inference_label}) ---")
+    test_episodes = [1, 2, 3, 13, 25, 38, 50]
 
-    # For demonstration/benchmark, test stability on the gold episodes
-    # In mock mode, fixtures produce consistent high-quality candidates
-    # In live mode with temp=0.3 and separate run_id, cache is bypassed!
-    dummy_top10_r1 = [
-        FinalPromo(
-            rank=i, candidate_id=f"C_E{ep:02d}_01", episode_id=ep,
-            start_time=10.0, end_time=35.0, duration=25.0,
-            start_event_id=f"E{ep:02d}_005", end_event_id=f"E{ep:02d}_020",
-            hook_quote="Hook", cliffhanger_quote="Cliff", spoiler_risk="low",
-            scores={"hook_score": 8.0, "cliffhanger_score": 8.5, "standalone_score": 8.0,
-                    "emotion_score": 8.0, "coherence_score": 8.0, "explanation": "Test"},
-            final_score=80.0, post_first_because="Test"
-        )
-        for i, ep in enumerate([1, 2, 3, 13, 25, 38, 50, 4, 5, 6], start=1)
-    ]
-    dummy_top10_r2 = [
-        FinalPromo(
-            rank=i, candidate_id=f"C_E{ep:02d}_01", episode_id=ep,
-            start_time=11.0, end_time=36.0, duration=25.0,
-            start_event_id=f"E{ep:02d}_005", end_event_id=f"E{ep:02d}_020",
-            hook_quote="Hook", cliffhanger_quote="Cliff", spoiler_risk="low",
-            scores={"hook_score": 8.0, "cliffhanger_score": 8.5, "standalone_score": 8.0,
-                    "emotion_score": 8.0, "coherence_score": 8.0, "explanation": "Test"},
-            final_score=80.0, post_first_because="Test"
-        )
-        for i, ep in enumerate([1, 2, 3, 13, 25, 38, 50, 4, 7, 8], start=1)
-    ]
+    print("  Executing Pass 1 (Run ID: run_1)...")
+    run_1_promos = execute_pipeline_pass(test_episodes, input_dir, client_run1)
 
-    stability_results = evaluate_stability(dummy_top10_r1, dummy_top10_r2, iou_threshold=0.5)
-    print(f"Overlap@10: {stability_results['overlap_at_10'] * 100:.1f}% ({stability_results['matches_count']}/10 promos matched)")
+    print("  Executing Pass 2 (Run ID: run_2)...")
+    client_run2 = LLMClient(
+        provider=args.provider,
+        api_key=args.api_key,
+        model=args.model,
+        run_id="run_2",
+        temperature=0.3,
+        mock_mode=args.mock
+    )
+    run_2_promos = execute_pipeline_pass(test_episodes, input_dir, client_run2)
+
+    stability_results = evaluate_stability(run_1_promos, run_2_promos, iou_threshold=0.5)
+    print(f"Overlap@10: {stability_results['overlap_at_10'] * 100:.1f}% ({stability_results['matches_count']}/{min(10, len(run_1_promos))} matched)")
 
     full_benchmark = {
+        "inference_mode": "mock" if args.mock else "live",
+        "provider": args.provider if not args.mock else "fixture_replay",
+        "model": args.model if not args.mock else "mock_fixtures",
+        "is_synthetic_fixture": args.mock,
         "hitrate_at_3": hitrate_results,
         "stability": stability_results
     }
@@ -204,4 +248,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

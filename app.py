@@ -17,7 +17,7 @@ from src.llm_client import LLMClient
 from src.proposer import CandidateProposer
 from src.validator import BoundaryValidator
 from src.deduplication import deduplicate_candidates, compute_iou
-from src.evaluator import ColdReadEvaluator, format_clip_relative
+from src.evaluator import ColdReadEvaluator, format_clip_relative, format_clip_anonymized
 from src.scoring import score_candidate, assign_per_episode_rankings, select_top_candidates
 from src.ranker import ListwiseRanker
 from src.reporter import ReportGenerator
@@ -111,6 +111,7 @@ with st.sidebar:
     api_key = ""
     base_url = None
     model_name = "gemini-2.5-flash"
+    evaluator_model_name = "gemini-2.5-flash"
     rpm_limit = 15
     temperature = 0.3
 
@@ -118,25 +119,33 @@ with st.sidebar:
         st.subheader("API Configuration")
         provider = st.selectbox(
             "Provider",
-            ["Google Gemini (Google AI Studio)", "OpenAI", "Groq", "Custom OpenAI-compatible"]
+            ["Groq", "Google Gemini (Google AI Studio)", "OpenAI", "Custom OpenAI-compatible"]
         )
-        if provider == "Google Gemini (Google AI Studio)":
+        if provider == "Groq":
+            base_url = "https://api.groq.com/openai/v1"
+            st.info("⚡ Groq Free Tier: GPT-OSS models configured per platform limits.")
+            model_name = st.selectbox("Primary Model (Proposer & Ranker)", ["openai/gpt-oss-120b", "openai/gpt-oss-20b"], index=0)
+            evaluator_model_name = st.selectbox("Cold-Read Evaluator Model", ["openai/gpt-oss-20b", "openai/gpt-oss-120b"], index=0)
+            rpm_limit = st.slider("Requests Per Min (RPM)", 5, 30, 15)
+            api_key = st.text_input("Groq API Key", type="password", value=os.getenv("GROQ_API_KEY", ""))
+        elif provider == "Google Gemini (Google AI Studio)":
             base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
             model_name = st.selectbox("Model", ["gemini-2.5-flash", "gemini-2.5-pro"])
+            evaluator_model_name = model_name
             rpm_limit = st.slider("Requests Per Min (RPM)", 5, 30, 15)
+            api_key = st.text_input("Gemini API Key", type="password", value=os.getenv("GEMINI_API_KEY", ""))
         elif provider == "OpenAI":
             base_url = "https://api.openai.com/v1"
             model_name = st.selectbox("Model", ["gpt-4o-mini", "gpt-4o"])
+            evaluator_model_name = model_name
             rpm_limit = st.slider("Requests Per Min (RPM)", 10, 60, 30)
-        elif provider == "Groq":
-            base_url = "https://api.groq.com/openai/v1"
-            model_name = st.selectbox("Model", ["llama-3.3-70b-versatile", "mixtral-8x7b-32768"])
-            rpm_limit = st.slider("Requests Per Min (RPM)", 10, 30, 15)
+            api_key = st.text_input("OpenAI API Key", type="password", value=os.getenv("OPENAI_API_KEY", ""))
         else:
             base_url = st.text_input("Base URL", "http://localhost:11434/v1")
-            model_name = st.text_input("Model Name", "mistral")
+            model_name = st.text_input("Primary Model Name", "mistral")
+            evaluator_model_name = st.text_input("Evaluator Model Name", "mistral")
+            api_key = st.text_input("API Key", type="password", value="")
 
-        api_key = st.text_input("API Key", type="password", value=os.getenv("GEMINI_API_KEY", ""))
         temperature = st.slider("Temperature", 0.0, 1.0, 0.3, step=0.05)
 
     st.markdown("---")
@@ -194,9 +203,21 @@ if run_button:
             rpm_limit=rpm_limit,
             mock_mode=is_mock
         )
+        if evaluator_model_name != model_name:
+            eval_client = LLMClient(
+                base_url=base_url,
+                api_key=api_key,
+                model=evaluator_model_name,
+                temperature=temperature,
+                rpm_limit=rpm_limit,
+                mock_mode=is_mock
+            )
+        else:
+            eval_client = llm_client
+
         proposer = CandidateProposer(llm_client)
         validator = BoundaryValidator(min_duration=min_duration, max_duration=max_duration)
-        evaluator = ColdReadEvaluator(llm_client)
+        evaluator = ColdReadEvaluator(eval_client)
         ranker = ListwiseRanker(llm_client)
         reporter = ReportGenerator(output_dir="outputs")
 
@@ -392,7 +413,12 @@ with tabs[2]:
     else:
         stage_view = st.radio(
             "Select Pipeline Stage to Audit",
-            ["Stage 2 & 3: Proposals & Boundary Checks", "Stage 4: Deduplication (IoU)", "Stage 5 & 6: Cold-Read Scores & Quality Gates"]
+            [
+                "Stage 2 & 3: Proposals & Boundary Checks",
+                "Stage 4: Deduplication (IoU)",
+                "Stage 5 & 6: Cold-Read Scores & Quality Gates",
+                "Mitigation 1 Audit: Zero-Context Evaluator Anonymization"
+            ]
         )
 
         if "Stage 2 & 3" in stage_view:
@@ -438,6 +464,29 @@ with tabs[2]:
                 for sc in scored_cands
             ]
             st.dataframe(pd.DataFrame(sc_data), use_container_width=True)
+
+        elif "Mitigation 1 Audit" in stage_view:
+            st.markdown("### 🎭 Speaker Anonymization & Cold-Read Isolation Verification")
+            st.markdown("""
+            To prevent the Cold-Read Evaluator from inferring character backstory, relationships, or production bias:
+            - Character names (e.g., `ALEXANDER`, `CATHY`) are anonymized to `[SPEAKER A]`, `[SPEAKER B]`.
+            - Timestamps are made strictly relative (`00.00s` = clip start) to strip episode position clues.
+            - Non-dialogue production directives (e.g. `[CAMERA: Close up]`) are filtered out.
+            """)
+            val_cands = st.session_state.audit_logs.get("validated", [])
+            if val_cands and st.session_state.episodes:
+                sample_cand = val_cands[0]
+                ep = st.session_state.episodes.get(sample_cand.episode_id)
+                if ep:
+                    col_raw, col_anon = st.columns(2)
+                    with col_raw:
+                        st.subheader("Raw Screenplay Excerpt")
+                        raw_feed = format_clip_relative(sample_cand, ep)
+                        st.code(raw_feed, language="text")
+                    with col_anon:
+                        st.subheader("Anonymized Cold-Read Input")
+                        anon_feed = format_clip_anonymized(sample_cand, ep)
+                        st.code(anon_feed, language="text")
 
 
 # TAB 4: QUALITY BENCHMARK
