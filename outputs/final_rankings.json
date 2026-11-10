@@ -1,30 +1,6 @@
 [
   {
     "rank": 1,
-    "candidate_id": "C_E01_01",
-    "episode_id": 1,
-    "start_time": 1.0,
-    "end_time": 23.5,
-    "duration": 22.5,
-    "start_event_id": "E01_002",
-    "end_event_id": "E01_015",
-    "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
-    "cliffhanger_quote": "What do you mean?",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_01."
-  },
-  {
-    "rank": 2,
     "candidate_id": "C_E01_02",
     "episode_id": 1,
     "start_time": 7.2,
@@ -45,19 +21,19 @@
       "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
     },
     "final_score": 84.05,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E01_02."
+    "post_first_because": "The hook teases a visual cue of danger and the cliffhanger drops a mysterious name (“Gerald?”), creating immediate intrigue that compels viewers to stay."
   },
   {
-    "rank": 3,
-    "candidate_id": "C_E02_01",
-    "episode_id": 2,
-    "start_time": 0.0,
-    "end_time": 23.7,
-    "duration": 23.7,
-    "start_event_id": "E02_002",
-    "end_event_id": "E02_017",
-    "hook_quote": "I cannot marry you, Juliana.",
-    "cliffhanger_quote": "Promises change when a better choice appears.",
+    "rank": 2,
+    "candidate_id": "C_E01_01",
+    "episode_id": 1,
+    "start_time": 1.0,
+    "end_time": 23.5,
+    "duration": 22.5,
+    "start_event_id": "E01_002",
+    "end_event_id": "E01_015",
+    "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
+    "cliffhanger_quote": "What do you mean?",
     "spoiler_risk": "low",
     "scores": {
       "hook_score": 8.5,
@@ -66,177 +42,9 @@
       "emotion_score": 8.2,
       "promo_suitability": 8.0,
       "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 2."
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
     },
     "final_score": 84.05,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E02_01."
-  },
-  {
-    "rank": 4,
-    "candidate_id": "C_E03_01",
-    "episode_id": 3,
-    "start_time": 2.1,
-    "end_time": 25.5,
-    "duration": 23.4,
-    "start_event_id": "E03_002",
-    "end_event_id": "E03_019",
-    "hook_quote": "Look at you...",
-    "cliffhanger_quote": "Enough, Juliana.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 3."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E03_01."
-  },
-  {
-    "rank": 5,
-    "candidate_id": "C_E13_01",
-    "episode_id": 13,
-    "start_time": 5.1,
-    "end_time": 28.4,
-    "duration": 23.3,
-    "start_event_id": "E13_004",
-    "end_event_id": "E13_014",
-    "hook_quote": "Alexander turns toward Juliana, his manacled hands trembling as he grips her arm",
-    "cliffhanger_quote": "I would rather face the gallows than watch you hurt yourself for me.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 13."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
-  },
-  {
-    "rank": 6,
-    "candidate_id": "C_E25_01",
-    "episode_id": 25,
-    "start_time": 0.6,
-    "end_time": 25.5,
-    "duration": 24.9,
-    "start_event_id": "E25_002",
-    "end_event_id": "E25_017",
-    "hook_quote": "Juliana walks hurriedly along the leaf-strewn forest path, clutching her dark ho",
-    "cliffhanger_quote": "Who did this?",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 25."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
-  },
-  {
-    "rank": 7,
-    "candidate_id": "C_E38_01",
-    "episode_id": 38,
-    "start_time": 0.0,
-    "end_time": 22.0,
-    "duration": 22.0,
-    "start_event_id": "E38_002",
-    "end_event_id": "E38_014",
-    "hook_quote": "Juliana sits motionless against the cold masonry, weak and visibly drained from ",
-    "cliffhanger_quote": "Eat it before they see.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 38."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
-  },
-  {
-    "rank": 8,
-    "candidate_id": "C_E50_01",
-    "episode_id": 50,
-    "start_time": 0.0,
-    "end_time": 25.0,
-    "duration": 25.0,
-    "start_event_id": "E50_002",
-    "end_event_id": "E50_013",
-    "hook_quote": "Father Thomas lies flat on his back, breathless, while Catherine rests beside hi",
-    "cliffhanger_quote": "The west territory. Tax collection, all of it. Routed through my office.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 50."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Selected for exceptional hook (8.5) and cliffhanger intensity."
-  },
-  {
-    "rank": 9,
-    "candidate_id": "C_E04_01",
-    "episode_id": 4,
-    "start_time": 1.5,
-    "end_time": 25.8,
-    "duration": 24.3,
-    "start_event_id": "E04_003",
-    "end_event_id": "E04_020",
-    "hook_quote": "Juliana's eyes widen, stunned breath catching in her throat.",
-    "cliffhanger_quote": "You heard what they think I am.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 7.5,
-      "cliffhanger_score": 7.8,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 4."
-    },
-    "final_score": 78.55,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E04_01."
-  },
-  {
-    "rank": 10,
-    "candidate_id": "C_E05_01",
-    "episode_id": 5,
-    "start_time": 0.0,
-    "end_time": 23.0,
-    "duration": 23.0,
-    "start_event_id": "E05_002",
-    "end_event_id": "E05_014",
-    "hook_quote": "Juliana grips the heirloom ledger tightly against her waist, her posture resolut",
-    "cliffhanger_quote": "Your dowry is revoked.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 7.5,
-      "cliffhanger_score": 7.8,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 5."
-    },
-    "final_score": 78.55,
-    "post_first_because": "Highest viral engagement potential with instant 3s confrontation in candidate C_E05_01."
+    "post_first_because": "Strong hook with joyful anticipation and a questioning cliffhanger, but its mystery is slightly less punchy than the “Gerald?” reveal."
   }
 ]

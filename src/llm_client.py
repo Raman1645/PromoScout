@@ -241,7 +241,8 @@ class LLMClient:
                     data=json.dumps(payload).encode("utf-8"),
                     headers={
                         "Content-Type": "application/json",
-                        "Authorization": f"Bearer {self.api_key}"
+                        "Authorization": f"Bearer {self.api_key}",
+                        "User-Agent": "PromoScout/1.0 (EditorialDiscovery)"
                     },
                     method="POST"
                 )
@@ -275,7 +276,14 @@ class LLMClient:
                 return validated
 
             except (urllib.error.HTTPError, urllib.error.URLError, json.JSONDecodeError, ValidationError) as e:
-                last_error = e
+                if isinstance(e, urllib.error.HTTPError):
+                    try:
+                        err_body = e.read().decode("utf-8")
+                        last_error = f"{e} - {err_body}"
+                    except Exception:
+                        last_error = e
+                else:
+                    last_error = e
                 if attempt < max_retries:
                     if isinstance(e, (ValidationError, json.JSONDecodeError)):
                         current_prompt = (
