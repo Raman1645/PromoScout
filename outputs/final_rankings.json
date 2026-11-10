@@ -1,39 +1,15 @@
 [
   {
     "rank": 1,
-    "candidate_id": "C_E03_01",
-    "episode_id": 3,
-    "start_time": 2.1,
-    "end_time": 25.5,
-    "duration": 23.4,
-    "start_event_id": "E03_002",
-    "end_event_id": "E03_019",
-    "hook_quote": "Look at you...",
-    "cliffhanger_quote": "Enough, Juliana.",
-    "spoiler_risk": "low",
-    "scores": {
-      "hook_score": 8.5,
-      "cliffhanger_score": 9.0,
-      "standalone_score": 8.0,
-      "emotion_score": 8.2,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 3."
-    },
-    "final_score": 84.05,
-    "post_first_because": "Highest overall cold‑read score and a razor‑sharp hook‑cliff combo that drops viewers straight into a tense showdown."
-  },
-  {
-    "rank": 2,
-    "candidate_id": "C_E04_01",
-    "episode_id": 4,
-    "start_time": 1.5,
-    "end_time": 25.8,
-    "duration": 24.3,
-    "start_event_id": "E04_003",
-    "end_event_id": "E04_020",
-    "hook_quote": "Juliana's eyes widen, stunned breath catching in her throat.",
-    "cliffhanger_quote": "You heard what they think I am.",
+    "candidate_id": "C_E07_01",
+    "episode_id": 7,
+    "start_time": 0.0,
+    "end_time": 24.5,
+    "duration": 24.5,
+    "start_event_id": "E07_002",
+    "end_event_id": "E07_009",
+    "hook_quote": "Juliana, dressed in her simple grey long-sleeved gown, works tirelessly with soi",
+    "cliffhanger_quote": "This is where you live now?",
     "spoiler_risk": "low",
     "scores": {
       "hook_score": 7.5,
@@ -42,57 +18,33 @@
       "emotion_score": 8.2,
       "promo_suitability": 8.0,
       "coherence_score": 8.0,
-      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 4."
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 7."
     },
     "final_score": 78.55,
-    "post_first_because": "Strong visual hook and a provocative line that teases identity conflict, with a solid score to keep momentum."
+    "post_first_because": "Starts with a stark visual of Juliana’s humble labor and ends on the unsettling question “This is where you live now?” that forces viewers to stay for the answer."
   },
   {
-    "rank": 3,
-    "candidate_id": "C_E04_03",
-    "episode_id": 4,
-    "start_time": 127.5,
-    "end_time": 151.4,
-    "duration": 23.9,
-    "start_event_id": "E04_097",
-    "end_event_id": "E04_109",
-    "hook_quote": "Do not bring this man anywhere near Ashcroft Manor!",
-    "cliffhanger_quote": "Juliana and the Mysterious Bearded Man walk hand-in-hand through the towering do",
-    "spoiler_risk": "medium",
+    "rank": 2,
+    "candidate_id": "C_E07_02",
+    "episode_id": 7,
+    "start_time": 19.5,
+    "end_time": 44.8,
+    "duration": 25.3,
+    "start_event_id": "E07_007",
+    "end_event_id": "E07_020",
+    "hook_quote": "Aristocratic Woman smirks cruelly as she surveys the humble stone cottage.",
+    "cliffhanger_quote": "I work with my hands. There is no shame in that.",
+    "spoiler_risk": "low",
     "scores": {
-      "hook_score": 8.0,
-      "cliffhanger_score": 8.5,
-      "standalone_score": 7.5,
-      "emotion_score": 8.0,
+      "hook_score": 7.5,
+      "cliffhanger_score": 7.8,
+      "standalone_score": 8.0,
+      "emotion_score": 8.2,
       "promo_suitability": 8.0,
       "coherence_score": 8.0,
-      "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+      "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 7."
     },
-    "final_score": 75.25,
-    "post_first_because": "Compelling hook about forbidden proximity and a romantic‑mystery cliffhanger that promises intrigue."
-  },
-  {
-    "rank": 4,
-    "candidate_id": "C_E03_03",
-    "episode_id": 3,
-    "start_time": 125.3,
-    "end_time": 145.75,
-    "duration": 20.45,
-    "start_event_id": "E03_106",
-    "end_event_id": "E03_118",
-    "hook_quote": "I am offering it back.",
-    "cliffhanger_quote": "Juliana gazes down at her rugged savior, overcome with emotion as the swelling s",
-    "spoiler_risk": "medium",
-    "scores": {
-      "hook_score": 8.0,
-      "cliffhanger_score": 8.5,
-      "standalone_score": 7.5,
-      "emotion_score": 8.0,
-      "promo_suitability": 8.0,
-      "coherence_score": 8.0,
-      "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
-    },
-    "final_score": 75.25,
-    "post_first_because": "Decent hook and cliff but less immediate tension than the others, making it a good follow‑up rather than a lead."
+    "final_score": 78.55,
+    "post_first_because": "The aristocratic woman’s cruel smirk and the defiant line “I work with my hands…” create strong tension, but lack the immediate question hook of C_E07_01."
   }
 ]

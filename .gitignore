@@ -5,6 +5,7 @@ venv/
 
 # Screenplay Confidentiality & Data Pack
 I Married a Broken Soldier. He was a Duke/
+*.zip
 *.pdf
 !solution_doc.pdf
 plan_ps1.md
