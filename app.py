@@ -485,8 +485,10 @@ with tabs[2]:
                         st.code(raw_feed, language="text")
                     with col_anon:
                         st.subheader("Anonymized Cold-Read Input")
-                        anon_feed = format_clip_anonymized(sample_cand, ep)
+                        anon_feed, speaker_map = format_clip_anonymized(sample_cand, ep)
                         st.code(anon_feed, language="text")
+                        if speaker_map:
+                            st.caption(f"**Anonymization Key:** {', '.join(f'{v} = {k}' for k, v in speaker_map.items())}")
 
 
 # TAB 4: QUALITY BENCHMARK

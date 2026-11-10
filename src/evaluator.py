@@ -5,6 +5,33 @@ from src.models import PromoCandidate, Episode, ColdReadScore, ScreenplayEvent
 from src.llm_client import LLMClient
 
 
+def format_clip_relative(candidate: PromoCandidate, episode: Episode) -> str:
+    """Format clip events using relative timestamps with original character names for UI inspection."""
+    event_map = {e.event_id: e for e in episode.events}
+    start_ev = event_map.get(candidate.start_event_id)
+    end_ev = event_map.get(candidate.end_event_id)
+
+    if not start_ev or not end_ev:
+        return ""
+
+    start_idx = episode.events.index(start_ev)
+    end_idx = episode.events.index(end_ev)
+    clip_events = episode.events[start_idx : end_idx + 1]
+
+    clip_start_t = candidate.start_time
+    lines = []
+    lines.append(f"CLIP DURATION: {candidate.duration:.2f} seconds")
+    lines.append("SCENE DIALOGUE & VISIBLE ACTION (Relative timing, original character names):")
+
+    for ev in clip_events:
+        rel_start = max(0.0, round(ev.start_time - clip_start_t, 2))
+        rel_end = max(rel_start, round(ev.end_time - clip_start_t, 2))
+        tag = ev.character if ev.event_type == "dialogue" else f"[{ev.event_type.upper()}]"
+        lines.append(f"[{rel_start:05.2f}s - {rel_end:05.2f}s] {tag}: {ev.text}")
+
+    return "\n".join(lines)
+
+
 def format_clip_anonymized(candidate: PromoCandidate, episode: Episode) -> Tuple[str, Dict[str, str]]:
     """
     Format clip events using strictly relative timestamps (0.0s = clip start),
