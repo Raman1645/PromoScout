@@ -2,6 +2,7 @@
 
 import pytest
 import os
+from pathlib import Path
 from src.llm_client import LLMClient, ConfigurationError
 from src.evaluator import format_clip_anonymized
 from src.parser import ScreenplayParser
@@ -39,7 +40,9 @@ def test_groq_defaults():
 def test_speaker_anonymization():
     """Verify that cold-read transcript neutralizes speaker names to [SPEAKER A], [SPEAKER B]."""
     parser = ScreenplayParser()
-    ep1_path = "I Married a Broken Soldier. He was a Duke/episode-001-Episode 1671703.txt"
+    ep1_path = Path("I Married a Broken Soldier. He was a Duke/episode-001-Episode 1671703.txt")
+    if not ep1_path.exists():
+        pytest.skip("Proprietary screenplay pack omitted for confidentiality")
     ep = parser.parse_file(ep1_path)
 
     # Candidate from E01_008 (Matriarch) to E01_027 (Lady in Gold Gown)

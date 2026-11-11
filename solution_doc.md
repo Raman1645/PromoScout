@@ -2,6 +2,7 @@
 **Candidate Solution Document — Kuku AI Generalist Assignment (Problem 1: Find the Promos / Ads)**  
 **Author:** AI Generalist Candidate  
 **Target Show:** *I Married a Broken Soldier. He was a Duke* (Episodes 1–50)  
+**Repository:** [https://github.com/Raman1645/PromoScout](https://github.com/Raman1645/PromoScout)  
 
 ---
 
@@ -11,10 +12,11 @@ Microdramas live or die by performance marketing on TikTok, Instagram Reels, and
 
 ### Scoping & Sensible Assumptions
 Where the assignment brief was silent, we established clear operational assumptions:
-1. **The Promo Hook (First 3 Seconds):** Scrolling social media users decide within 3 seconds whether to stay. Therefore, the clip must open on immediate narrative ignition—a slap, a public humiliation, or a shocking reveal—at the screenplay's timestamp resolution (0.01 s).
+1. **The Promo Hook (First 3 Seconds):** Scrolling social media users decide within 3 seconds whether to stay. Therefore, the clip must open on immediate narrative ignition—a slap, a public humiliation, or a shocking reveal—at the screenplay's timestamp resolution (0.1 s).
 2. **The Cliffhanger (Unresolved Tension):** The clip must cut precisely during the climax of tension (an unanswered ultimatum, gasps after an accusation) rather than letting the scene resolve.
 3. **Standalone Comprehension (Cold Read):** Viewers encountering the ad have never seen the series. The dramatic conflict must be self-evident without needing external lore or character lineage.
-4. **Confidentiality:** Screenplay texts are proprietary. Pipeline prompts and raw outputs must be kept out of public repositories; raw outputs are archived in a designated directory for link-only sharing.
+4. **Operating Boundaries:** Screenplay event timestamps define boundaries; dialogue, action, camera, and sound lines are treated as events at 0.1 s resolution.
+5. **Confidentiality:** Screenplay texts are proprietary. Pipeline prompts, screenplays, and raw outputs are kept out of public repositories; the public GitHub repository contains clean code, documentation, test suites, and deliverables.
 
 ---
 
@@ -22,69 +24,71 @@ Where the assignment brief was silent, we established clear operational assumpti
 
 ### Division of Labor: Python vs. LLM
 Our core design principle is:
-> **"Python owns timestamps, boundaries, and deterministic math; LLMs own creative judgment, candidate discovery, and comparative ranking."**
+> **"Python owns timestamps, boundaries, and deterministic math; LLMs do candidate discovery, creative evaluation, and comparative ranking."**
 
 - **Deterministic Python Engine:**
-  - Fast regex parser extracting 3,727 events across 50 episodes with zero misses.
+  - Fast regex parser extracting 3,727 events across 50 episodes (mean duration 123.2 s, range 69.2–223.7 s) with zero misses.
   - Duration validation enforcing strict 20.0s to 60.0s bounds.
   - Algorithmic trimming for clips $> 60\text{s}$ (stripping non-dialogue buffer while preserving dialogue).
   - Feedback-driven proposer retry for clips $< 20\text{s}$ (prompting the model once with explicit duration feedback).
   - Strict post-repair validation: verbatim quote verification in source text, hook starting $\le 3.0\text{s}$ from clip start, cliffhanger ending $\le 5.0\text{s}$ from clip end.
-  - Intra-episode candidate deduplication ($\text{IoU} > 0.5$).
+  - Intra-episode candidate deduplication ($\text{IoU} > 0.5$): No LLM involved; avoids spending evaluation calls on near-duplicate cuts.
   - Diversity constraints: maximum 2 promos per episode across the final Top 10.
-- **Creative LLM Stages (Groq GPT-OSS Models):**
-  - **Stage 1 (Proposer - `openai/gpt-oss-120b`):** Inspects compact episode event feeds and proposes 1–3 candidate promos with exact quotes and spoiler risk ratings. Retries once with feedback if duration is under 20s.
+- **Creative LLM Stages:**
+  - **Models Actually Executed:** The live pipeline run used Groq-hosted `openai/gpt-oss-120b` for candidate proposal across Episodes 1–27, and `openai/gpt-oss-20b` for cold-read evaluation and listwise ranking. The codebase also supports OpenAI `gpt-4o-mini` interchangeably via CLI and UI.
+  - **Stage 1 (Proposer - `openai/gpt-oss-120b`):** Inspects compact episode event feeds and proposes 1–3 candidate promos with exact quotes and spoiler risk ratings. Allocating 2,500 completion tokens ensures reasoning models have sufficient headroom to complete thinking without returning empty JSON.
   - **Stage 2 (Cold-Read Evaluator - `openai/gpt-oss-20b`):** True zero-context evaluation. Neutralizes character names to `[SPEAKER A]`, `[SPEAKER B]`, strips camera directions, and uses relative timestamps ($00.00\text{s} = \text{start}$) so the evaluator cannot infer episode lore or position. Scores 5 dimensions: Hook ($H$), Cliffhanger ($C$), Standalone ($A$), Emotion ($E$), and Promo Suitability ($P$).
-  - **Stage 3 (Listwise Ranker - `openai/gpt-oss-120b`):** Candidate order is shuffled to eliminate position bias. Answers *"Which would you post first, and why?"* and outputs a strict permutation of all 20 candidate IDs.
+  - **Stage 3 (Listwise Ranker - `openai/gpt-oss-20b`):** Candidate order is shuffled to eliminate position bias. Answers *"Which would you post first, and why?"* and outputs a strict permutation of candidate IDs with editorial rationales.
 - **Resilience & Checkpointing:**
-  - Stage-level checkpoint manager (`src/checkpoint.py`) saves atomic JSON outputs per stage, allowing `--resume` from interruptions and single-stage audits via `--stage` and `--inspect`.
+  - Passing `--resume` stores stage outputs per episode on disk (`cache/checkpoints/`). Interrupted runs resume from the last completed episode without re-calling the API.
+  - Sliding-window rate limiting parses suggested wait times from HTTP 429 headers (`try again in X.Xs`) with automatic backoff.
+  - An explicit fixture mode (`--mock`) enables reproducible testing without network calls.
 
-### Scalability, Rate Limits & Token Economics
-- **Sliding-Window Throttling (`--rpm`):** Enforces request-per-minute limits (default 15 RPM for free tiers) preventing 429 throttling.
-- **Deterministic Disk Caching (`cache/`):** Cache keys are hashed with `model + prompt + temperature + run_id`. Passing distinct `--run-id` values ensures genuine multi-run evaluation.
-- **Token Efficiency:** A full 50-episode run requires ~100 LLM calls (50 proposals + ~50 evaluations + 1 listwise ranker call), utilizing approximately 140k input tokens and 15k output tokens. On typical modern models, this costs pennies and runs within free-tier quotas.
-- **Human-in-the-Loop:** PromoScout operates as an editorial discovery assistant. Editors review the interactive HTML dashboard, approving or rejecting ranked clips. Editorial approvals feed back into scoring weights.
+### Scalability & Token Economics (Estimated)
+- **Token Efficiency:** A 50-episode show contains $\approx 140\text{k}$ screenplay input tokens. End-to-end processing requires $\approx 50$ proposer calls, $\approx 100$ cold-read evaluations, and 1 listwise ranking call, totaling roughly 150k input tokens and 60k completion tokens ($\approx 210\text{k}$ total tokens).
+- **Cost Estimate:**
+  - On OpenAI `gpt-4o-mini` (\$0.15/1M input, \$0.60/1M output), the estimated cost is **under \$0.06 per 50-episode show** (under 10 cents).
+  - On flagship `gpt-4o`, it is roughly **\$0.95 per show**.
+  - On Groq on-demand, it is $\approx \mathbf{\$0.05\text{--}\$0.15}$ per show.
+- **Human-in-the-Loop:** PromoScout operates as an editorial discovery assistant. Editors review the interactive Streamlit Studio (`app.py`), accepting or rejecting ranked clips with decisions appended to `outputs/feedback.csv`.
 
 ---
 
 ## 3. Quality Checking, Benchmarks & Honest Failures
 
-Rather than relying on vague virality claims, PromoScout is benchmarked with deterministic metrics:
+To evaluate retrieval quality objectively, we manually labelled promo windows for five sample episodes (1, 13, 25, 38, 50) before inspecting system output. A candidate is credited as a true positive only if its temporal Intersection-over-Union ($\text{IoU}$) exceeds 0.50 against ground truth.
 
-### 3.1 Systematic Gold Set Benchmark ($\text{HitRate@3}$)
-To prevent confirmation bias, we selected 5 gold episodes using a uniform sampling rule across the 50-episode arc (**Episodes 1, 13, 25, 38, 50**) and manually annotated ground-truth promotional windows *prior* to evaluation. A system recommendation is considered a match if any candidate in the episode's top 3 achieves temporal $\text{IoU} > 0.5$ with an annotated gold window.
-- **Result:** **4 out of 5 episodes matched ($\mathbf{80.0\%}$ HitRate@3)**.
-  - Episode 1 (Altar Betrayal): $\text{IoU} = 0.918$ (Match)
-  - Episode 13 (Thorn Bush Search): $\text{IoU} = 0.769$ (Match)
-  - Episode 25 (Injury Confrontation): $\text{IoU} = 0.639$ (Match)
-  - Episode 38 (Prison Kindness): $\text{IoU} = 0.130$ (Miss)
-  - Episode 50 (Forbidden Meeting): $\text{IoU} = 0.829$ (Match)
+### 3.1 Empirical Findings Summary
 
-### 3.2 Stability Test ($\text{Overlap@10}$)
-We executed dual runs at temperature 0.3 using distinct cache keys (`--run-id run_1` and `--run-id run_2`).
-- **Result:** $\mathbf{80.0\%}$ **Overlap@10** (8 out of 10 promos matched across runs with $\text{IoU} > 0.5$).
+| Check | Status | Empirical Findings and Engineering Evidence |
+|---|---|---|
+| **Parser, all 50 episodes** | Done | 3,727 events extracted across 50 episodes (mean duration 123.2 s, range 69.2–223.7 s). 17 unit tests pass unconditionally on synthetic fixtures; 3 integration tests verify the full 50-episode pack when present locally (skipped when proprietary screenplays are omitted for repository confidentiality). |
+| **Live run, Episodes 1–27** | Done (Live) | 27 continuous episodes (2,032 events) proposed live with `gpt-oss-120b`. 56 raw candidates extracted; Stage 4 temporal deduplication pruned 5 overlapping variants ($\text{IoU} > 0.5$), yielding 51 distinct candidates. Evaluated live with `gpt-oss-20b`: 12 passed gates ($H \ge 7, C \ge 7$), yielding a live Top 10 with editorial rationales (Rank #1: Ep 12 gallows threat, Score 78.2; Rank #2: Ep 19 informant mystery, Score 73.5). 53 live API calls, 82,168 tokens, 533.6 s runtime. |
+| **Partial live Gold Set (Ep 1, 13, 25)** | Done (Live) | 3 of the 5 gold episodes fall within the live 27-episode run. Best candidate IoU per episode: Ep 1 = 0.773 (Hit), Ep 13 = 0.738 (Hit), Ep 25 = 0.000 (Miss, model selected later confession). Partial live HitRate@3 is **2/3 (66.7%)**. |
+| **Harness & Stability** | Mock only, not model evidence | Replaying static offline fixtures yields HitRate@3 of 4/5 and Overlap@10 of 10/10. This validates metric calculation plumbing, not live model quality or live stability. |
+| **Full-series run (Ep 28–50)** | Paused | Paused at Ep 28 when Groq free-tier reached its daily limit (200,000 tokens/day for `gpt-oss-120b`). Can be resumed with `--resume`. |
 
-### 3.3 Honest Failure Mode Analysis (Observed Failures)
-1. **Failure Mode 1: Context Inversion in Mid-Arc Episodes (Episode 38 Miss):**
-   *Observed:* In Episode 38, the system proposed a later confrontation clip ($\text{IoU} = 0.130$) rather than the early bread/guard interaction. Because the cold-read evaluator saw only the clip transcript, it rewarded loud aggressive threats over subtle emotional tension, missing the quiet dramatic contrast.
-   *Fix:* Calibrate the Cold-Read Evaluator prompt to recognize subtle suspense alongside explosive dialogue.
-2. **Failure Mode 2: Premature Trimming of Climactic Reaction Shots:**
-   *Observed:* On two clips $> 60\text{s}$, algorithmic trimming discarded trailing camera direction events to reach 59.5s. While dialogue was preserved, the final gasp reaction shot was trimmed, slightly softening the visual cliffhanger impact.
-   *Fix:* Allow duration repair to extend the upper limit to 62s if the final event is a camera reaction shot directly tied to the cliffhanger line.
-3. **Failure Mode 3: Over-Penalizing Strategic Mid-Show Reveals:**
-   *Observed:* In Episode 25, a clip revealing Alexander's secret concern for Juliana was flagged as "Medium Spoiler" ($-5$ point penalty), dropping it below a generic shouting match.
-   *Fix:* Differentiate between "Climactic Spoilers" (ruining mysteries) and "Premise Hooks" (revealing relationship chemistry that attracts viewers).
+### 3.2 Where the AI Got It Wrong (Honest Failure Cases)
+
+1. **Episode 25 Gold Set Miss ($\text{IoU} = 0.000$):**
+   *Observed:* Human annotation targeted the opening injury confrontation (5.1–32.5 s, *"Why are you walking like that?"*). The live proposer instead selected later scenes (47.0–97.4 s and 128.0–156.2 s), prioritizing mid-episode emotional confessions over the opening confrontation beat.
+   *Editorial Takeaway:* Proposers need explicit weighting to favor cold-open confrontations when an episode contains multiple dramatic peaks.
+2. **Episode 1 Dual-Gate Rejection:**
+   *Observed:* In Episode 1, the model proposed 4 candidate cuts, but the cold-read evaluator gave all four sub-threshold hook scores ($H = 6.5 < 7.0$). Lines like *"I changed my mind"* provided conversational exposition rather than immediate visceral shock.
+   *Editorial Takeaway:* The quality gate correctly rejected all four, producing zero promos for Episode 1 rather than lowering editorial standards.
+3. **Screenplay vs. Video Modality Gap (Expected Risk):**
+   *Observed:* Screenplay text lacks visual framing, sound design, and micro-acting nuances; an editor must visually verify whether a high-scoring text exchange holds visual energy on screen.
 
 ---
 
 ## 4. Prototype & Production Deliverables
 
-- **CLI Tool (`run.py`):** Modular CLI supporting Groq models (`--model openai/gpt-oss-120b`, `--evaluator-model openai/gpt-oss-20b`), `--episodes`, `--base-url`, `--api-key`, `--rpm`, `--stage`, `--resume`, `--inspect`, and `--mock` (fixture replay without API keys).
-- **Interactive Web Studio (`app.py`):** Streamlit application with 5 interactive views: Ranked Promos, Screenplay Explorer, Stage Audit & Speaker Anonymization Inspector, Quantitative Benchmarks, and Direct Downloads.
-- **Evaluation Suite (`evaluate.py`):** Recomputes $\text{HitRate@3}$ and genuine dual-run $\text{Overlap@10}$ on demand with synthetic fixture labeling.
+- **CLI Tool (`run.py`):** Modular CLI supporting Groq and OpenAI models (`--provider groq --model openai/gpt-oss-20b`), `--episodes`, `--rpm`, `--stage`, `--resume`, `--inspect`, and `--mock` (fixture replay without API keys).
+- **Interactive Web Studio (`app.py`):** Streamlit application with 4 interactive tabs: Top 10 Promos, Run Pipeline (supports Groq & OpenAI with masked keys), Live Pipeline Metrics (100% active execution data), and All Candidates Audit.
+- **Evaluation Suite (`evaluate.py`):** Benchmarking harness for $\text{HitRate@3}$ and dual-run $\text{Overlap@10}$.
 - **Reporting (`outputs/`):**
-  - `final_rankings.json`: Complete structured JSON.
+  - `final_rankings.json`: Structured JSON containing live Top 10 promos, timestamps, verbatim quotes, cold-read scores, and editorial rationales.
   - `final_rankings.csv`: Production table for media buyers.
   - `report.html`: Standalone, interactive dashboard with responsive promo cards, score breakdowns, and verbatim quotes.
-- **Raw Outputs (`raw_outputs/`):** Full, unedited intermediate JSON logs for all 50 episodes.
-
+  - `run_metadata.json`: Complete execution audit with token accounting and validator statistics.
+- **Test Suite (`tests/`):** 20 unit and integration tests passing (`pytest tests`).
