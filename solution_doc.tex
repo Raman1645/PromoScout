@@ -66,15 +66,15 @@ Microdrama editors must review short, densely scripted episodes to find 20--60-s
 The core design separates deterministic checks from subjective judgment: \textbf{Python does parsing, timestamps, boundaries and rules; LLMs do candidate discovery, creative evaluation and comparative ranking.}
 
 \footnotesize
-\begin{tabularx}{\linewidth}{@{}p{0.18\linewidth}YY@{}}
+\begin{tabularx}{\linewidth}{@{}p{0.18\linewidth}p{0.44\linewidth}Y@{}}
 \toprule
 \textbf{Stage} & \textbf{What happens} & \textbf{Why this division} \\
 \midrule
 \stage{1. Parse} & Regex extracts scenes, dialogue, action, camera and sound events at 0.1\,s resolution; assigns canonical IDs. & Structured source events are auditable and searchable. \\
-\stage{2. Propose} & LLM reads an episode and proposes up to three windows using event IDs, exact hook/cliffhanger quotes and spoiler risk. & Semantic and dramatic moment discovery needs language judgment. \\
+\stage{2. Propose} & LLM proposes up to three windows per episode using event IDs, exact quotes and spoiler risk. & Captures major dramatic beats (opening, reveal, climax) while avoiding candidate explosion. \\
 \stage{3. Validate} & Python resolves IDs to timestamps, checks 20--60\,s duration, verifies quotes and hook timing; underlength clips get one targeted retry, overlength clips are trimmed. & Arithmetic and source matching are deterministic. \\
-\stage{4. Deduplicate} & Same-episode overlaps are compared using temporal IoU; redundant candidates ($\text{IoU} > 0.5$) are removed. & No LLM involved; avoids spending evaluation calls on near-duplicates. \\
-\stage{5. Cold-read} & Evaluator sees only clip text, with speakers anonymised and times made relative (00.00\,s baseline); scores hook, cliffhanger, standalone clarity, emotion and suitability. & Reduces reliance on story lore or character recognition. \\
+\stage{4. Deduplicate} & Compares same-episode overlaps via temporal IoU (overlap divided by union of intervals); prunes pairs with $\text{IoU} > 0.5$. & No LLM involved; avoids spending evaluation calls on near-duplicates. \\
+\stage{5. Cold-read} & Evaluator sees only clip dialogue with character names neutralized (\texttt{[SPEAKER A/B]}), stage cues stripped, and times relative (00.00\,s start). & Isolates dialogue tension and prevents protagonist bias or lore assumptions. \\
 \stage{6. Score/rank} & Python applies quality gates ($H \ge 7, C \ge 7$); an LLM ranks a shuffled top-20 shortlist. Python enforces diversity ($\le 2$/ep). & Explainable gates plus comparative editorial judgment. \\
 \stage{7. Report} & Produces ranked JSON, CSV and HTML with timestamps, quotes, scores, spoiler risk and rationales. & Editors can inspect and reuse recommendations. \\
 \bottomrule
@@ -85,7 +85,7 @@ The core design separates deterministic checks from subjective judgment: \textbf
 \[
 S = (0.25H + 0.25C + 0.20A + 0.15E + 0.15P)\times 10,
 \]
-where \(A\) is standalone clarity, \(E\) emotional impact and \(P\) promo suitability. Medium/high spoiler risk subtracts 5/10 points. The LLM ranks the shortlist; Python enforces a maximum of two promos per episode and avoids selecting candidates with temporal IoU \(>0.5\), unless editorially distinct.
+where \(A\) is standalone clarity, \(E\) emotional impact and \(P\) promo suitability. Medium spoiler risk incurs a 5-point penalty on the final 100-point score (high risk incurs a 10-point penalty). The LLM ranks the shortlist; Python enforces a maximum of two promos per episode and avoids selecting candidates with temporal IoU \(>0.5\), unless editorially distinct.
 
 \section{4. AI usage and engineering choices}
 The live pipeline uses a provider-compatible client supporting Groq and OpenAI. In the live run reported here, \textbf{\texttt{openai/gpt-oss-120b}} was used for candidate proposal across Episodes 1--27, and \textbf{\texttt{openai/gpt-oss-20b}} was used for cold-read evaluation and listwise ranking. The codebase also supports \texttt{gpt-4o-mini} interchangeably via CLI and UI. Structured responses are enforced with Pydantic schemas.
@@ -94,11 +94,11 @@ The live pipeline uses a provider-compatible client supporting Groq and OpenAI. 
 \begin{itemize}[leftmargin=*, nosep]
     \item \textbf{Reasoning token budget:} Groq's open-source models generate internal reasoning tokens before emitting content. If \texttt{max\_tokens} is capped too tightly (e.g., 1,000 tokens), the reasoning step exhausts the entire budget and returns empty text, triggering JSON mode validation errors. Allocating 2,500 completion tokens ensures adequate room for the model to complete its reasoning and emit the full JSON structure.
     \item \textbf{Rate limits and retry logic:} Free-tier inference enforces an 8,000 tokens-per-minute (TPM) sliding window. When an HTTP 429 occurs, the client parses the suggested wait time from the response body (\texttt{try again in X.Xs}), sleeps for that duration plus buffer, and retries up to 8 times.
-    \item \textbf{Checkpoint-based resumption:} Passing \texttt{-{}-resume} stores stage outputs per episode on disk (\texttt{cache/checkpoints/}). Interrupted runs resume from the last completed episode without re-calling the API. An offline \texttt{-{}-mock} fixture mode enables reproducible testing without network calls.
+    \item \textbf{Checkpoint-based resumption:} Passing \texttt{-{}-resume} stores stage outputs per episode on disk (\texttt{cache/checkpoints/}). Completed episode stages are loaded directly from disk upon resumption and never re-queried, protecting progress against interruptions. An offline \texttt{-{}-mock} fixture mode enables reproducible testing without network calls.
 \end{itemize}
 
 \section{5. Quality checks and benchmark results}
-To evaluate retrieval quality objectively, I manually labelled promo windows for five sample episodes (1, 13, 25, 38, 50) before inspecting system output. A candidate is credited as a true positive only if its temporal Intersection-over-Union ($\text{IoU}$) exceeds 0.50 against the labelled window.
+To evaluate retrieval quality objectively, I manually labelled promo windows for five sample episodes (1, 13, 25, 38, 50) before inspecting system output. HitRate@3 measures whether at least one of an episode's three candidate proposals overlaps the annotated gold window with temporal $\text{IoU} > 0.50$, where $\text{IoU} = \frac{\text{overlap}(A, B)}{\text{union}(A, B)}$. A high IoU verifies that the model identified the human-chosen dramatic scene window; it measures retrieval accuracy, while the cold-read evaluator measures standalone viewer appeal.
 
 \small
 \begin{tabularx}{\linewidth}{@{}p{0.24\linewidth}p{0.14\linewidth}Y@{}}
@@ -109,11 +109,11 @@ To evaluate retrieval quality objectively, I manually labelled promo windows for
 \addlinespace[3pt]
 \textbf{Live run, Episodes 1--27} & Done (Live) & 27 continuous episodes (2,032 events) proposed live with \texttt{gpt-oss-120b}. 56 raw candidates extracted; Stage 4 temporal deduplication pruned 5 overlapping variants ($\text{IoU} > 0.5$), yielding 51 distinct candidates. Evaluated live with \texttt{gpt-oss-20b}: 12 passed gates ($H \ge 7, C \ge 7$), yielding a live Top 10 with editorial rationales (Rank \#1: Ep 12 gallows threat, Score 78.2; Rank \#2: Ep 19 informant mystery, Score 73.5). 53 live API calls, 82,168 tokens, 533.6\,s runtime. \\
 \addlinespace[3pt]
-\textbf{Partial live Gold Set (Ep 1, 13, 25)} & Done (Live) & 3 of the 5 gold episodes fall within the live 27-episode run. Best candidate IoU per episode: Ep 1 = 0.773 (Hit), Ep 13 = 0.738 (Hit), Ep 25 = 0.000 (Miss, model selected later confession). Partial live HitRate@3 is \textbf{2/3 (66.7\%)}. \\
+\textbf{Partial live Gold Set (Ep 1, 13, 25)} & Done (Live) & 3 of the 5 gold episodes fall within the live 27-episode run. Across their candidate pools ($\le 3$ proposals per episode), best IoU per episode: Ep 1 = 0.773 (Hit), Ep 13 = 0.738 (Hit), Ep 25 = 0.000 (Miss, model selected later confession). Partial live HitRate@3 is \textbf{2/3 (66.7\%)}. \\
 \addlinespace[3pt]
 \textbf{Harness \& Stability} & Mock only, not model evidence & Replaying static offline fixtures yields HitRate@3 of 4/5 and Overlap@10 of 10/10. This validates metric calculation plumbing, not live model quality or live stability. \\
 \addlinespace[3pt]
-\textbf{Full-series run (Ep 28--50)} & Paused & Paused at Ep 28 when Groq free-tier reached its daily limit (200,000 tokens/day for \texttt{gpt-oss-120b}). Can be resumed with \texttt{-{}-resume}. \\
+\textbf{Full-series run (Ep 28--50)} & Paused & Paused at Ep 28 when Groq free-tier reached its daily limit (200,000 tokens/day for \texttt{gpt-oss-120b}). The reported 82,168 tokens (53 calls) in the row above reflect the evaluation and ranking stage on \texttt{openai/gpt-oss-20b}; earlier candidate proposals across Episodes 1--27 combined with prior test iterations accounted for the remaining daily quota on \texttt{gpt-oss-120b}. Processing can resume via \texttt{-{}-resume}. \\
 \bottomrule
 \end{tabularx}
 \normalsize
@@ -129,15 +129,15 @@ To evaluate retrieval quality objectively, I manually labelled promo windows for
 \begin{itemize}
 \item \textbf{Throughput:} Episodes are independent until global ranking, allowing concurrent per-episode parsing and candidate generation.
 \item \textbf{Reliability:} Stage-level checkpoints allow interrupted jobs to resume without re-running earlier episodes; transient API failures back off automatically.
-\item \textbf{Cost economics (estimated):} A 50-episode show contains $\approx 140\text{k}$ screenplay input tokens. End-to-end processing requires $\approx 50$ proposer calls, $\approx 100$ cold-read evaluations, and 1 listwise ranking call, totaling roughly 150k input tokens and 60k completion tokens ($\approx 210\text{k}$ total tokens). On \texttt{gpt-4o-mini} (\$0.15/1M input, \$0.60/1M output), the estimated cost is \textbf{under \$0.06 per 50-episode show}. On a flagship model like \texttt{gpt-4o}, it is $\approx \$0.95$ per show. On Groq on-demand, it is $\approx \$0.05$--\$0.15 per show.
-\item \textbf{Quality operations:} Maintain a 5-episode human gold set per series, log editor accept/reject feedback (appended to \texttt{outputs/feedback.csv}), and recalibrate scoring gates periodically against acceptance rates.
+\item \textbf{Cost economics (projected estimate):} A 50-episode show contains $\approx 140\text{k}$ screenplay input tokens. End-to-end processing requires $\approx 50$ proposer calls, $\approx 100$ cold-read evaluations, and 1 listwise ranking call, totaling roughly 150k input tokens and 60k completion tokens ($\approx 210\text{k}$ total tokens). Projected costs are estimates based on published API pricing as of November 2026, not measured billing: on OpenAI \texttt{gpt-4o-mini} (\$0.15/1M input, \$0.60/1M output), the estimated cost is \textbf{under \$0.06 per 50-episode show}. On flagship \texttt{gpt-4o} (\$2.50/\$10.00), it is $\approx \$0.95$ per show. On Groq on-demand, it is $\approx \$0.05$--\$0.15 per show.
+\item \textbf{Quality operations:} Maintain a 5-episode human gold set per series, log editor accept/reject feedback in \texttt{outputs/feedback.csv} to build an empirical preference dataset, and recalibrate scoring gates and weights periodically against acceptance rates.
 \item \textbf{Production extension:} Ingest video keyframes and audio tracks to evaluate visual hooks and sound cues directly.
 \end{itemize}
 
 \section{7. Limits, deliverables and disclosure}
 \textbf{Limits:} One show evaluated; single-segment continuous promos only; text-only evaluation without video/audio analysis; hand-tuned scoring weights rather than learned weights; and no downstream social ad conversion tracking yet.
 
-\textbf{Deliverables:} Python CLI (\texttt{run.py}) and Streamlit editorial studio (\texttt{app.py}); JSON/CSV rankings and HTML dashboard (\texttt{outputs/}); 20 unit tests (\texttt{tests/}); and offline fixture benchmarks (\texttt{fixtures/}). Repository: \url{https://github.com/Raman1645/PromoScout}.
+\textbf{Deliverables:} Python CLI (\texttt{run.py}) and Streamlit editorial studio (\texttt{app.py}); JSON/CSV rankings and HTML dashboard (\texttt{outputs/}); 20 automated tests: 17 unit tests and 3 integration tests (\texttt{tests/}); and offline fixture benchmarks (\texttt{fixtures/}). Repository: \url{https://github.com/Raman1645/PromoScout}.
 
 \textbf{AI tools disclosure:} Claude for code structuring and initial architectural critique; Groq-hosted open-source models inside the pipeline; ChatGPT for editorial review of this document. Model suggestions are recommendations requiring editor sign-off. Earlier drafts conflated mock harness replays with measured live results; this version distinguishes mock plumbing verification from measured live evidence.
 

@@ -24,7 +24,7 @@ Where the assignment brief was silent, we established clear operational assumpti
 
 ### Division of Labor: Python vs. LLM
 Our core design principle is:
-> **"Python owns timestamps, boundaries, and deterministic math; LLMs do candidate discovery, creative evaluation, and comparative ranking."**
+> **"Python does parsing, timestamps, boundaries and rules; LLMs do candidate discovery, creative evaluation and comparative ranking."**
 
 - **Deterministic Python Engine:**
   - Fast regex parser extracting 3,727 events across 50 episodes (mean duration 123.2 s, range 69.2–223.7 s) with zero misses.
@@ -36,27 +36,32 @@ Our core design principle is:
   - Diversity constraints: maximum 2 promos per episode across the final Top 10.
 - **Creative LLM Stages:**
   - **Models Actually Executed:** The live pipeline run used Groq-hosted `openai/gpt-oss-120b` for candidate proposal across Episodes 1–27, and `openai/gpt-oss-20b` for cold-read evaluation and listwise ranking. The codebase also supports OpenAI `gpt-4o-mini` interchangeably via CLI and UI.
-  - **Stage 1 (Proposer - `openai/gpt-oss-120b`):** Inspects compact episode event feeds and proposes 1–3 candidate promos with exact quotes and spoiler risk ratings. Allocating 2,500 completion tokens ensures reasoning models have sufficient headroom to complete thinking without returning empty JSON.
-  - **Stage 2 (Cold-Read Evaluator - `openai/gpt-oss-20b`):** True zero-context evaluation. Neutralizes character names to `[SPEAKER A]`, `[SPEAKER B]`, strips camera directions, and uses relative timestamps ($00.00\text{s} = \text{start}$) so the evaluator cannot infer episode lore or position. Scores 5 dimensions: Hook ($H$), Cliffhanger ($C$), Standalone ($A$), Emotion ($E$), and Promo Suitability ($P$).
+  - **Stage 1 (Proposer - `openai/gpt-oss-120b`):** Inspects compact episode event feeds and proposes 1–3 candidate promos per episode to capture distinct dramatic beats (confrontation, reveal, climax) while avoiding candidate explosion. Allocating 2,500 completion tokens ensures reasoning models have sufficient headroom to complete thinking without returning empty JSON.
+  - **Stage 2 (Cold-Read Evaluator - `openai/gpt-oss-20b`):** True zero-context evaluation. Neutralizes character names to `[SPEAKER A]`, `[SPEAKER B]`, strips camera directions, and uses relative timestamps ($00.00\text{s} = \text{start}$) to isolate dialogue tension and prevent protagonist bias or lore assumptions. Scores 5 dimensions: Hook ($H$), Cliffhanger ($C$), Standalone ($A$), Emotion ($E$), and Promo Suitability ($P$).
   - **Stage 3 (Listwise Ranker - `openai/gpt-oss-20b`):** Candidate order is shuffled to eliminate position bias. Answers *"Which would you post first, and why?"* and outputs a strict permutation of candidate IDs with editorial rationales.
 - **Resilience & Checkpointing:**
-  - Passing `--resume` stores stage outputs per episode on disk (`cache/checkpoints/`). Interrupted runs resume from the last completed episode without re-calling the API.
+  - Passing `--resume` stores stage outputs per episode on disk (`cache/checkpoints/`). Completed episode stages are loaded directly from disk upon resumption and never re-queried, protecting progress against interruptions.
   - Sliding-window rate limiting parses suggested wait times from HTTP 429 headers (`try again in X.Xs`) with automatic backoff.
   - An explicit fixture mode (`--mock`) enables reproducible testing without network calls.
 
-### Scalability & Token Economics (Estimated)
+### Decision Logic & Scoring Formula
+Candidates must be 20–60 seconds and score at least 7/10 on both hook and cliffhanger. The weighted score is:
+$$S = (0.25H + 0.25C + 0.20A + 0.15E + 0.15P) \times 10$$
+Medium spoiler risk incurs a 5-point penalty on the final 100-point score (high risk incurs a 10-point penalty).
+
+### Scalability & Token Economics (Projected Estimates)
 - **Token Efficiency:** A 50-episode show contains $\approx 140\text{k}$ screenplay input tokens. End-to-end processing requires $\approx 50$ proposer calls, $\approx 100$ cold-read evaluations, and 1 listwise ranking call, totaling roughly 150k input tokens and 60k completion tokens ($\approx 210\text{k}$ total tokens).
-- **Cost Estimate:**
+- **Cost Estimate (as of November 2026 pricing, not measured billing):**
   - On OpenAI `gpt-4o-mini` (\$0.15/1M input, \$0.60/1M output), the estimated cost is **under \$0.06 per 50-episode show** (under 10 cents).
-  - On flagship `gpt-4o`, it is roughly **\$0.95 per show**.
+  - On flagship `gpt-4o` (\$2.50/\$10.00), it is roughly **\$0.95 per show**.
   - On Groq on-demand, it is $\approx \mathbf{\$0.05\text{--}\$0.15}$ per show.
-- **Human-in-the-Loop:** PromoScout operates as an editorial discovery assistant. Editors review the interactive Streamlit Studio (`app.py`), accepting or rejecting ranked clips with decisions appended to `outputs/feedback.csv`.
+- **Human-in-the-Loop:** Editors review the interactive Streamlit Studio (`app.py`), accepting or rejecting ranked clips. Decisions are appended to `outputs/feedback.csv` to build a preference dataset for recalibrating scoring gates and weights over time.
 
 ---
 
 ## 3. Quality Checking, Benchmarks & Honest Failures
 
-To evaluate retrieval quality objectively, we manually labelled promo windows for five sample episodes (1, 13, 25, 38, 50) before inspecting system output. A candidate is credited as a true positive only if its temporal Intersection-over-Union ($\text{IoU}$) exceeds 0.50 against ground truth.
+To evaluate retrieval quality objectively, we manually labelled promo windows for five sample episodes (1, 13, 25, 38, 50) before inspecting system output. HitRate@3 measures whether at least one of an episode's three candidate proposals overlaps the annotated gold window with temporal $\text{IoU} > 0.50$, where $\text{IoU} = \frac{\text{overlap}(A, B)}{\text{union}(A, B)}$. A high IoU verifies that the model identified the human-chosen dramatic scene window; it measures retrieval accuracy, while the cold-read evaluator measures standalone viewer appeal.
 
 ### 3.1 Empirical Findings Summary
 
@@ -64,9 +69,9 @@ To evaluate retrieval quality objectively, we manually labelled promo windows fo
 |---|---|---|
 | **Parser, all 50 episodes** | Done | 3,727 events extracted across 50 episodes (mean duration 123.2 s, range 69.2–223.7 s). 17 unit tests pass unconditionally on synthetic fixtures; 3 integration tests verify the full 50-episode pack when present locally (skipped when proprietary screenplays are omitted for repository confidentiality). |
 | **Live run, Episodes 1–27** | Done (Live) | 27 continuous episodes (2,032 events) proposed live with `gpt-oss-120b`. 56 raw candidates extracted; Stage 4 temporal deduplication pruned 5 overlapping variants ($\text{IoU} > 0.5$), yielding 51 distinct candidates. Evaluated live with `gpt-oss-20b`: 12 passed gates ($H \ge 7, C \ge 7$), yielding a live Top 10 with editorial rationales (Rank #1: Ep 12 gallows threat, Score 78.2; Rank #2: Ep 19 informant mystery, Score 73.5). 53 live API calls, 82,168 tokens, 533.6 s runtime. |
-| **Partial live Gold Set (Ep 1, 13, 25)** | Done (Live) | 3 of the 5 gold episodes fall within the live 27-episode run. Best candidate IoU per episode: Ep 1 = 0.773 (Hit), Ep 13 = 0.738 (Hit), Ep 25 = 0.000 (Miss, model selected later confession). Partial live HitRate@3 is **2/3 (66.7%)**. |
+| **Partial live Gold Set (Ep 1, 13, 25)** | Done (Live) | 3 of the 5 gold episodes fall within the live 27-episode run. Across their candidate pools ($\le 3$ proposals per episode), best candidate IoU per episode: Ep 1 = 0.773 (Hit), Ep 13 = 0.738 (Hit), Ep 25 = 0.000 (Miss, model selected later confession). Partial live HitRate@3 is **2/3 (66.7%)**. |
 | **Harness & Stability** | Mock only, not model evidence | Replaying static offline fixtures yields HitRate@3 of 4/5 and Overlap@10 of 10/10. This validates metric calculation plumbing, not live model quality or live stability. |
-| **Full-series run (Ep 28–50)** | Paused | Paused at Ep 28 when Groq free-tier reached its daily limit (200,000 tokens/day for `gpt-oss-120b`). Can be resumed with `--resume`. |
+| **Full-series run (Ep 28–50)** | Paused | Paused at Ep 28 when Groq free-tier reached its daily limit (200,000 tokens/day for `gpt-oss-120b`). The reported 82,168 tokens (53 calls) reflect the evaluation and ranking stage on `openai/gpt-oss-20b`; earlier candidate proposals across Episodes 1–27 combined with prior test iterations accounted for the remaining daily quota on `gpt-oss-120b`. Processing can resume via `--resume`. |
 
 ### 3.2 Where the AI Got It Wrong (Honest Failure Cases)
 
@@ -91,4 +96,4 @@ To evaluate retrieval quality objectively, we manually labelled promo windows fo
   - `final_rankings.csv`: Production table for media buyers.
   - `report.html`: Standalone, interactive dashboard with responsive promo cards, score breakdowns, and verbatim quotes.
   - `run_metadata.json`: Complete execution audit with token accounting and validator statistics.
-- **Test Suite (`tests/`):** 20 unit and integration tests passing (`pytest tests`).
+- **Test Suite (`tests/`):** 20 automated tests: 17 unit tests and 3 integration tests passing (`pytest tests`).
