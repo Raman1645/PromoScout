@@ -3,8 +3,10 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/)
 [![Tests Passing](https://img.shields.io/badge/tests-20%20passed-brightgreen.svg)]()
 [![Pydantic v2](https://img.shields.io/badge/pydantic-v2-orange.svg)](https://docs.pydantic.dev/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-PromoScout-blue?logo=github)](https://github.com/Raman1645/PromoScout)
 
 > **Kuku AI Generalist Assignment — Problem 1: Find the Promos (Ads)**  
+> **Repository:** [https://github.com/Raman1645/PromoScout](https://github.com/Raman1645/PromoScout)  
 > An AI-assisted editorial tool that ingests microdrama screenplays, extracts timestamped events to 0.01s resolution, discovers high-converting 20–60s promotional clips, validates boundaries deterministically, filters through quality gates, and outputs a listwise-ranked Top 10 promo package for social platforms (TikTok, Instagram Reels, YouTube Shorts).
 
 ---
@@ -147,8 +149,8 @@ kukuFM/
 
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
-   cd kukuFM
+   git clone https://github.com/Raman1645/PromoScout.git
+   cd PromoScout
    ```
 
 2. **Set up the virtual environment:**

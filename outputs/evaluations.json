@@ -1,38 +1,461 @@
 {
   "C_E01_01": {
-    "hook_score": 5.0,
-    "cliffhanger_score": 3.0,
-    "standalone_score": 4.0,
-    "emotion_score": 5.0,
-    "promo_suitability": 4.0,
-    "coherence_score": 8.0,
-    "explanation": "The clip opens with a terse \"Enough!\" that offers a mild hook but lacks context. The rapid-fire dialogue about family dynamics and perceived worth is confusing without backstory, so standalone clarity is low. The ending is a blunt rejection rather than an unresolved cliffhanger, limiting suspense. Emotional impact is moderate, mainly indignation, but the clip fails to entice viewers to watch more."
-  },
-  "C_E01_03": {
-    "hook_score": 6.5,
-    "cliffhanger_score": 3.0,
+    "hook_score": 4.5,
+    "cliffhanger_score": 8.0,
     "standalone_score": 7.0,
-    "emotion_score": 7.5,
-    "promo_suitability": 6.0,
+    "emotion_score": 8.0,
+    "promo_suitability": 7.0,
     "coherence_score": 8.0,
-    "explanation": "The opening line hints at a dramatic shift, but lacks a visceral hook. The dialogue conveys a family conflict that can be understood without backstory, giving it decent standalone clarity. The clip ends on a declarative note rather than an unresolved moment, so the cliffhanger is weak. Emotional tension is present through the father\u2019s refusal and the mother\u2019s rebuke, earning a solid emotion score. Overall, the clip offers enough intrigue to entice some viewers, but its lack of a strong hook or cliffhanger limits its promo power."
-  },
-  "C_E01_04": {
-    "hook_score": 5.0,
-    "cliffhanger_score": 3.0,
-    "standalone_score": 4.5,
-    "emotion_score": 6.0,
-    "promo_suitability": 5.5,
-    "coherence_score": 8.0,
-    "explanation": "The opening question is intriguing but not a visceral hook; the dialogue is cryptic, leaving viewers unsure of the stakes. The scene ends with a quiet, defiant moment rather than an unresolved cliffhanger, so curiosity is low. The suppressed fury provides some emotional punch, but overall the clip feels too vague to compel a viewer to click for the full story."
+    "explanation": "The clip\u2019s opening line is a simple declaration that fails to arrest a scrolling viewer\u2019s attention, so the hook is modest. The dialogue and family dynamics are clear enough for a new viewer to grasp the stakes\u2014an impending marriage and family honor\u2014so it scores well on standalone clarity. The ending question leaves the conflict unresolved, creating a strong cliffhanger. The emotional intensity\u2014betrayal, indignation, and a tense family showdown\u2014scores high on emotion. Overall, the dramatic tension and unresolved question make it a decent teaser, but the weak opening limits its immediate click\u2011through potential."
   },
   "C_E01_02": {
-    "hook_score": 6.5,
-    "cliffhanger_score": 8.5,
+    "hook_score": 7.0,
+    "cliffhanger_score": 7.5,
+    "standalone_score": 5.0,
+    "emotion_score": 6.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line delivers a mild threat that can snag a scrolling viewer, earning a 7.0 hook. However, the dialogue is cryptic and the setting (altar, Matriarch) is unexplained, so a new viewer struggles to grasp the stakes, resulting in a 5.0 standalone score. The final line hints at a larger secret, creating a decent cliffhanger (7.5). Emotional impact is moderate\u2014shock and betrayal are present but not fully visceral, hence 6.5. Overall, the clip offers enough intrigue to nudge a viewer to click, but its lack of context keeps the promo suitability moderate at 6.5."
+  },
+  "C_E01_03": {
+    "hook_score": 6.0,
+    "cliffhanger_score": 5.0,
+    "standalone_score": 7.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening question is intriguing but lacks a visceral hook; the dialogue quickly establishes a conflict over marriage and perceived value, making the stakes clear enough for a first\u2011time viewer. The emotional build in Juliana\u2019s clenched hand and her stoic endurance feels powerful, but the clip ends on a quiet resolve rather than a dramatic cliffhanger, so it only moderately drives curiosity. Overall, the clip offers enough drama to entice a click, but stronger visual or narrative beats would raise its hook and cliffhanger impact."
+  },
+  "C_E02_02": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 5.0,
     "standalone_score": 6.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 6.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening question is subtle but not a strong hook; the monologue is understandable but lacks context; the ending is a statement rather than a dramatic cut, so the cliffhanger is weak; the emotional content is clear and could evoke indignation; overall, it may attract viewers who enjoy dramatic speeches but is not a high\u2011impact promo."
+  },
+  "C_E03_03": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 4.0,
+    "standalone_score": 7.5,
     "emotion_score": 8.0,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening shout and physical action immediately capture attention, giving the clip a strong hook. The scene is self\u2011contained enough that a new viewer can grasp the conflict between a woman, guards, and a mysterious stranger, earning a solid standalone score. However, the clip resolves the immediate confrontation by the end, leaving little unresolved tension, so the cliffhanger score is low. The violence and the protective stance of the stranger generate a visceral emotional reaction, justifying a high emotion score. While the action is compelling, the lack of deeper context or a dramatic payoff may limit the clip\u2019s ability to drive viewers to the full show, resulting in a moderate promo suitability."
+  },
+  "C_E03_02": {
+    "hook_score": 6.0,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 8.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening command grabs attention but lacks a visceral shock; the scene is clear enough for a new viewer to grasp the stakes, yet the clip resolves rather than leaves a cliffhanger, so curiosity is limited. The fight and protective tension generate moderate emotion, and the mysterious stranger\u2019s presence could entice viewers to learn more, but the lack of unresolved tension slightly reduces promo impact."
+  },
+  "C_E03_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening fight and the bearded stranger\u2019s decisive move hook viewers immediately, while the dialogue hints at a protective, possibly romantic conflict that can be followed without prior lore. The stakes are clear enough for a new viewer to grasp the tension, though some references to family matters leave minor gaps. Ending with the ring offer leaves a sweet, unresolved moment that sparks curiosity. Overall, the clip balances action, emotion, and intrigue, making it a strong teaser for a full episode."
+  },
+  "C_E04_01": {
+    "hook_score": 7.0,
+    "cliffhanger_score": 6.0,
+    "standalone_score": 5.5,
+    "emotion_score": 6.5,
+    "promo_suitability": 6.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening accusation grabs attention, but the lack of context leaves viewers unsure of the stakes. The dialogue hints at family drama and a looming conflict, yet the abrupt cut to a new character at the end offers only mild intrigue. Overall, the clip feels like a teaser that might prompt curiosity but doesn\u2019t fully compel a viewer to seek the full story."
+  },
+  "C_E04_02": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 5.0,
+    "emotion_score": 6.0,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening command grabs attention but lacks a visceral action, giving it a moderate hook. The lack of context makes the stakes unclear, so the clip feels ambiguous to a first\u2011time viewer. The ending cuts off as the characters walk into sunlight, creating a mild cliffhanger that hints at a larger story, but the emotional payoff is modest, leaving viewers with a lukewarm urge to click for more."
+  },
+  "C_E05_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.0,
     "promo_suitability": 7.5,
     "coherence_score": 8.0,
-    "explanation": "The opening line and quick question create a mild hook, but nothing visually shocking occurs in the first three seconds. The dialogue and brief action give enough context for a new viewer to grasp a tense, potentially romantic conflict, though some details remain opaque. The final line cuts at an unresolved accusation, delivering a strong cliffhanger that fuels curiosity. Emotional beats of betrayal and shock are evident, making the clip compelling enough to prompt a click for the full story."
+    "explanation": "The opening book\u2011throw and urgent plea grab attention, but the narrative\u2019s many unnamed characters and rapid dialogue make it hard to follow without context. The ending threat leaves a clear hook for curiosity, and the emotional beats of betrayal and indignation are present, though the overall clarity is moderate."
+  },
+  "C_E05_02": {
+    "hook_score": 4.0,
+    "cliffhanger_score": 5.0,
+    "standalone_score": 4.0,
+    "emotion_score": 5.5,
+    "promo_suitability": 4.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line is a vague statement with no visual hook, so the first 3 seconds fail to arrest a scrolling viewer. The dialogue references a mysterious book and a fallen noblewoman, but without context the stakes are unclear, making the clip feel disjointed. The final \u201cCome\u201d is ambiguous and does not create a strong unresolved moment, and the emotional beats are mild. Overall, the clip lacks the punchy hook, clear narrative, and cliffhanger needed to drive clicks on short\u2011form platforms."
+  },
+  "C_E06_01": {
+    "hook_score": 4.0,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line is introspective rather than a visual or narrative shock, so it fails to arrest a scrolling viewer immediately. The scene\u2019s actions (repairing a table, building a fire) provide some context, but without prior lore the stakes remain vague, giving it a moderate standalone score. The abrupt cut at \u201cAnd yet\u2026\u201d creates a clear cliffhanger, while the repeated lamentations generate a strong emotional resonance. Overall, the clip\u2019s emotional pull is decent, but the weak hook and limited clarity reduce its immediate click\u2011through potential."
+  },
+  "C_E06_03": {
+    "hook_score": 5.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 6.0,
+    "emotion_score": 5.5,
+    "promo_suitability": 4.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line and creaking door give a mild hook, but nothing visceral forces a scroll\u2011stop. The scene is self\u2011contained enough to be understood, yet the stakes and characters remain opaque, so it scores mid\u2011range on clarity. The final question leaves a small mystery, earning a moderate cliffhanger. Emotional impact is limited to subtle tension, and the clip lacks a clear hook or payoff to drive viewers to the full show, resulting in a lower promo suitability."
+  },
+  "C_E06_04": {
+    "hook_score": 2.5,
+    "cliffhanger_score": 2.0,
+    "standalone_score": 3.0,
+    "emotion_score": 4.0,
+    "promo_suitability": 3.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a single word and a vague statement, offering no immediate visual or narrative hook to stop a scrolling viewer. The dialogue is cryptic and lacks context, so a new viewer cannot grasp the stakes or characters, resulting in low standalone clarity. The ending is a calm reassurance rather than an unresolved moment, providing little suspense. While the mention of loss hints at emotional depth, the lack of detail and dramatic build\u2011up keeps the emotional impact modest. Overall, the clip fails to compel viewers to click through for more, yielding a low promo suitability score."
+  },
+  "C_E07_02": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening threat in the first three seconds grabs attention, but the lack of context about the characters and stakes makes it a bit confusing for a first\u2011time viewer. The abrupt cut at the end creates a strong cliffhanger, and the palpable dread and tension evoke a visceral reaction. Overall, the clip has enough intrigue to entice clicks, though clearer exposition would improve its standalone appeal."
+  },
+  "C_E07_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening accusation grabs attention, but the lack of visual shock or immediate action keeps the hook moderate. Viewers can follow the power struggle without prior lore, though some context is missing. The final freeze of Gerald creates a tense, unresolved moment that sparks curiosity. Emotional tension is present through verbal jabs and looming threat, but the clip stops short of a dramatic payoff. Overall, it\u2019s a solid teaser that could entice viewers to seek the full story, though stronger visual hooks or a clearer payoff would raise the score."
+  },
+  "C_E07_03": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 6.0,
+    "standalone_score": 5.0,
+    "emotion_score": 5.5,
+    "promo_suitability": 6.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening exchange hints at tension but lacks a clear hook; the narrative is fragmented and unclear to first\u2011time viewers, leaving stakes ambiguous. The abrupt cut at the end offers some mystery, yet the emotional payoff is modest, making it a lukewarm teaser for a full episode."
+  },
+  "C_E08_01": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 5.0,
+    "standalone_score": 3.0,
+    "emotion_score": 3.0,
+    "promo_suitability": 3.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a vague exchange that offers no immediate visual or narrative hook, so it struggles to arrest a scrolling viewer. Without context, the dialogue feels cryptic, making it hard for a new viewer to grasp the stakes or characters. The final question about war scars provides a mild sense of intrigue, but it\u2019s not a high\u2011stakes cliffhanger that would compel immediate action. Emotional impact is low, as the lines are conversational rather than visceral. Overall, the clip is unlikely to drive viewers to click through for the full show, though a curious audience might linger a bit longer."
+  },
+  "C_E08_02": {
+    "hook_score": 2.0,
+    "cliffhanger_score": 2.5,
+    "standalone_score": 3.0,
+    "emotion_score": 3.5,
+    "promo_suitability": 2.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening 3\u2011second line is a quiet observation rather than a shock or confrontation, so it fails to arrest a scrolling viewer. The dialogue is cryptic and lacks context, making it hard for a new viewer to grasp the stakes or characters. The ending simply fades to a calm gaze, offering no unresolved tension or cliffhanger. Overall, the clip offers minimal emotional punch and little incentive to click through for more."
+  },
+  "C_E09_02": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 2.0,
+    "standalone_score": 4.0,
+    "emotion_score": 3.0,
+    "promo_suitability": 2.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a bland statement rather than a visual or verbal shock, so it fails to arrest a scrolling viewer\u2019s attention. The dialogue is cryptic and lacks context, making it hard for a new viewer to grasp the stakes or characters. The abrupt \u201cImpossible.\u201d at the end offers no unresolved tension, and the overall emotional impact is minimal, resulting in a weak promotional hook."
+  },
+  "C_E10_02": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 2.0,
+    "standalone_score": 4.0,
+    "emotion_score": 3.5,
+    "promo_suitability": 3.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a simple question that offers little visual or narrative hook, and the dialogue alone gives no context or stakes. The lack of action or backstory makes it hard for a new viewer to grasp what\u2019s at play, and the ending is a statement rather than an unresolved moment, so there\u2019s no real cliffhanger or emotional punch to drive curiosity or engagement."
+  },
+  "C_E10_01": {
+    "hook_score": 2.5,
+    "cliffhanger_score": 2.0,
+    "standalone_score": 3.0,
+    "emotion_score": 4.0,
+    "promo_suitability": 3.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a vague exclamation that fails to arrest the viewer\u2019s attention, and the dialogue is cryptic, offering little context or stakes. The ending delivers a cryptic line rather than an unresolved moment, so it lacks a true cliffhanger. While there\u2019s a hint of tension, the emotional punch is mild, and the overall lack of clarity and hook makes it unlikely to drive viewers to click for more."
+  },
+  "C_E11_01": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 6.0,
+    "standalone_score": 4.0,
+    "emotion_score": 5.5,
+    "promo_suitability": 4.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening threat gives a mild hook, but the lack of immediate action or shock limits its impact. The clip\u2019s context is unclear\u2014viewers can\u2019t grasp the stakes or characters, lowering standalone clarity. The final line hints at a reveal, creating a modest cliffhanger, yet the emotional payoff is subtle, and the overall clip offers little incentive to click through for the full story."
+  },
+  "C_E12_02": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.0,
+    "emotion_score": 5.0,
+    "promo_suitability": 6.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a descriptive line rather than a visual or verbal hook, so it struggles to stop a scrolling viewer. It presents enough stakes\u2014lost ring, threat of execution\u2014to be understood on its own, but the narrative jumps feel disjointed. The final question leaves a clear unresolved moment, creating a decent cliffhanger. Emotional impact is moderate, with tension but no visceral shock. Overall, it offers some intrigue but would need a stronger opening to drive clicks."
+  },
+  "C_E12_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 7.0,
+    "emotion_score": 8.5,
+    "promo_suitability": 8.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening accusation instantly hooks the viewer, while the dialogue quickly establishes a tense sisterly conflict and a high\u2011stakes threat that a new viewer can grasp without prior lore. The unresolved promise of a deadly consequence at the end creates a strong cliffhanger, and the emotional intensity of betrayal and looming violence keeps the audience engaged. Overall, the clip offers enough intrigue and urgency to entice a click\u2011through for the full episode."
+  },
+  "C_E13_02": {
+    "hook_score": 6.0,
+    "cliffhanger_score": 5.0,
+    "standalone_score": 6.5,
+    "emotion_score": 6.0,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a warning about thorns, offering a mild hook but no immediate shock. The dialogue and action give enough context for a new viewer to grasp the conflict, though the stakes feel generic. The ending lacks a clear unresolved moment, so the cliffhanger is weak. Emotional tension is present but not visceral. Overall, it could entice some viewers but may not compel immediate clicks."
+  },
+  "C_E13_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a direct command and immediate visual threat, grabbing attention within the first three seconds. While the action is clear, the context\u2014why Juliana is being forced under thorns and the significance of her husband\u2019s freedom\u2014is only hinted at, limiting standalone comprehension. The abrupt cut to a cryptic promise of a hidden freedom creates a strong cliffhanger, and the visceral gore elicits shock and discomfort. Overall, the intensity is enough to entice curious viewers, but the lack of narrative clarity may reduce immediate click\u2011through for some audiences."
+  },
+  "C_E13_03": {
+    "hook_score": 5.5,
+    "cliffhanger_score": 6.5,
+    "standalone_score": 5.5,
+    "emotion_score": 6.0,
+    "promo_suitability": 6.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening is quiet and atmospheric, lacking a sharp moment to arrest a scrolling viewer, so the hook is modest. The scene is self-contained enough to be understood, but the stakes of the ring remain vague, limiting standalone clarity. Ending with the ring wrapped in blood\u2011stained fingers creates a mild cliffhanger, but the emotional punch is only moderate, making the clip a decent, though not compelling, teaser."
+  },
+  "C_E14_01": {
+    "hook_score": 7.0,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 5.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening line delivers a direct confrontation that can snag a scrolling viewer, earning a solid hook. However, the lack of context makes it hard for a new viewer to grasp the stakes, so standalone clarity is moderate. The final frame with Alexander\u2019s clenched fist beside a bloody bucket creates a tense, unresolved moment that scores high on cliffhanger. The emotional tone\u2014protective affection turning to looming vengeance\u2014evokes tension but not a visceral shock, giving a decent emotion score. Overall, the clip offers enough intrigue to prompt a click, but its cryptic nature limits immediate engagement, resulting in a moderate promo suitability."
+  },
+  "C_E15_01": {
+    "hook_score": 7.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening line and club\u2011thrust create a quick, tense hook that can snag a scrolling viewer, but the lack of clear context or character names makes the scene feel a bit opaque for a first\u2011time viewer. The stakes are implied\u2014someone is threatened\u2014but the narrative jumps quickly to a confrontation that leaves the audience curious. The final question from Speaker\u202fC cuts off at an unresolved peak, generating a solid cliffhanger. Emotional impact comes from the looming threat and aggressive energy, though it\u2019s not deeply visceral. Overall, the clip has enough intrigue to entice a click, but tighter exposition would boost its standalone clarity and hook strength."
+  },
+  "C_E16_02": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.0,
+    "promo_suitability": 7.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a simple question rather than a shocking moment, so the hook is modest. The confrontation and brief dialogue give enough context for a new viewer to grasp the stakes, but some backstory is missing, keeping the standalone score moderate. The abrupt cut to the thug running into the woods creates a clear cliffhanger that fuels curiosity. The tension and threat generate a visceral emotional response, though not extreme. Overall, the action and mystery are compelling enough to prompt viewers to click for more."
+  },
+  "C_E16_01": {
+    "hook_score": 5.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.0,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a simple command that barely hooks a scrolling viewer, but the mid\u2011scene action and the dramatic reveal of a betrayal create a strong emotional punch. The fight sequence is clear enough for a first\u2011time viewer to follow, yet the lack of backstory leaves some stakes ambiguous. The final line cuts at a high\u2011stakes twist, generating curiosity and a solid incentive to click for the full episode."
+  },
+  "C_E16_03": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 5.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.0,
+    "promo_suitability": 7.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening bleeding hand grabs attention, but the rest of the clip lacks context, leaving viewers uncertain about stakes. The dialogue hints at a deeper conflict, yet the ending is a quiet gaze rather than a dramatic cut, offering moderate curiosity. Overall, the hook is strong enough to entice clicks, but the lack of clear stakes and unresolved action limits its impact."
+  },
+  "C_E17_01": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 4.0,
+    "standalone_score": 7.0,
+    "emotion_score": 6.0,
+    "promo_suitability": 5.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a quiet line and no visual hook, so it fails to arrest a scrolling viewer. The dialogue and gentle actions are clear enough for a new viewer to grasp the relationship stakes, but the ending is emotionally resonant rather than suspenseful, offering little reason to click for more. Overall, it\u2019s a modest teaser that might work if paired with stronger opening beats."
+  },
+  "C_E17_02": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 6.5,
+    "emotion_score": 6.0,
+    "promo_suitability": 5.0,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a quiet laugh and a cryptic line about saving from birds, which is subtle but not a strong visual hook. The romantic, tender interaction is understandable on its own, but the lack of context or conflict limits its standalone appeal. The ending delivers a reassuring statement rather than an unresolved cliffhanger, so curiosity is low. Emotionally, the scene evokes warmth and affection, but it isn\u2019t visceral or shocking. Overall, the clip is moderately engaging but unlikely to compel a viewer to immediately click for more."
+  },
+  "C_E18_01": {
+    "hook_score": 4.5,
+    "cliffhanger_score": 9.0,
+    "standalone_score": 8.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a simple shout that may not arrest a scrolling viewer, but the immediate visual of a burning scene and a desperate rescue quickly establishes stakes. The fire and the ledger hint at a larger mystery, creating a strong cliffhanger that compels curiosity. Overall, the emotional urgency is clear, yet the weak initial hook slightly dampens immediate click\u2011through potential."
+  },
+  "C_E18_02": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a question rather than a dramatic action, so the hook is modest. The dialogue and brief physical moment convey a clear emotional conflict\u2014someone has been forced out of their home\u2014making it understandable to a new viewer, though some context is missing. The final line promises retaliation, creating a mild cliffhanger that leaves viewers curious about what will happen next. Overall, the clip evokes sadness and anger but lacks a strong, attention\u2011grabbing opening, so it would likely encourage some viewers to click but not all."
+  },
+  "C_E19_01": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 7.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 8.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening dramatic entrance hooks viewers, while the dialogue clearly establishes a political power\u2011play that can be grasped without prior knowledge. The ending question leaves a tangible mystery, and the emotional weight of a mother\u2019s imprisonment and a looming threat generates empathy and intrigue. Overall, the clip is compelling enough to prompt a click for the full story."
+  },
+  "C_E19_03": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 2.5,
+    "standalone_score": 5.0,
+    "emotion_score": 4.5,
+    "promo_suitability": 3.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a cryptic line but no visual hook, so it struggles to stop scrolling. The scene feels like a quiet moment of comfort, but the lack of context or conflict makes it hard for a new viewer to grasp stakes. The ending is calm rather than suspenseful, offering little incentive to click for more."
+  },
+  "C_E20_01": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 5.5,
+    "emotion_score": 6.0,
+    "promo_suitability": 4.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line is strong but lacks a visual hook, so it only moderately grabs attention. The dialogue hints at a power struggle but omits context, making it only partially understandable to a new viewer. The clip ends with a declarative line rather than an unresolved moment, so it fails to create suspense. The emotional impact is present but not visceral, and the overall lack of clarity and cliffhanger reduces its ability to drive viewers to watch the full show."
+  },
+  "C_E21_02": {
+    "hook_score": 5.5,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening line is a vague lament rather than a visceral shock, so the hook is moderate. The dialogue and setting are clear enough for a new viewer to grasp the stakes\u2014someone is dying in a wealthy manor\u2014giving it a solid standalone score. The ending cuts off as the protagonist sits with a ledger, leaving an unresolved mystery that creates strong curiosity. Emotional resonance comes from the implied illness and impending loss, but it\u2019s not a dramatic punch. Overall, the clip\u2019s cliffhanger and emotional tone are enough to entice a click, though a stronger opening moment would raise its promotional impact."
+  },
+  "C_E22_01": {
+    "hook_score": 7.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 6.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening threat in the first three seconds is enough to snag a curious viewer, but the lack of immediate visual shock or action slightly lowers the hook. The narrative is largely self-contained, with a clear threat, chase, and a mysterious illness, though some context (e.g., why the manor hates \u2018useless girls\u2019) remains opaque. The ending cuts at a tense, unresolved moment that sparks curiosity, and the emotional beats of fear and realization are strong, making the clip a decent teaser for a full episode."
+  },
+  "C_E23_01": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 7.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line \u2018Arsenic\u2019 is a vague but potentially shocking hook, but without visual context it may not immediately compel a viewer to stop scrolling. The dialogue suggests a medical emergency involving a character named Juliana, which is understandable enough for a new viewer, though the lack of backstory limits clarity. The final line \u2018someone is coming\u2019 creates a clear cliffhanger that raises immediate curiosity. Emotional impact is moderate\u2014there\u2019s tension and urgency, but the brevity of the clip limits visceral reaction. Overall, the clip has decent promo potential for a short format, but stronger visuals or a more explicit hook would improve its effectiveness."
+  },
+  "C_E24_02": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 7.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening line is ominous but lacks a visceral action to immediately stop scrolling, so the hook is moderate. The scene is mostly self\u2011contained: a servant being whipped and a promise of revenge, which a new viewer can follow. The ending cuts at a clear promise of return, creating a strong cliffhanger. Emotional impact comes from the whipping and defiant stare, but it\u2019s not a full shock. Overall, the clip is intriguing enough to prompt a click, though it could be stronger with a more immediate hook."
+  },
+  "C_E25_02": {
+    "hook_score": 5.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 6.0,
+    "emotion_score": 6.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line hints at danger but lacks an immediate visual or shocking moment, so the hook is only moderate. The dialogue establishes a tense situation\u2014someone is poisoning a woman and the speaker feels betrayed\u2014but the lack of context or visual cues makes it only somewhat clear to a new viewer. The final demand, \u201cThen tell me everything,\u201d leaves a clear unresolved question, giving a decent cliffhanger. Emotional impact is present through tension and implied betrayal, but it isn\u2019t visceral enough to dominate. Overall, the clip offers enough intrigue to entice a curious viewer but may not compel an instant click without additional context or a stronger hook."
+  },
+  "C_E25_01": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 4.0,
+    "standalone_score": 6.0,
+    "emotion_score": 7.0,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening question sparks curiosity but lacks a visceral shock, giving it a moderate hook. The dialogue reveals a poisoning plot that a new viewer can grasp, though character identities remain vague, keeping standalone clarity around average. The ending delivers a reveal rather than a cut\u2011scene cliff, so suspense is limited. The mention of arsenic and the clenched fist evoke shock and indignation, earning a solid emotion score. Overall, the clip offers enough intrigue to entice a viewer to watch more, but stronger hooks or a clearer cliff would raise promo appeal."
+  },
+  "C_E25_04": {
+    "hook_score": 3.0,
+    "cliffhanger_score": 2.0,
+    "standalone_score": 4.5,
+    "emotion_score": 3.0,
+    "promo_suitability": 3.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with quiet dialogue rather than a dramatic hook, offering little to stop a scrolling viewer. Without context, the stakes are unclear, and the ending resolves rather than leaves a question, so it fails to generate strong curiosity or emotional impact. Consequently, it offers limited incentive for viewers to click through."
+  },
+  "C_E26_01": {
+    "hook_score": 4.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 6.0,
+    "emotion_score": 6.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The clip opens with a curious question rather than a visceral shock, so the hook is modest. The dialogue and actions provide enough context for a new viewer to grasp the premise\u2014a maid with a mysterious ring catching a Duchess\u2019s eye\u2014making it reasonably standalone. The abrupt cut to a question about the ring leaves a mild sense of suspense, but it isn\u2019t a high\u2011stakes cliffhanger. Emotional impact is present through disbelief and intrigue, but it stops short of a strong visceral reaction. Overall, the clip offers enough intrigue to entice some viewers to click, but it lacks the punchy hook or dramatic payoff that would make it a top\u2011tier promo moment."
+  },
+  "C_E27_02": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 7.0,
+    "standalone_score": 5.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening question grabs attention but lacks a visceral action, so the hook is moderate. The dialogue is cryptic\u2014viewers can sense a conflict over medicine but miss key context, keeping standalone clarity low. Ending with the word \"Poison\" delivers a shock that feels like a cliffhanger, but it resolves rather than leaves an open question. The tension and betrayal generate a decent emotional punch, and the clip could entice viewers to watch more, though it doesn\u2019t fully compel an immediate click."
+  },
+  "C_E27_01": {
+    "hook_score": 6.0,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 4.5,
+    "emotion_score": 5.5,
+    "promo_suitability": 6.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line hints at intrigue but lacks a visceral hook; the dialogue is cryptic, so a new viewer struggles to grasp the stakes. The dramatic door\u2011burst reveal provides a strong cliffhanger, but the emotional beats are mild. Overall, the clip offers enough curiosity to entice a few clicks, but it would benefit from a clearer hook and more immediate emotional payoff."
+  },
+  "C_E27_03": {
+    "hook_score": 8.5,
+    "cliffhanger_score": 8.0,
+    "standalone_score": 6.5,
+    "emotion_score": 7.5,
+    "promo_suitability": 7.0,
+    "coherence_score": 8.0,
+    "explanation": "The opening accusation grabs attention, but the lack of context makes it hard for new viewers to fully grasp the stakes. The abrupt ending with a guard dragging a woman creates a strong cliffhanger and evokes shock, encouraging curiosity. Overall, the clip has hook and suspense but could benefit from clearer exposition to boost standalone clarity."
   }
 }

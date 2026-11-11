@@ -1,36 +1,12 @@
 {
-  "1": [
+  "11": [
     {
-      "start_event_id": "E01_064",
-      "end_event_id": "E01_087",
-      "hook_quote": "Enough!",
-      "cliffhanger_quote": "I cannot marry a woman of such plainness and low value...",
+      "start_event_id": "E11_072",
+      "end_event_id": "E11_084",
+      "hook_quote": "One blow would end this.",
+      "cliffhanger_quote": "There it is. Ha!",
       "spoiler_risk": "medium",
-      "proposer_reason": "The matriarch's explosive command grabs attention instantly, and the former groom's cruel rejection leaves the conflict unresolved, urging viewers to see what happens next."
-    },
-    {
-      "start_event_id": "E01_008",
-      "end_event_id": "E01_032",
-      "hook_quote": "You should turn around, Juliana.",
-      "cliffhanger_quote": "You knew this before I walked through those doors!",
-      "spoiler_risk": "high",
-      "proposer_reason": "A confrontational command hooks the audience, and the revelation of pre\u2011planned betrayal creates a high\u2011stakes cliffhanger that compels viewers to keep watching."
-    },
-    {
-      "start_event_id": "E01_041",
-      "end_event_id": "E01_079",
-      "hook_quote": "I changed my mind.",
-      "cliffhanger_quote": "Clarissa is the jewel of this family.",
-      "spoiler_risk": "medium",
-      "proposer_reason": "The former groom\u2019s sudden change of heart shocks viewers immediately, and the declaration of Clarissa as the family\u2019s \u2018jewel\u2019 ends on a tense, unresolved power shift."
-    },
-    {
-      "start_event_id": "E01_082",
-      "end_event_id": "E01_093",
-      "hook_quote": "So that is what I was worth to you?",
-      "cliffhanger_quote": "Juliana breathes through the agony, refusing to break down further in front of t",
-      "spoiler_risk": "medium",
-      "proposer_reason": "Episode 1 climactic ending fallback."
+      "proposer_reason": "The line \u201cOne blow would end this\u201d instantly raises stakes, and the reveal of the gold watch leaves viewers desperate to know what will happen next."
     }
   ]
 }
