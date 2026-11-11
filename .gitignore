@@ -10,6 +10,9 @@ I Married a Broken Soldier. He was a Duke/
 !solution_doc.pdf
 plan_ps1.md
 
+# Internal Prep, Interview Guides & Personal Docs
+docs/
+
 # Pipeline Cache & Raw Outputs (Prompts contain screenplay text)
 cache/
 checkpoints/

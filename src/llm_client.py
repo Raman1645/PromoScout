@@ -221,17 +221,20 @@ class LLMClient:
         # 3. Live API Call with Retry
         last_error = None
         current_prompt = prompt
+        attempt = 0
+        max_allowed_attempts = max_retries + 1
 
-        for attempt in range(max_retries + 1):
+        while attempt < max_allowed_attempts:
             try:
                 self._throttle()
                 url = f"{self.base_url}/chat/completions"
                 payload = {
                     "model": effective_model,
                     "temperature": self.temperature,
+                    "max_tokens": 2500,
                     "response_format": {"type": "json_object"},
                     "messages": [
-                        {"role": "system", "content": system_instruction},
+                        {"role": "system", "content": f"{system_instruction}\nAlways return a valid JSON object directly."},
                         {"role": "user", "content": current_prompt}
                     ]
                 }
@@ -276,22 +279,47 @@ class LLMClient:
                 return validated
 
             except (urllib.error.HTTPError, urllib.error.URLError, json.JSONDecodeError, ValidationError) as e:
+                import re
+                sleep_wait = 2.0 * (attempt + 1)
+
                 if isinstance(e, urllib.error.HTTPError):
                     try:
                         err_body = e.read().decode("utf-8")
                         last_error = f"{e} - {err_body}"
+                        if "insufficient_quota" in err_body or "credit_balance_exhausted" in err_body:
+                            raise RuntimeError(
+                                f"{self.provider.upper()} API returned insufficient quota: You have no credits remaining. "
+                                f"Please add credits to continue at your account billing settings."
+                            )
+                        if e.code == 429:
+                            max_allowed_attempts = 8  # Allow more retries for rate limits
+                            match = re.search(r'try again in ([\d\.]+)s', err_body)
+                            if match:
+                                sleep_wait = float(match.group(1)) + 1.5
+                            else:
+                                sleep_wait = 6.0
+                            print(f"\n[Rate Limit] {self.provider.upper()} rate limit reached. Pacing request: sleeping {sleep_wait:.1f}s before retry (attempt {attempt + 1}/{max_allowed_attempts})...")
+                        elif e.code == 400 and "json_validate_failed" in err_body:
+                            max_allowed_attempts = max(max_allowed_attempts, 3)
+                            sleep_wait = 1.0
+                            current_prompt = (
+                                f"{prompt}\n\n"
+                                f"CRITICAL: Output ONLY a single valid JSON object. Do not include markdown codeblocks or preliminary reasoning."
+                            )
                     except Exception:
                         last_error = e
                 else:
                     last_error = e
-                if attempt < max_retries:
+
+                attempt += 1
+                if attempt < max_allowed_attempts:
                     if isinstance(e, (ValidationError, json.JSONDecodeError)):
                         current_prompt = (
                             f"{prompt}\n\n"
                             f"CRITICAL: Your previous response failed validation with error: {str(e)}.\n"
                             f"Ensure you return ONLY valid JSON matching schema: {response_model.model_json_schema()}"
                         )
-                    time.sleep(2.0 * (attempt + 1))
+                    time.sleep(sleep_wait)
                 else:
                     break
 

@@ -38,7 +38,7 @@ CRITICAL REQUIREMENTS:
    - 'medium': Reveals a mid-episode twist.
    - 'high': Reveals the ultimate resolution or payoff.
 
-Return a JSON object conforming to:
+Return a JSON object directly without preamble conforming to:
 {
   "candidates": [
     {
@@ -46,7 +46,7 @@ Return a JSON object conforming to:
       "end_event_id": "E01_028",
       "hook_quote": "...",
       "cliffhanger_quote": "...",
-      "spoiler_risk": "low" | "medium" | "high",
+      "spoiler_risk": "low",
       "proposer_reason": "One line explaining why this clip grabs attention and compels viewers to watch."
     }
   ]

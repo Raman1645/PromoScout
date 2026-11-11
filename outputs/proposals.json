@@ -1,20 +1,28 @@
 {
   "1": [
     {
-      "start_event_id": "E01_002",
-      "end_event_id": "E01_015",
-      "hook_quote": "Juliana pauses at the threshold, her expression bright with joyful anticipation,",
-      "cliffhanger_quote": "What do you mean?",
-      "spoiler_risk": "low",
-      "proposer_reason": "High tension confrontation in Episode 1 from 1.0s to 23.5s."
+      "start_event_id": "E01_064",
+      "end_event_id": "E01_087",
+      "hook_quote": "Enough!",
+      "cliffhanger_quote": "I cannot marry a woman of such plainness and low value...",
+      "spoiler_risk": "medium",
+      "proposer_reason": "The matriarch's explosive command grabs attention instantly, and the former groom's cruel rejection leaves the conflict unresolved, urging viewers to see what happens next."
     },
     {
-      "start_event_id": "E01_005",
-      "end_event_id": "E01_023",
-      "hook_quote": "Juliana's eyes widen slightly in bewilderment as she notices something amiss at ",
-      "cliffhanger_quote": "Gerald?",
-      "spoiler_risk": "low",
-      "proposer_reason": "High tension confrontation in Episode 1 from 7.2s to 35.0s."
+      "start_event_id": "E01_008",
+      "end_event_id": "E01_032",
+      "hook_quote": "You should turn around, Juliana.",
+      "cliffhanger_quote": "You knew this before I walked through those doors!",
+      "spoiler_risk": "high",
+      "proposer_reason": "A confrontational command hooks the audience, and the revelation of pre\u2011planned betrayal creates a high\u2011stakes cliffhanger that compels viewers to keep watching."
+    },
+    {
+      "start_event_id": "E01_041",
+      "end_event_id": "E01_079",
+      "hook_quote": "I changed my mind.",
+      "cliffhanger_quote": "Clarissa is the jewel of this family.",
+      "spoiler_risk": "medium",
+      "proposer_reason": "The former groom\u2019s sudden change of heart shocks viewers immediately, and the declaration of Clarissa as the family\u2019s \u2018jewel\u2019 ends on a tense, unresolved power shift."
     },
     {
       "start_event_id": "E01_082",

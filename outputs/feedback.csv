@@ -1,0 +1,3 @@
+timestamp,candidate_id,episode_id,rank,duration,final_score,decision
+2026-11-10T20:02:56Z,C_E01_01,1,1,22.5,84.05,ACCEPTED
+2026-11-10T20:03:01Z,C_E01_02,1,2,27.8,84.05,REJECTED

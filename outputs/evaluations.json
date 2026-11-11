@@ -1,29 +1,38 @@
 {
   "C_E01_01": {
-    "hook_score": 8.5,
-    "cliffhanger_score": 9.0,
-    "standalone_score": 8.0,
-    "emotion_score": 8.2,
-    "promo_suitability": 8.0,
+    "hook_score": 5.0,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 4.0,
+    "emotion_score": 5.0,
+    "promo_suitability": 4.0,
     "coherence_score": 8.0,
-    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
-  },
-  "C_E01_02": {
-    "hook_score": 8.5,
-    "cliffhanger_score": 9.0,
-    "standalone_score": 8.0,
-    "emotion_score": 8.2,
-    "promo_suitability": 8.0,
-    "coherence_score": 8.0,
-    "explanation": "Gripping microdrama dynamic with clear emotional stakes for Episode 1."
+    "explanation": "The clip opens with a terse \"Enough!\" that offers a mild hook but lacks context. The rapid-fire dialogue about family dynamics and perceived worth is confusing without backstory, so standalone clarity is low. The ending is a blunt rejection rather than an unresolved cliffhanger, limiting suspense. Emotional impact is moderate, mainly indignation, but the clip fails to entice viewers to watch more."
   },
   "C_E01_03": {
-    "hook_score": 8.0,
-    "cliffhanger_score": 8.5,
-    "standalone_score": 7.5,
-    "emotion_score": 8.0,
-    "promo_suitability": 8.0,
+    "hook_score": 6.5,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 7.0,
+    "emotion_score": 7.5,
+    "promo_suitability": 6.0,
     "coherence_score": 8.0,
-    "explanation": "Solid promotional clip with immediate hook and unresolved cliffhanger."
+    "explanation": "The opening line hints at a dramatic shift, but lacks a visceral hook. The dialogue conveys a family conflict that can be understood without backstory, giving it decent standalone clarity. The clip ends on a declarative note rather than an unresolved moment, so the cliffhanger is weak. Emotional tension is present through the father\u2019s refusal and the mother\u2019s rebuke, earning a solid emotion score. Overall, the clip offers enough intrigue to entice some viewers, but its lack of a strong hook or cliffhanger limits its promo power."
+  },
+  "C_E01_04": {
+    "hook_score": 5.0,
+    "cliffhanger_score": 3.0,
+    "standalone_score": 4.5,
+    "emotion_score": 6.0,
+    "promo_suitability": 5.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening question is intriguing but not a visceral hook; the dialogue is cryptic, leaving viewers unsure of the stakes. The scene ends with a quiet, defiant moment rather than an unresolved cliffhanger, so curiosity is low. The suppressed fury provides some emotional punch, but overall the clip feels too vague to compel a viewer to click for the full story."
+  },
+  "C_E01_02": {
+    "hook_score": 6.5,
+    "cliffhanger_score": 8.5,
+    "standalone_score": 6.0,
+    "emotion_score": 8.0,
+    "promo_suitability": 7.5,
+    "coherence_score": 8.0,
+    "explanation": "The opening line and quick question create a mild hook, but nothing visually shocking occurs in the first three seconds. The dialogue and brief action give enough context for a new viewer to grasp a tense, potentially romantic conflict, though some details remain opaque. The final line cuts at an unresolved accusation, delivering a strong cliffhanger that fuels curiosity. Emotional beats of betrayal and shock are evident, making the clip compelling enough to prompt a click for the full story."
   }
 }
